@@ -41,6 +41,13 @@ python -m unittest discover -s tests
 
 Ensure all tests pass before pushing changes to the repository.
 
+## Deployment
+The API is deployed to Heroku. You can access the live API at the following URL:
+```
+https://<HEROKU_APP_NAME>.herokuapp.com/compliment
+```
+Replace `<HEROKU_APP_NAME>` with the actual name of the Heroku app once it is deployed.
+
 ## Contributing
 Contributions are welcome! Please read the CONTRIBUTING.md file for guidelines on how to contribute to this project.
 
