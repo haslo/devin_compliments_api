@@ -16,6 +16,22 @@ To set up the development environment for this project, follow these steps:
 6. Install the required dependencies with `pip install -r requirements.txt`.
 7. Run the Flask application with `flask run`.
 
+## API Usage
+To interact with the API, send a GET request to the `/compliment` endpoint. The API will return a JSON object containing a random compliment.
+
+Example request:
+```
+GET /compliment HTTP/1.1
+Host: <API_HOST>
+```
+
+Example response:
+```json
+{
+  "compliment": "You always bring out the best in others."
+}
+```
+
 ## Testing
 Test-Driven Development (TDD) is used throughout this project. To run the tests, use the following command:
 
