@@ -312,3 +312,17 @@ direct_praise_nouns:
   - Prodigy
   - Wizard
   - Champion
+
+action_based_verbs:
+  - inspire
+  - energize
+  - motivate
+  - captivate
+  - mesmerize
+
+action_based_adverbs:
+  - effortlessly
+  - brilliantly
+  - profoundly
+  - remarkably
+  - consistently
