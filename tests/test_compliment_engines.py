@@ -51,13 +51,11 @@ class TestFeatureComplimentEngine(unittest.TestCase):
 
     def test_compliment_structure(self):
         compliment = self.engine.generate_compliment()
-        parts = compliment.split()
         # Extract the feature and adjective from the compliment
-        feature = parts[1].strip(string.punctuation)
-        adjective = parts[3].strip(string.punctuation)
         # Validate the feature and adjective against their respective dictionaries
-        self.assertIn(feature, self.dictionaries['features'], f"The feature '{feature}' is not in the list of features.")
-        self.assertIn(adjective, self.dictionaries['adjectives'], f"The adjective '{adjective}' is not in the list of adjectives.")
+        # but since any of those can be multi word, splitting by whitespace would be stupid (but Devin didn't realize)
+        self.assertTrue(any(entry in compliment for entry in self.dictionaries['features']))
+        self.assertTrue(any(entry in compliment for entry in self.dictionaries['adjectives']))
         # Check that the compliment starts with an uppercase letter and ends with a period
         self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
         self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
