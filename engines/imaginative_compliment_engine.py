@@ -13,7 +13,8 @@ class ImaginativeComplimentEngine:
             'imaginary_thing': 'imaginary_things',
             'presence': 'presences'
         }
+        self.id = "imaginative"
 
     def generate_compliment(self):
         compliment = self.template.format(**{k: random.choice(dictionaries[v]) for k, v in self.components.items()})
-        return compliment
+        return f"{compliment} [{self.id}]"

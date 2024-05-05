@@ -1,15 +1,13 @@
 from random import choice
 from dictionary_loader import DictionaryLoader
 
-class InspirationalComplimentEngine:
+class ShortComplimentEngine:
     def __init__(self):
-        self.template = "Your {adjective} {noun} {verb} the world."
+        self.template = "{adjective} {noun}."
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
-        self.id = "inspirational"
 
     def generate_compliment(self):
         adjective = choice(self.dictionaries['adjectives'])
         noun = choice(self.dictionaries['nouns'])
-        verb = choice(self.dictionaries['verbs'])
-        return f"{self.template.format(adjective=adjective, noun=noun, verb=verb)} [{self.id}]"
+        return self.template.format(adjective=adjective, noun=noun)

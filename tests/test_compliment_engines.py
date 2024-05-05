@@ -9,6 +9,7 @@ from engines.inspirational_compliment_engine import InspirationalComplimentEngin
 from engines.whimsical_compliment_engine import WhimsicalComplimentEngine
 from engines.elegant_compliment_engine import ElegantComplimentEngine
 from engines.admiration_compliment_engine import AdmirationComplimentEngine
+from engines.short_compliment_engine import ShortComplimentEngine
 from dictionary_loader import DictionaryLoader
 from app import app
 
@@ -34,6 +35,16 @@ class TestSimpleComplimentEngine(unittest.TestCase):
             ('wonderful', 'person'),
             ('brilliant', 'mind'),
             ('kind', 'soul'),
+            ('amazing', 'friend'),
+            ('thoughtful', 'companion'),
+            ('inspiring', 'leader'),
+            ('creative', 'thinker'),
+            ('passionate', 'creator'),
+            ('dedicated', 'worker'),
+            ('caring', 'nurse'),
+            ('intelligent', 'student'),
+            ('strong', 'advocate'),
+            ('compassionate', 'caregiver'),
             # ... more pairs can be added here
         ]
         self.assertIn(adjective_noun_pair, acceptable_pairs, f"The pair {adjective_noun_pair} is not contextually appropriate.")
@@ -74,6 +85,8 @@ class TestFeatureComplimentEngine(unittest.TestCase):
             # ... more pairs can be added here
         ]
         self.assertIn(feature_adjective_pair, acceptable_pairs, f"The pair {feature_adjective_pair} is not contextually appropriate.")
+        self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
+        self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
 
     def test_randomness_of_compliments(self):
         compliments = set(self.engine.generate_compliment() for _ in range(10))
@@ -114,6 +127,8 @@ class TestCreativeComplimentEngine(unittest.TestCase):
         ]
         self.assertIn(adjective1_noun1_pair, acceptable_pairs, f"The pair {adjective1_noun1_pair} is not contextually appropriate.")
         self.assertIn(adjective2_noun2_pair, acceptable_pairs, f"The pair {adjective2_noun2_pair} is not contextually appropriate.")
+        self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
+        self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
 
 class TestImaginativeComplimentEngine(unittest.TestCase):
     def setUp(self):
@@ -153,6 +168,8 @@ class TestImaginativeComplimentEngine(unittest.TestCase):
             # ... more pairs can be added here
         ]
         self.assertIn(comparative_imaginary_pair, acceptable_pairs, f"The pair {comparative_imaginary_pair} is not contextually appropriate.")
+        self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
+        self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
 
 # New test class for AdmirationComplimentEngine
 class TestAdmirationComplimentEngine(unittest.TestCase):
@@ -174,6 +191,8 @@ class TestAdmirationComplimentEngine(unittest.TestCase):
         # Check for the presence of adjectives in the dictionaries
         self.assertIn(parts[2], self.dictionaries['adjectives'])
         self.assertIn(parts[6].strip(string.punctuation), self.dictionaries['adjectives'])
+        self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
+        self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
 
 class TestInspirationalComplimentEngine(unittest.TestCase):
     def setUp(self):
@@ -222,6 +241,8 @@ class TestWhimsicalComplimentEngine(unittest.TestCase):
         self.assertIn(first_part[1], self.dictionaries['adjectives'])
         self.assertIn(first_part[3].rstrip(','), self.dictionaries['imaginary_things'])
         self.assertIn(second_part[1].rstrip('.'), self.dictionaries['reality_aspects'])
+        self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
+        self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
 
     def test_whimsical_compliment_content(self):
         compliment = self.engine.generate_compliment()
@@ -253,11 +274,37 @@ class TestElegantComplimentEngine(unittest.TestCase):
         self.assertIn(parts[4], self.dictionaries['adjectives'])
         self.assertIn(parts[7].strip(string.punctuation), self.dictionaries['nouns'])
         self.assertIn(parts[9].strip(string.punctuation), self.dictionaries['nouns'])
+        self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
+        self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
+
+class TestShortComplimentEngine(unittest.TestCase):
+    def setUp(self):
+        self.engine = ShortComplimentEngine()
+        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+        self.dictionaries = self.dictionary_loader.load_dictionaries()
+
+    def test_generate_compliment(self):
+        compliment = self.engine.generate_compliment()
+        self.assertIsInstance(compliment, str)
+        self.assertTrue(1 <= len(compliment.split()) <= 6, "Compliment should be short and concise.")
+
+    def test_compliment_structure(self):
+        compliment = self.engine.generate_compliment()
+        parts = compliment.split()
+        self.assertIn(parts[0], self.dictionaries['adjectives'])
+        self.assertIn(parts[1].strip(string.punctuation), self.dictionaries['nouns'])
+        self.assertEqual(len(parts), 2, "Compliment should consist of only an adjective and a noun.")
+        self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
+        self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
+
+    def test_randomness_of_compliments(self):
+        compliments = set(self.engine.generate_compliment() for _ in range(10))
+        self.assertTrue(len(compliments) > 1, "Generated compliments should not be all identical")
 
 class TestAPIVariety(unittest.TestCase):
     def setUp(self):
         self.app = app.test_client()
-        self.engines = [SimpleComplimentEngine, FeatureComplimentEngine, CreativeComplimentEngine, ImaginativeComplimentEngine, InspirationalComplimentEngine, WhimsicalComplimentEngine, AdmirationComplimentEngine, ElegantComplimentEngine]
+        self.engines = [SimpleComplimentEngine, FeatureComplimentEngine, CreativeComplimentEngine, ImaginativeComplimentEngine, InspirationalComplimentEngine, WhimsicalComplimentEngine, AdmirationComplimentEngine, ElegantComplimentEngine, ShortComplimentEngine]
 
     def test_api_compliment_variety(self):
         compliments = [self.app.get('/compliment').data for _ in range(50)]

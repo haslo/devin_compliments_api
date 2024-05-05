@@ -12,7 +12,8 @@ class FeatureComplimentEngine:
             'feature': 'features',
             'adjective': 'adjectives'
         }
+        self.id = "feature"
 
     def generate_compliment(self):
         compliment = self.template.format(**{k: random.choice(dictionaries[v]) for k, v in self.components.items()})
-        return compliment
+        return f"{compliment} [{self.id}]"
