@@ -12,4 +12,4 @@ class AdmirationComplimentEngine:
         adjective1 = choice(self.dictionaries['adjectives'])
         adjective2 = choice(self.dictionaries['adjectives'])
         adverb = 'absolutely'  # This can be changed to a dictionary value if needed in the future
-        return f"{self.template.format(adjective1=adjective1, adverb=adverb, adjective2=adjective2)} [{self.id}]"
+        return f"{self.template.format(adjective1=adjective1, adverb=adverb, adjective2=adjective2)}. [{self.id}]"

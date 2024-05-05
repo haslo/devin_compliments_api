@@ -13,7 +13,16 @@ class FeatureComplimentEngine:
             'adjective': 'adjectives'
         }
         self.id = "feature"
+        # Define contextually appropriate feature-adjective pairs
+        self.acceptable_pairs = [
+            ('smile', 'radiant'),
+            ('style', 'impeccable'),
+            ('sense of humor', 'infectious'),
+            # ... more pairs can be added here
+        ]
 
     def generate_compliment(self):
-        compliment = self.template.format(**{k: random.choice(dictionaries[v]) for k, v in self.components.items()})
-        return f"{compliment} [{self.id}]"
+        # Select a random contextually appropriate pair
+        feature, adjective = random.choice(self.acceptable_pairs)
+        compliment = self.template.format(feature=feature, adjective=adjective)
+        return f"{compliment} [{self.id}]."

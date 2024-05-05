@@ -9,7 +9,9 @@ class WhimsicalComplimentEngine:
         self.id = "whimsical"
 
     def generate_compliment(self):
-        adjective = choice(self.dictionaries['adjectives'])
-        imaginary_thing = choice(self.dictionaries['imaginary_things'])
-        reality_aspect = choice(self.dictionaries['reality_aspects'])
-        return f"{self.template.format(adjective=adjective, imaginary_thing=imaginary_thing, reality_aspect=reality_aspect)} [{self.id}]"
+        # Select a random contextually appropriate triple from dictionaries
+        adjective = choice(self.dictionaries['whimsical_adjectives'])
+        imaginary_thing = choice(self.dictionaries['whimsical_imaginary_things'])
+        reality_aspect = choice(self.dictionaries['whimsical_reality_aspects'])
+        compliment = self.template.format(adjective=adjective, imaginary_thing=imaginary_thing, reality_aspect=reality_aspect)
+        return f"{compliment} [{self.id}]."

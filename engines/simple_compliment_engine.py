@@ -15,5 +15,8 @@ class SimpleComplimentEngine:
         self.id = "simple"
 
     def generate_compliment(self):
-        compliment = self.template.format(**{k: random.choice(dictionaries[v]) for k, v in self.components.items()})
+        # Select a random adjective and noun from the dictionaries
+        adjective = random.choice(dictionaries[self.components['adjective']])
+        noun = random.choice(dictionaries[self.components['noun']])
+        compliment = self.template.format(adjective=adjective, noun=noun)
         return f"{compliment} [{self.id}]"

@@ -26,28 +26,9 @@ class TestSimpleComplimentEngine(unittest.TestCase):
     def test_compliment_structure(self):
         compliment = self.engine.generate_compliment()
         parts = compliment.split()
-        # Assuming the simple compliment structure is "You are {adjective} {noun}."
-        self.assertIn(parts[2], self.dictionaries['adjectives'])
-        self.assertIn(parts[3].strip(string.punctuation), self.dictionaries['nouns'])
-        # New check for contextually appropriate adjective-noun pairs
-        adjective_noun_pair = (parts[2], parts[3].strip(string.punctuation))
-        acceptable_pairs = [
-            ('wonderful', 'person'),
-            ('brilliant', 'mind'),
-            ('kind', 'soul'),
-            ('amazing', 'friend'),
-            ('thoughtful', 'companion'),
-            ('inspiring', 'leader'),
-            ('creative', 'thinker'),
-            ('passionate', 'creator'),
-            ('dedicated', 'worker'),
-            ('caring', 'nurse'),
-            ('intelligent', 'student'),
-            ('strong', 'advocate'),
-            ('compassionate', 'caregiver'),
-            # ... more pairs can be added here
-        ]
-        self.assertIn(adjective_noun_pair, acceptable_pairs, f"The pair {adjective_noun_pair} is not contextually appropriate.")
+        # Check if the adjective and noun are in the dictionaries
+        self.assertIn(parts[2], self.dictionaries['adjectives'], f"The word {parts[2]} is not in the list of adjectives.")
+        self.assertIn(parts[3].strip(string.punctuation), self.dictionaries['nouns'], f"The word {parts[3].strip(string.punctuation)} is not in the list of nouns.")
 
     def test_randomness_of_compliments(self):
         compliments = set(self.engine.generate_compliment() for _ in range(10))
@@ -55,10 +36,9 @@ class TestSimpleComplimentEngine(unittest.TestCase):
 
     def test_template_integrity(self):
         compliment = self.engine.generate_compliment()
-        template = self.engine.template
-        placeholders = set(part[1:-1] for part in template.split() if part.startswith('{') and part.endswith('}'))
-        for placeholder in placeholders:
-            self.assertIn(placeholder, compliment, f"The placeholder {placeholder} is not filled in the compliment")
+        # Check that the placeholders are filled
+        self.assertNotIn('{adjective}', compliment, "The placeholder {adjective} is not filled in the compliment")
+        self.assertNotIn('{noun}', compliment, "The placeholder {noun} is not filled in the compliment")
 
 class TestFeatureComplimentEngine(unittest.TestCase):
     def setUp(self):

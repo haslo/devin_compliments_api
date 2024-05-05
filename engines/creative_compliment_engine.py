@@ -1,21 +1,19 @@
 import random
 from dictionary_loader import DictionaryLoader
 
-# Load dictionaries from YAML file
-dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
-dictionaries = dictionary_loader.load_dictionaries()
-
 class CreativeComplimentEngine:
     def __init__(self):
         self.template = "You have the {adjective1} {noun1} of a {adjective2} {noun2}."
-        self.components = {
-            'adjective1': 'adjectives',
-            'noun1': 'nouns',
-            'adjective2': 'adjectives',
-            'noun2': 'nouns'
-        }
+        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+        self.dictionaries = self.dictionary_loader.load_dictionaries()
         self.id = "creative"
 
     def generate_compliment(self):
-        compliment = self.template.format(**{k: random.choice(dictionaries[v]) for k, v in self.components.items()})
-        return f"{compliment} [{self.id}]"
+        # Select a random contextually appropriate pair for adjective1 and noun1
+        adjective1 = random.choice(self.dictionaries['creative_adjectives'])
+        noun1 = random.choice(self.dictionaries['creative_nouns'])
+        # Select a random contextually appropriate pair for adjective2 and noun2
+        adjective2 = random.choice(self.dictionaries['creative_adjectives'])
+        noun2 = random.choice(self.dictionaries['creative_nouns'])
+        compliment = self.template.format(adjective1=adjective1, noun1=noun1, adjective2=adjective2, noun2=noun2)
+        return f"{compliment} [{self.id}]."

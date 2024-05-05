@@ -8,6 +8,12 @@ adjectives:
   - making
   - more
   - amazing
+  - melodic
+  - elegant
+  - graceful
+  - radiant
+  - impeccable
+  - infectious
 
 imaginary_things:
   - unicorn
@@ -17,6 +23,9 @@ imaginary_things:
   - legend
   - myth
   - fairy
+  - sonnet
+  - painting
+  - dance
 
 reality_aspects:
   - real
@@ -31,6 +40,9 @@ features:
   - presence
   - sense
   - humor
+  - voice
+  - style
+  - manner
 
 compliments:
   - inspiring
@@ -191,6 +203,9 @@ nouns:
   - adventure
   - masterpiece
   - journey
+  - idea
+  - performance
+  - soul
 
 comparatives:
   - better
@@ -207,3 +222,93 @@ verbs:
   - enlighten
   - inspire
   - empower
+
+# New sections for contextually appropriate pairs and quadruples
+short_adjectives:
+  - Brilliant
+  - Stunning
+  - Creative
+
+short_nouns:
+  - idea
+  - performance
+  - soul
+
+elegant_features:
+  - voice
+  - style
+  - manner
+
+elegant_adjectives:
+  - melodic
+  - elegant
+  - graceful
+
+elegant_nouns:
+  - sonnet
+  - painting
+  - dance
+
+elegant_noun2:
+  - symphony
+  - masterpiece
+  - ballet
+
+# New sections for the ImaginativeComplimentEngine
+imaginative_comparatives:
+  - more amazing
+  - sweeter
+  - more magical
+
+imaginative_imaginary_things:
+  - a unicorn
+  - a dream
+  - a fairy tale
+
+imaginative_presences:
+  - real
+  - tangible
+  - present
+
+# New sections for the WhimsicalComplimentEngine
+whimsical_adjectives:
+  - more delightful
+  - sweeter
+  - more magical
+
+whimsical_imaginary_things:
+  - a fairy tale
+  - a fantasy
+  - a legend
+
+whimsical_reality_aspects:
+  - real
+  - tangible
+  - present
+
+creative_adjectives:
+  - brilliant
+  - kind
+  - sharp
+
+creative_nouns:
+  - mind
+  - heart
+  - wit
+
+# New sections for the Direct Praise Engine
+direct_praise_adjectives:
+  - Brilliant
+  - Stunning
+  - Exceptional
+  - Incredible
+  - Phenomenal
+  - Marvelous
+
+direct_praise_nouns:
+  - Genius
+  - Star
+  - Talent
+  - Prodigy
+  - Wizard
+  - Champion
