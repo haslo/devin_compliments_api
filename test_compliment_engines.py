@@ -1,6 +1,7 @@
 import unittest
 from flask import json
-from compliment_engines import SimpleComplimentEngine, FeatureComplimentEngine
+from engines.simple_compliment_engine import SimpleComplimentEngine
+from engines.feature_compliment_engine import FeatureComplimentEngine
 from dictionary_loader import DictionaryLoader
 from app import app
 
