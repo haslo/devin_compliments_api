@@ -28,6 +28,15 @@ class TestSimpleComplimentEngine(unittest.TestCase):
         # Assuming the simple compliment structure is "You are {adjective} {noun}."
         self.assertIn(parts[2], self.dictionaries['adjectives'])
         self.assertIn(parts[3].strip(string.punctuation), self.dictionaries['nouns'])
+        # New check for contextually appropriate adjective-noun pairs
+        adjective_noun_pair = (parts[2], parts[3].strip(string.punctuation))
+        acceptable_pairs = [
+            ('wonderful', 'person'),
+            ('brilliant', 'mind'),
+            ('kind', 'soul'),
+            # ... more pairs can be added here
+        ]
+        self.assertIn(adjective_noun_pair, acceptable_pairs, f"The pair {adjective_noun_pair} is not contextually appropriate.")
 
     def test_randomness_of_compliments(self):
         compliments = set(self.engine.generate_compliment() for _ in range(10))
@@ -56,6 +65,15 @@ class TestFeatureComplimentEngine(unittest.TestCase):
         parts = compliment.split()
         self.assertIn(parts[1].strip(string.punctuation), self.dictionaries['features'])
         self.assertIn(parts[3].strip(string.punctuation), self.dictionaries['adjectives'])
+        # New check for contextually appropriate feature-adjective pairs
+        feature_adjective_pair = (parts[1].strip(string.punctuation), parts[3].strip(string.punctuation))
+        acceptable_pairs = [
+            ('personality', 'amazing'),
+            ('sense of humor', 'incredible'),
+            ('presence', 'comforting'),
+            # ... more pairs can be added here
+        ]
+        self.assertIn(feature_adjective_pair, acceptable_pairs, f"The pair {feature_adjective_pair} is not contextually appropriate.")
 
     def test_randomness_of_compliments(self):
         compliments = set(self.engine.generate_compliment() for _ in range(10))
@@ -86,6 +104,16 @@ class TestCreativeComplimentEngine(unittest.TestCase):
         self.assertIn(parts[4], self.dictionaries['nouns'])
         self.assertIn(parts[6], self.dictionaries['adjectives'])  # Corrected from parts[8] and removed strip punctuation
         self.assertIn(parts[7].strip(string.punctuation), self.dictionaries['nouns'])  # Added strip punctuation
+        # New check for contextually appropriate adjective-noun pairs
+        adjective1_noun1_pair = (parts[3], parts[4])
+        adjective2_noun2_pair = (parts[6], parts[7].strip(string.punctuation))
+        acceptable_pairs = [
+            ('brilliant', 'mind'),
+            ('kind', 'heart'),
+            # ... more pairs can be added here
+        ]
+        self.assertIn(adjective1_noun1_pair, acceptable_pairs, f"The pair {adjective1_noun1_pair} is not contextually appropriate.")
+        self.assertIn(adjective2_noun2_pair, acceptable_pairs, f"The pair {adjective2_noun2_pair} is not contextually appropriate.")
 
 class TestImaginativeComplimentEngine(unittest.TestCase):
     def setUp(self):
@@ -117,6 +145,14 @@ class TestImaginativeComplimentEngine(unittest.TestCase):
             imaginary_thing = ' '.join(parts[3:5]).rstrip(',')
             self.assertIn(imaginary_thing, self.dictionaries['imaginary_things'])
             self.assertIn(parts[5].rstrip('.'), self.dictionaries['presences'])
+        # New check for contextually appropriate comparative-imaginary_thing pairs
+        comparative_imaginary_pair = (parts[1], imaginary_thing)
+        acceptable_pairs = [
+            ('better', 'unicorn'),
+            ('stronger', 'fairy tale'),
+            # ... more pairs can be added here
+        ]
+        self.assertIn(comparative_imaginary_pair, acceptable_pairs, f"The pair {comparative_imaginary_pair} is not contextually appropriate.")
 
 # New test class for AdmirationComplimentEngine
 class TestAdmirationComplimentEngine(unittest.TestCase):
