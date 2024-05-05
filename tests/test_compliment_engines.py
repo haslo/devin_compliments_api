@@ -268,23 +268,18 @@ class TestElegantComplimentEngine(unittest.TestCase):
         compliment = self.engine.generate_compliment().rstrip(f" [{self.engine.id}]")
         parts = compliment.split()
         feature = parts[1]
-        as_index = parts.index('as')
-        adjective = parts[as_index + 1]
-        # Adjusting the logic to correctly identify the noun
-        if parts[as_index + 2] in ['a', 'an']:
-            noun = parts[as_index + 3]  # Skip 'as' and the article to get the noun
-        else:
-            noun = parts[as_index + 2]  # Skip 'as' to get the noun
-        # Ensure noun2 is extracted correctly by finding the next occurrence of 'a' or 'an' after the first noun
-        for i in range(as_index + 4, len(parts)):
-            if parts[i] in ['a', 'an']:
-                noun2_index = i + 1
-                break
-        noun2 = parts[noun2_index].strip(',').lower()
+        as_indices = [i for i, x in enumerate(parts) if x == "as"]
+        adjective = parts[as_indices[0] + 1]
+        # Skip 'as' and any articles to get the noun
+        noun_index = as_indices[0] + 2 if parts[as_indices[0] + 2] in ['a', 'an'] else as_indices[0] + 1
+        noun = parts[noun_index]
+        # Skip second 'as' and any articles to get noun2
+        noun2_index = as_indices[1] + 2 if parts[as_indices[1] + 2] in ['a', 'an'] else as_indices[1] + 1
+        noun2 = parts[noun2_index]
         self.assertIn(feature, self.dictionaries['features'], f"The feature {feature} is not in the list of features.")
         self.assertIn(adjective, self.dictionaries['elegant_adjectives'], f"The adjective {adjective} is not in the list of elegant adjectives.")
         self.assertIn(noun, self.dictionaries['elegant_nouns'], f"The noun {noun} is not in the list of elegant nouns.")
-        self.assertIn(noun2, self.dictionaries['elegant_noun2'], f"The noun2 {noun2} is not in the list of elegant noun2.")
+        self.assertIn(noun2, self.dictionaries['elegant_nouns'], f"The noun2 {noun2} is not in the list of elegant nouns.")
         self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
         self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
 

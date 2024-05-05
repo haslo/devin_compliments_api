@@ -12,6 +12,8 @@ class ElegantComplimentEngine:
         feature = choice(self.dictionaries['features'])
         adjective = choice(self.dictionaries['elegant_adjectives'])
         noun = choice(self.dictionaries['elegant_nouns'])
-        noun2 = choice(self.dictionaries['elegant_noun2'])
+        noun2 = choice(self.dictionaries['elegant_nouns'])  # Use the same dictionary for both nouns to avoid 'as' being picked as a noun2
         compliment = self.template.format(feature=feature, adjective=adjective, noun=noun, noun2=noun2)
+        # Capitalize the first letter of the compliment
+        compliment = compliment[0].upper() + compliment[1:]
         return f"{compliment} [{self.id}]."

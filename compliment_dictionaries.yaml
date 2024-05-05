@@ -14,7 +14,7 @@ adjectives:
   - radiant
   - impeccable
   - infectious
-  - Stunning
+  - stunning
   - sweeter
 
 imaginary_things:
@@ -230,9 +230,9 @@ verbs:
 
 # New sections for contextually appropriate pairs and quadruples
 short_adjectives:
-  - Brilliant
-  - Stunning
-  - Creative
+  - brilliant
+  - stunning
+  - creative
 
 short_nouns:
   - idea
@@ -303,20 +303,20 @@ creative_nouns:
 
 # New sections for the Direct Praise Engine
 direct_praise_adjectives:
-  - Brilliant
-  - Stunning
-  - Exceptional
-  - Incredible
-  - Phenomenal
-  - Marvelous
+  - brilliant
+  - stunning
+  - exceptional
+  - incredible
+  - phenomenal
+  - marvelous
 
 direct_praise_nouns:
-  - Genius
-  - Star
-  - Talent
-  - Prodigy
-  - Wizard
-  - Champion
+  - genius
+  - star
+  - talent
+  - prodigy
+  - wizard
+  - champion
 
 action_based_verbs:
   - inspire
