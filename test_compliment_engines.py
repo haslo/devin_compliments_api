@@ -44,6 +44,26 @@ class TestFeatureComplimentEngine(unittest.TestCase):
         for compliment in compliments:
             self.assertNotIn(compliment, self.dictionaries['inappropriate_phrases'])
 
+# New test case for a third engine
+class TestCreativeComplimentEngine(unittest.TestCase):
+    def setUp(self):
+        self.engine = CreativeComplimentEngine()  # This class will be created next
+        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+        self.dictionaries = self.dictionary_loader.load_dictionaries()
+
+    def test_generate_compliment(self):
+        compliment = self.engine.generate_compliment()
+        self.assertIsInstance(compliment, str)
+
+    def test_compliment_structure(self):
+        compliment = self.engine.generate_compliment()
+        # Assuming the creative compliment structure is "You have the {adjective} {noun} of a {adjective} {noun}."
+        parts = compliment.split()
+        self.assertIn(parts[3], self.dictionaries['adjectives'])
+        self.assertIn(parts[4], self.dictionaries['nouns'])
+        self.assertIn(parts[7], self.dictionaries['adjectives'])
+        self.assertIn(parts[8], self.dictionaries['nouns'])
+
 class TestAPI(unittest.TestCase):
     def setUp(self):
         self.app = app.test_client()
