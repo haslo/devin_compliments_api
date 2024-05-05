@@ -7,10 +7,10 @@ dictionaries = dictionary_loader.load_dictionaries()
 
 class FeatureComplimentEngine:
     def __init__(self):
-        self.template = "Your {feature} is {compliment}."
+        self.template = "Your {feature} is {adjective}."
         self.components = {
             'feature': 'features',
-            'compliment': 'compliments'
+            'adjective': 'adjectives'
         }
 
     def generate_compliment(self):

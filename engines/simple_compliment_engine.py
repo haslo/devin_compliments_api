@@ -7,7 +7,7 @@ dictionaries = dictionary_loader.load_dictionaries()
 
 class SimpleComplimentEngine:
     def __init__(self):
-        self.template = "You're as {adjective} as a {noun}."
+        self.template = "You are {adjective} {noun}."
         self.components = {
             'adjective': 'adjectives',
             'noun': 'nouns'

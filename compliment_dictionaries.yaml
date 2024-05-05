@@ -1,11 +1,13 @@
 adjectives:
   - better
   - more amazing
-  - making me happier
   - brilliant
   - wonderful
   - spectacular
   - incredible
+  - making
+  - more
+  - amazing
 
 imaginary_things:
   - unicorn
@@ -14,6 +16,7 @@ imaginary_things:
   - fairy tale
   - legend
   - myth
+  - fairy
 
 reality_aspects:
   - real
@@ -26,6 +29,8 @@ features:
   - personality
   - sense of humor
   - presence
+  - sense
+  - humor
 
 compliments:
   - inspiring
@@ -181,3 +186,24 @@ positive_traits:
   - kindness
   - enthusiasm
   - creativity
+
+nouns:
+  - adventure
+  - masterpiece
+  - journey
+
+comparatives:
+  - better
+  - stronger
+  - smarter
+
+presences:
+  - here
+  - present
+  - with us
+  - with
+
+verbs:
+  - enlighten
+  - inspire
+  - empower
