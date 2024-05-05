@@ -6,7 +6,6 @@ class ShortComplimentEngine:
         self.template = "{adjective} {noun}."
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
-        self.id = "short"
 
     def generate_compliment(self):
         # Select a random contextually appropriate pair from dictionaries
@@ -15,4 +14,4 @@ class ShortComplimentEngine:
         compliment = self.template.format(adjective=adjective, noun=noun)
         # Capitalize the first letter of the compliment
         compliment = compliment[0].upper() + compliment[1:]
-        return f"{compliment} [{self.id}]."
+        return f"{compliment}."

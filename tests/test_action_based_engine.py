@@ -10,7 +10,7 @@ class TestActionBasedComplimentEngine(unittest.TestCase):
         self.assertTrue(compliment.startswith("You"))
         self.assertTrue(any(verb in compliment for verb in self.engine.dictionaries['action_based_verbs']))
         self.assertTrue(any(adverb in compliment for adverb in self.engine.dictionaries['action_based_adverbs']))
-        self.assertTrue(compliment.endswith("[action_based]."))
+        self.assertFalse(compliment.endswith("[action_based]."))
 
 if __name__ == '__main__':
     unittest.main()

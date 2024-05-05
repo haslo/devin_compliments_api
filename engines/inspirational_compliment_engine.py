@@ -6,7 +6,6 @@ class InspirationalComplimentEngine:
         self.template = "Your {adjective} {noun} {verb} the world."
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
-        self.id = "inspirational"
 
     def generate_compliment(self):
         adjective = choice(self.dictionaries['adjectives'])
@@ -15,4 +14,4 @@ class InspirationalComplimentEngine:
         compliment = self.template.format(adjective=adjective, noun=noun, verb=verb)
         # Capitalize the first letter of the compliment
         compliment = compliment[0].upper() + compliment[1:]
-        return f"{compliment} [{self.id}]"
+        return f"{compliment}"

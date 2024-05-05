@@ -6,7 +6,6 @@ class WhimsicalComplimentEngine:
         self.template = "You're {adjective} than {imaginary_thing}, because you're {reality_aspect}."
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
-        self.id = "whimsical"
 
     def generate_compliment(self):
         # Select a random contextually appropriate triple from dictionaries
@@ -16,4 +15,4 @@ class WhimsicalComplimentEngine:
         compliment = self.template.format(adjective=adjective, imaginary_thing=imaginary_thing, reality_aspect=reality_aspect)
         # Capitalize the first letter of the compliment
         compliment = compliment[0].upper() + compliment[1:]
-        return f"{compliment} [{self.id}]."
+        return f"{compliment}."

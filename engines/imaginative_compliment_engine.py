@@ -9,8 +9,6 @@ class ImaginativeComplimentEngine:
             'imaginary_thing': 'imaginative_imaginary_things',
             'presence': 'imaginative_presences'
         }
-        self.id = "imaginative"
-        # Load dictionaries from YAML file
         dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = dictionary_loader.load_dictionaries()
 
@@ -22,4 +20,4 @@ class ImaginativeComplimentEngine:
         compliment = self.template.format(comparative=comparative, imaginary_thing=imaginary_thing, presence=presence)
         # Capitalize the first letter of the compliment
         compliment = compliment[0].upper() + compliment[1:]
-        return f"{compliment} [{self.id}]."
+        return f"{compliment}."

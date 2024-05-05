@@ -6,7 +6,6 @@ class ElegantComplimentEngine:
         self.template = "Your {feature} is as {adjective} as a {noun}, a true {noun2}."
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
-        self.id = "elegant"
 
     def generate_compliment(self):
         feature = choice(self.dictionaries['features'])
@@ -16,4 +15,4 @@ class ElegantComplimentEngine:
         compliment = self.template.format(feature=feature, adjective=adjective, noun=noun, noun2=noun2)
         # Capitalize the first letter of the compliment
         compliment = compliment[0].upper() + compliment[1:]
-        return f"{compliment} [{self.id}]."
+        return compliment

@@ -6,7 +6,6 @@ class CreativeComplimentEngine:
         self.template = "You have the {adjective1} {noun1} of a {adjective2} {noun2}."
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
-        self.id = "creative"
 
     def generate_compliment(self):
         # Select a random contextually appropriate pair for adjective1 and noun1
@@ -18,4 +17,4 @@ class CreativeComplimentEngine:
         compliment = self.template.format(adjective1=adjective1, noun1=noun1, adjective2=adjective2, noun2=noun2)
         # Capitalize the first letter of the compliment
         compliment = compliment[0].upper() + compliment[1:]
-        return f"{compliment} [{self.id}]."
+        return f"{compliment}."

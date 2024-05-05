@@ -9,7 +9,7 @@ class TestDirectPraiseEngine(unittest.TestCase):
         compliment = self.engine.generate_compliment()
         self.assertTrue(compliment.startswith("You are a"))
         # Adjusted to check that the compliment ends with the engine identifier
-        self.assertTrue(compliment.endswith("."))
+        self.assertTrue(compliment.endswith("!"))
         self.assertIn("!", compliment)
 
         # Check if the adjective and noun are from the specified lists

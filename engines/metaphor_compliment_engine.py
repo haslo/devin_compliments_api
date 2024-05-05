@@ -11,7 +11,6 @@ class MetaphorComplimentEngine:
         self.components = {
             'metaphor': 'metaphors'
         }
-        self.id = "metaphor"
 
     def generate_compliment(self):
         # Select a random metaphor from the dictionaries
