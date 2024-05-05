@@ -29,6 +29,17 @@ class TestSimpleComplimentEngine(unittest.TestCase):
         self.assertIn(parts[2], self.dictionaries['adjectives'])
         self.assertIn(parts[3].strip(string.punctuation), self.dictionaries['nouns'])
 
+    def test_randomness_of_compliments(self):
+        compliments = set(self.engine.generate_compliment() for _ in range(10))
+        self.assertTrue(len(compliments) > 1, "Generated compliments should not be all identical")
+
+    def test_template_integrity(self):
+        compliment = self.engine.generate_compliment()
+        template = self.engine.template
+        placeholders = set(part[1:-1] for part in template.split() if part.startswith('{') and part.endswith('}'))
+        for placeholder in placeholders:
+            self.assertIn(placeholder, compliment, f"The placeholder {placeholder} is not filled in the compliment")
+
 class TestFeatureComplimentEngine(unittest.TestCase):
     def setUp(self):
         self.engine = FeatureComplimentEngine()
@@ -45,6 +56,17 @@ class TestFeatureComplimentEngine(unittest.TestCase):
         parts = compliment.split()
         self.assertIn(parts[1].strip(string.punctuation), self.dictionaries['features'])
         self.assertIn(parts[3].strip(string.punctuation), self.dictionaries['adjectives'])
+
+    def test_randomness_of_compliments(self):
+        compliments = set(self.engine.generate_compliment() for _ in range(10))
+        self.assertTrue(len(compliments) > 1, "Generated compliments should not be all identical")
+
+    def test_template_integrity(self):
+        compliment = self.engine.generate_compliment()
+        template = self.engine.template
+        placeholders = set(part[1:-1] for part in template.split() if part.startswith('{') and part.endswith('}'))
+        for placeholder in placeholders:
+            self.assertIn(placeholder, compliment, f"The placeholder {placeholder} is not filled in the compliment")
 
 class TestCreativeComplimentEngine(unittest.TestCase):
     def setUp(self):
