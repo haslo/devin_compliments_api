@@ -7,7 +7,6 @@ class FeatureComplimentEngine:
         dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = dictionary_loader.load_dictionaries()
         self.acceptable_pairs = self.dictionaries['feature_adjective_pairs']
-        self.id = "feature"  # Added an 'id' attribute for engine identification
 
     def generate_compliment(self):
         # Select a random contextually appropriate pair

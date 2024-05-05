@@ -275,12 +275,13 @@ class TestElegantComplimentEngine(unittest.TestCase):
         as_indices = [i for i, x in enumerate(parts) if x.lower() == "as"]
         # Ensure there are two occurrences of 'as' for the structure to be valid
         self.assertEqual(len(as_indices), 2, "The compliment should contain two occurrences of 'as'.")
+        # The adjective follows immediately after the first 'as'
         adjective = parts[as_indices[0] + 1]
-        # Skip 'as' and any articles to get the noun
-        noun_index = as_indices[0] + 3 if parts[as_indices[0] + 2] in ['a', 'an'] else as_indices[0] + 2
-        noun = parts[noun_index]
-        # Skip second 'as' and any articles to get noun2
-        noun2_index = as_indices[1] + 3 if parts[as_indices[1] + 2] in ['a', 'an'] else as_indices[1] + 2
+        # The noun follows after the adjective or an article if present
+        noun_index = as_indices[0] + 2 if parts[as_indices[0] + 1] not in ['a', 'an'] else as_indices[0] + 3
+        noun = parts[noun_index].rstrip(',')
+        # The second noun follows after the second 'as' and an article if present
+        noun2_index = as_indices[1] + 2 if parts[as_indices[1] + 1] not in ['a', 'an'] else as_indices[1] + 3
         noun2 = parts[noun2_index].rstrip('.')
         self.assertIn(adjective, self.dictionaries['elegant_adjectives'], f"The adjective {adjective} is not in the list of elegant adjectives.")
         self.assertIn(noun, self.dictionaries['elegant_nouns'], f"The noun {noun} is not in the list of elegant nouns.")
@@ -328,9 +329,9 @@ class TestAPIVariety(unittest.TestCase):
         engine_output_counts = {engine.__name__: 0 for engine in self.engines}
         for compliment in compliments:
             for engine in self.engines:
-                engine_instance = engine()
-                if f"[{engine_instance.id}]" in compliment:
-                    engine_output_counts[engine.__name__] += 1
+                engine_name = engine.__name__
+                if engine_name in compliment:
+                    engine_output_counts[engine_name] += 1
         # Check that each engine has generated at least one compliment
         for engine_name, count in engine_output_counts.items():
             self.assertGreaterEqual(count, 1, f"Engine {engine_name} did not generate any compliments")
