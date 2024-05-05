@@ -162,5 +162,25 @@ class TestWhimsicalComplimentEngine(unittest.TestCase):
         self.assertIn(first_part[3].rstrip(','), self.dictionaries['imaginary_things'])
         self.assertIn(second_part[1].rstrip('.'), self.dictionaries['reality_aspects'])
 
+class TestElegantComplimentEngine(unittest.TestCase):
+    def setUp(self):
+        # The ElegantComplimentEngine class will be implemented in elegant_compliment_engine.py
+        self.engine = ElegantComplimentEngine()
+        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+        self.dictionaries = self.dictionary_loader.load_dictionaries()
+
+    def test_generate_compliment(self):
+        compliment = self.engine.generate_compliment()
+        self.assertIsInstance(compliment, str)
+
+    def test_compliment_structure(self):
+        compliment = self.engine.generate_compliment()
+        # Assuming the elegant compliment structure is "Your {feature} is as {adjective} as a {noun}, a true {noun2}."
+        parts = compliment.split()
+        self.assertIn(parts[1], self.dictionaries['features'])
+        self.assertIn(parts[4], self.dictionaries['adjectives'])
+        self.assertIn(parts[7], self.dictionaries['nouns'])
+        self.assertIn(parts[9].strip(string.punctuation), self.dictionaries['nouns'])
+
 if __name__ == '__main__':
     unittest.main()
