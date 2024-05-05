@@ -9,6 +9,7 @@ from engines.whimsical_compliment_engine import WhimsicalComplimentEngine
 from engines.elegant_compliment_engine import ElegantComplimentEngine
 from engines.short_compliment_engine import ShortComplimentEngine
 from dictionary_loader import DictionaryLoader
+from test_engine_selector import TestEngineSelector
 
 class TestSimpleComplimentEngine(unittest.TestCase):
     def setUp(self):

@@ -33,10 +33,10 @@ Example response:
 ```
 
 ## Testing
-Test-Driven Development (TDD) is used throughout this project. To run the tests, use the following command:
+Test-Driven Development (TDD) is used throughout this project. To run the tests, execute the following command from the repository root:
 
 ```bash
-python -m unittest discover -s tests
+python -m unittest discover
 ```
 
 Ensure all tests pass before pushing changes to the repository.
