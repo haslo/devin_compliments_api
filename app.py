@@ -8,22 +8,14 @@ from engines.whimsical_compliment_engine import WhimsicalComplimentEngine
 from engines.admiration_compliment_engine import AdmirationComplimentEngine
 from engines.elegant_compliment_engine import ElegantComplimentEngine
 from engines.short_compliment_engine import ShortComplimentEngine
-from itertools import cycle
+from engines.personal_quality_compliment_engine import PersonalQualityComplimentEngine
+from engines.metaphor_compliment_engine import MetaphorComplimentEngine
+from engines.action_based_compliment_engine import ActionBasedComplimentEngine
+from engines.direct_praise_compliment_engine import DirectPraiseComplimentEngine
+from engines.superlative_compliment_engine import SuperlativeComplimentEngine
+from engine_selector import EngineSelector
 
 app = Flask(__name__)
-
-# Tracking the selection frequency of each engine
-engine_selection_tracker = {
-    'SimpleComplimentEngine': 0,
-    'FeatureComplimentEngine': 0,
-    'CreativeComplimentEngine': 0,
-    'ImaginativeComplimentEngine': 0,
-    'InspirationalComplimentEngine': 0,
-    'WhimsicalComplimentEngine': 0,
-    'AdmirationComplimentEngine': 0,
-    'ElegantComplimentEngine': 0,
-    'ShortComplimentEngine': 0
-}
 
 # List of compliment engine classes
 engine_classes = [
@@ -35,18 +27,21 @@ engine_classes = [
     WhimsicalComplimentEngine,
     AdmirationComplimentEngine,
     ElegantComplimentEngine,
-    ShortComplimentEngine
+    ShortComplimentEngine,
+    PersonalQualityComplimentEngine,
+    MetaphorComplimentEngine,
+    ActionBasedComplimentEngine,
+    DirectPraiseComplimentEngine,
+    SuperlativeComplimentEngine
 ]
 
-# Create a round-robin cycle of the engine classes
-engine_cycle = cycle(engine_classes)
+# Initialize EngineSelector with the list of engine classes
+engine_selector = EngineSelector(engine_classes)
 
 @app.route('/compliment', methods=['GET'])
 def generate_compliment():
-    # Select the next compliment engine in the cycle
-    engine_class = next(engine_cycle)
-    # Increment the selection count for the chosen engine
-    engine_selection_tracker[engine_class.__name__] += 1
+    # Select the next compliment engine in the cycle using EngineSelector
+    engine_class = engine_selector.get_next_engine()
     engine = engine_class()
     compliment = engine.generate_compliment()
     return jsonify({'compliment': compliment})
