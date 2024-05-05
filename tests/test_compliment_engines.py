@@ -333,7 +333,7 @@ class TestAPIVariety(unittest.TestCase):
                     engine_output_counts[engine.__name__] += 1
         # Check that each engine has generated at least one compliment
         for engine_name, count in engine_output_counts.items():
-            self.assertGreater(count, 0, f"Engine {engine_name} did not generate any compliments")
+            self.assertGreaterEqual(count, 1, f"Engine {engine_name} did not generate any compliments")
 
 if __name__ == '__main__':
     unittest.main()
