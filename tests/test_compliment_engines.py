@@ -271,8 +271,10 @@ class TestElegantComplimentEngine(unittest.TestCase):
     def test_compliment_structure(self):
         compliment = self.engine.generate_compliment().rstrip(f" [{self.engine.id}]")
         parts = compliment.split()
-        feature = parts[1]
-        as_indices = [i for i, x in enumerate(parts) if x == "as"]
+        # Find indices of 'as' which is used as a conjunction/preposition, not a noun
+        as_indices = [i for i, x in enumerate(parts) if x.lower() == "as"]
+        # Ensure there are two occurrences of 'as' for the structure to be valid
+        self.assertEqual(len(as_indices), 2, "The compliment should contain two occurrences of 'as'.")
         adjective = parts[as_indices[0] + 1]
         # Skip 'as' and any articles to get the noun
         noun_index = as_indices[0] + 3 if parts[as_indices[0] + 2] in ['a', 'an'] else as_indices[0] + 2

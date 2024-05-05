@@ -6,6 +6,7 @@ class SimpleComplimentEngine:
         self.template = "You are {adjective} {noun}."
         dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = dictionary_loader.load_dictionaries()
+        self.id = "simple"  # Added an 'id' attribute for engine identification
 
     def generate_compliment(self):
         # Select a random adjective and noun from the dictionaries
