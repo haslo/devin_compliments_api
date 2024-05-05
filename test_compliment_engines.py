@@ -7,6 +7,8 @@ from engines.creative_compliment_engine import CreativeComplimentEngine
 from engines.imaginative_compliment_engine import ImaginativeComplimentEngine
 from engines.inspirational_compliment_engine import InspirationalComplimentEngine
 from engines.whimsical_compliment_engine import WhimsicalComplimentEngine
+from engines.elegant_compliment_engine import ElegantComplimentEngine
+from engines.admiration_compliment_engine import AdmirationComplimentEngine
 from dictionary_loader import DictionaryLoader
 from app import app
 
@@ -41,8 +43,8 @@ class TestFeatureComplimentEngine(unittest.TestCase):
         compliment = self.engine.generate_compliment()
         # Assuming the feature compliment structure is "Your {feature} is {adjective}."
         parts = compliment.split()
-        self.assertIn(parts[1], self.dictionaries['features'])
-        self.assertIn(parts[3].rstrip('.'), self.dictionaries['adjectives'])
+        self.assertIn(parts[1].strip(string.punctuation), self.dictionaries['features'])
+        self.assertIn(parts[3].strip(string.punctuation), self.dictionaries['adjectives'])
 
 class TestCreativeComplimentEngine(unittest.TestCase):
     def setUp(self):
@@ -60,7 +62,8 @@ class TestCreativeComplimentEngine(unittest.TestCase):
         parts = compliment.split()
         self.assertIn(parts[3], self.dictionaries['adjectives'])
         self.assertIn(parts[4], self.dictionaries['nouns'])
-        self.assertIn(parts[8].strip(string.punctuation), self.dictionaries['adjectives'])
+        self.assertIn(parts[6], self.dictionaries['adjectives'])  # Corrected from parts[8] and removed strip punctuation
+        self.assertIn(parts[7].strip(string.punctuation), self.dictionaries['nouns'])  # Added strip punctuation
 
 class TestImaginativeComplimentEngine(unittest.TestCase):
     def setUp(self):
@@ -162,6 +165,17 @@ class TestWhimsicalComplimentEngine(unittest.TestCase):
         self.assertIn(first_part[3].rstrip(','), self.dictionaries['imaginary_things'])
         self.assertIn(second_part[1].rstrip('.'), self.dictionaries['reality_aspects'])
 
+    def test_whimsical_compliment_content(self):
+        compliment = self.engine.generate_compliment()
+        parts = compliment.split(', because you\'re ')
+        self.assertTrue(parts[0].startswith("You're "))
+        self.assertTrue(parts[1].endswith("."))
+        adjective, imaginary_thing = parts[0][7:].split(' than ')
+        reality_aspect = parts[1]
+        self.assertIn(adjective, self.dictionaries['adjectives'])
+        self.assertIn(imaginary_thing, self.dictionaries['imaginary_things'])
+        self.assertIn(reality_aspect.rstrip('.'), self.dictionaries['reality_aspects'])
+
 class TestElegantComplimentEngine(unittest.TestCase):
     def setUp(self):
         # The ElegantComplimentEngine class will be implemented in elegant_compliment_engine.py
@@ -179,8 +193,25 @@ class TestElegantComplimentEngine(unittest.TestCase):
         parts = compliment.split()
         self.assertIn(parts[1], self.dictionaries['features'])
         self.assertIn(parts[4], self.dictionaries['adjectives'])
-        self.assertIn(parts[7], self.dictionaries['nouns'])
+        self.assertIn(parts[7].strip(string.punctuation), self.dictionaries['nouns'])
         self.assertIn(parts[9].strip(string.punctuation), self.dictionaries['nouns'])
+
+class TestAPIVariety(unittest.TestCase):
+    def setUp(self):
+        self.app = app.test_client()
+        self.engines = [SimpleComplimentEngine, FeatureComplimentEngine, CreativeComplimentEngine, ImaginativeComplimentEngine, InspirationalComplimentEngine, WhimsicalComplimentEngine, AdmirationComplimentEngine, ElegantComplimentEngine]
+
+    def test_api_compliment_variety(self):
+        compliments = [self.app.get('/compliment').data for _ in range(50)]
+        engine_output_counts = {engine.__name__: 0 for engine in self.engines}
+        for compliment in compliments:
+            compliment = compliment.decode('utf-8')
+            for engine in self.engines:
+                if engine().template in compliment:
+                    engine_output_counts[engine.__name__] += 1
+        # Check that each engine has generated at least one compliment
+        for count in engine_output_counts.values():
+            self.assertGreater(count, 0)
 
 if __name__ == '__main__':
     unittest.main()
