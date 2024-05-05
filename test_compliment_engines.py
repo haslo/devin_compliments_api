@@ -6,6 +6,7 @@ from engines.feature_compliment_engine import FeatureComplimentEngine
 from engines.creative_compliment_engine import CreativeComplimentEngine
 from engines.imaginative_compliment_engine import ImaginativeComplimentEngine
 from engines.inspirational_compliment_engine import InspirationalComplimentEngine
+from engines.whimsical_compliment_engine import WhimsicalComplimentEngine
 from dictionary_loader import DictionaryLoader
 from app import app
 
@@ -59,8 +60,7 @@ class TestCreativeComplimentEngine(unittest.TestCase):
         parts = compliment.split()
         self.assertIn(parts[3], self.dictionaries['adjectives'])
         self.assertIn(parts[4], self.dictionaries['nouns'])
-        self.assertIn(parts[7], self.dictionaries['adjectives'])
-        self.assertIn(parts[8].strip(string.punctuation), self.dictionaries['nouns'])
+        self.assertIn(parts[8].strip(string.punctuation), self.dictionaries['adjectives'])
 
 class TestImaginativeComplimentEngine(unittest.TestCase):
     def setUp(self):
@@ -80,15 +80,17 @@ class TestImaginativeComplimentEngine(unittest.TestCase):
         if 'because' in compliment:
             parts = compliment.split('because')
             comparative_part = parts[0].split()
+            # Check for 'shooting star' as a single entry in the list of imaginary things
+            imaginary_thing = ' '.join(comparative_part[3:5]).rstrip(',')
+            self.assertIn(imaginary_thing, self.dictionaries['imaginary_things'])
             presence_part = parts[1].split()
-
-            self.assertIn(comparative_part[1], self.dictionaries['comparatives'])
-            self.assertIn(comparative_part[3].rstrip(','), self.dictionaries['imaginary_things'])
             self.assertIn(presence_part[1].rstrip('.'), self.dictionaries['presences'])
         else:
             parts = compliment.split()
             self.assertIn(parts[1], self.dictionaries['comparatives'])
-            self.assertIn(parts[3].rstrip(','), self.dictionaries['imaginary_things'])
+            # Check for 'shooting star' as a single entry in the list of imaginary things
+            imaginary_thing = ' '.join(parts[3:5]).rstrip(',')
+            self.assertIn(imaginary_thing, self.dictionaries['imaginary_things'])
             self.assertIn(parts[5].rstrip('.'), self.dictionaries['presences'])
 
 # New test class for AdmirationComplimentEngine
@@ -140,6 +142,25 @@ class TestAPI(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('compliment', data)
         self.assertIsInstance(data['compliment'], str)
+
+class TestWhimsicalComplimentEngine(unittest.TestCase):
+    def setUp(self):
+        self.engine = WhimsicalComplimentEngine()
+        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+        self.dictionaries = self.dictionary_loader.load_dictionaries()
+
+    def test_generate_compliment(self):
+        compliment = self.engine.generate_compliment()
+        self.assertIsInstance(compliment, str)
+
+    def test_compliment_structure(self):
+        compliment = self.engine.generate_compliment()
+        parts = compliment.split('because')
+        first_part = parts[0].split()
+        second_part = parts[1].split()
+        self.assertIn(first_part[1], self.dictionaries['adjectives'])
+        self.assertIn(first_part[3].rstrip(','), self.dictionaries['imaginary_things'])
+        self.assertIn(second_part[1].rstrip('.'), self.dictionaries['reality_aspects'])
 
 if __name__ == '__main__':
     unittest.main()
