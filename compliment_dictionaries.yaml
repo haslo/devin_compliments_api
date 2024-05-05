@@ -14,6 +14,8 @@ adjectives:
   - radiant
   - impeccable
   - infectious
+  - Stunning
+  - sweeter
 
 imaginary_things:
   - unicorn
@@ -43,6 +45,7 @@ features:
   - voice
   - style
   - manner
+  - smile
 
 compliments:
   - inspiring
@@ -206,6 +209,8 @@ nouns:
   - idea
   - performance
   - soul
+  - painting
+  - amazing
 
 comparatives:
   - better
@@ -261,9 +266,9 @@ imaginative_comparatives:
   - more magical
 
 imaginative_imaginary_things:
-  - a unicorn
-  - a dream
-  - a fairy tale
+  - unicorn
+  - dream
+  - fairy tale
 
 imaginative_presences:
   - real
@@ -326,3 +331,16 @@ action_based_adverbs:
   - profoundly
   - remarkably
   - consistently
+
+adverbs:
+  - effortlessly
+  - warmly
+  - genuinely
+  - gracefully
+  - kindly
+  - brightly
+  - cheerfully
+  - elegantly
+  - magnificently
+  - marvelously
+  - absolutely

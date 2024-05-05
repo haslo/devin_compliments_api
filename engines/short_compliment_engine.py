@@ -13,4 +13,4 @@ class ShortComplimentEngine:
         adjective = choice(self.dictionaries['short_adjectives'])
         noun = choice(self.dictionaries['short_nouns'])
         compliment = self.template.format(adjective=adjective, noun=noun)
-        return f"{compliment} [{self.id}]"
+        return f"{compliment} [{self.id}]."

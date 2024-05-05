@@ -1,10 +1,6 @@
 import random
 from dictionary_loader import DictionaryLoader
 
-# Load dictionaries from YAML file
-dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
-dictionaries = dictionary_loader.load_dictionaries()
-
 class ImaginativeComplimentEngine:
     def __init__(self):
         self.template = "You're {comparative} than {imaginary_thing}, because you're {presence}."
@@ -14,6 +10,9 @@ class ImaginativeComplimentEngine:
             'presence': 'imaginative_presences'
         }
         self.id = "imaginative"
+        # Load dictionaries from YAML file
+        dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+        self.dictionaries = dictionary_loader.load_dictionaries()
 
     def generate_compliment(self):
         # Select a random contextually appropriate triple from dictionaries

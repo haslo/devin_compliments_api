@@ -12,4 +12,4 @@ class InspirationalComplimentEngine:
         adjective = choice(self.dictionaries['adjectives'])
         noun = choice(self.dictionaries['nouns'])
         verb = choice(self.dictionaries['verbs'])
-        return f"{self.template.format(adjective=adjective, noun=noun, verb=verb)} [{self.id}]"
+        return f"{self.template.format(adjective=adjective, noun=noun, verb=verb)}. [{self.id}]"
