@@ -44,6 +44,8 @@ def generate_compliment():
     engine_class = engine_selector.get_next_engine()
     engine = engine_class()
     compliment = engine.generate_compliment()
+    # Print the name of the selected engine for debugging purposes
+    print(f"Selected engine: {engine_class.__name__}")
     return jsonify({'compliment': compliment})
 
 if __name__ == '__main__':
