@@ -16,4 +16,6 @@ class CreativeComplimentEngine:
         adjective2 = random.choice(self.dictionaries['creative_adjectives'])
         noun2 = random.choice(self.dictionaries['creative_nouns'])
         compliment = self.template.format(adjective1=adjective1, noun1=noun1, adjective2=adjective2, noun2=noun2)
+        # Capitalize the first letter of the compliment
+        compliment = compliment[0].upper() + compliment[1:]
         return f"{compliment} [{self.id}]."

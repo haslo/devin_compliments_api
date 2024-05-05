@@ -12,4 +12,7 @@ class InspirationalComplimentEngine:
         adjective = choice(self.dictionaries['adjectives'])
         noun = choice(self.dictionaries['nouns'])
         verb = choice(self.dictionaries['verbs'])
-        return f"{self.template.format(adjective=adjective, noun=noun, verb=verb)}. [{self.id}]"
+        compliment = self.template.format(adjective=adjective, noun=noun, verb=verb)
+        # Capitalize the first letter of the compliment
+        compliment = compliment[0].upper() + compliment[1:]
+        return f"{compliment} [{self.id}]"

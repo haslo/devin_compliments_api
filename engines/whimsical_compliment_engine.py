@@ -14,4 +14,6 @@ class WhimsicalComplimentEngine:
         imaginary_thing = choice(self.dictionaries['whimsical_imaginary_things'])
         reality_aspect = choice(self.dictionaries['whimsical_reality_aspects'])
         compliment = self.template.format(adjective=adjective, imaginary_thing=imaginary_thing, reality_aspect=reality_aspect)
+        # Capitalize the first letter of the compliment
+        compliment = compliment[0].upper() + compliment[1:]
         return f"{compliment} [{self.id}]."

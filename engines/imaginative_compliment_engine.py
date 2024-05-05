@@ -20,4 +20,6 @@ class ImaginativeComplimentEngine:
         imaginary_thing = random.choice(self.dictionaries['imaginative_imaginary_things'])
         presence = random.choice(self.dictionaries['imaginative_presences'])
         compliment = self.template.format(comparative=comparative, imaginary_thing=imaginary_thing, presence=presence)
+        # Capitalize the first letter of the compliment
+        compliment = compliment[0].upper() + compliment[1:]
         return f"{compliment} [{self.id}]."

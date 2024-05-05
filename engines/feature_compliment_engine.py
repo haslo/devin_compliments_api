@@ -25,4 +25,6 @@ class FeatureComplimentEngine:
         # Select a random contextually appropriate pair
         feature, adjective = random.choice(self.acceptable_pairs)
         compliment = self.template.format(feature=feature, adjective=adjective)
+        # Capitalize the first letter of the compliment
+        compliment = compliment[0].upper() + compliment[1:]
         return f"{compliment} [{self.id}]."

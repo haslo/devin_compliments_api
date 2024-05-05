@@ -13,4 +13,6 @@ class ShortComplimentEngine:
         adjective = choice(self.dictionaries['short_adjectives'])
         noun = choice(self.dictionaries['short_nouns'])
         compliment = self.template.format(adjective=adjective, noun=noun)
+        # Capitalize the first letter of the compliment
+        compliment = compliment[0].upper() + compliment[1:]
         return f"{compliment} [{self.id}]."

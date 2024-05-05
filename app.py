@@ -8,7 +8,7 @@ from engines.whimsical_compliment_engine import WhimsicalComplimentEngine
 from engines.admiration_compliment_engine import AdmirationComplimentEngine
 from engines.elegant_compliment_engine import ElegantComplimentEngine
 from engines.short_compliment_engine import ShortComplimentEngine
-import random
+from itertools import cycle
 
 app = Flask(__name__)
 
@@ -25,20 +25,26 @@ engine_selection_tracker = {
     'ShortComplimentEngine': 0
 }
 
+# List of compliment engine classes
+engine_classes = [
+    SimpleComplimentEngine,
+    FeatureComplimentEngine,
+    CreativeComplimentEngine,
+    ImaginativeComplimentEngine,
+    InspirationalComplimentEngine,
+    WhimsicalComplimentEngine,
+    AdmirationComplimentEngine,
+    ElegantComplimentEngine,
+    ShortComplimentEngine
+]
+
+# Create a round-robin cycle of the engine classes
+engine_cycle = cycle(engine_classes)
+
 @app.route('/compliment', methods=['GET'])
 def generate_compliment():
-    # Randomly select a compliment engine
-    engine_class = random.choice([
-        SimpleComplimentEngine,
-        FeatureComplimentEngine,
-        CreativeComplimentEngine,
-        ImaginativeComplimentEngine,
-        InspirationalComplimentEngine,
-        WhimsicalComplimentEngine,
-        AdmirationComplimentEngine,
-        ElegantComplimentEngine,
-        ShortComplimentEngine
-    ])
+    # Select the next compliment engine in the cycle
+    engine_class = next(engine_cycle)
     # Increment the selection count for the chosen engine
     engine_selection_tracker[engine_class.__name__] += 1
     engine = engine_class()
