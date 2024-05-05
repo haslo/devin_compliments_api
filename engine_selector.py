@@ -8,8 +8,6 @@ class EngineSelector:
 
     def get_next_engine(self):
         engine_class = next(self.engine_cycle)
-        # Added print statement for debugging
-        print(f"Selected engine: {engine_class.__name__}")
         self.engine_selection_tracker[engine_class.__name__] += 1
         return engine_class
 
