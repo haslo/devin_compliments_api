@@ -3,14 +3,13 @@ from logging.handlers import RotatingFileHandler
 from flask import Flask, jsonify
 from engine_selector import EngineSelector
 from dictionary_loader import DictionaryLoader
-# Removed the DirectPraiseComplimentEngine import as it's not used directly here
 
 # Set up detailed logging to capture all levels of logs
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 # Create a file handler to log messages to a file
 file_handler = RotatingFileHandler('app.log', maxBytes=10000, backupCount=1)
-file_handler.setLevel(logging.DEBUG)
+file_handler.setLevel(logging.INFO)
 file_handler.setFormatter(logging.Formatter(
     '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
 ))
