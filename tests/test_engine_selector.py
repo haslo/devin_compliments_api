@@ -1,6 +1,7 @@
+import pytest
 from engine_selector import EngineSelector
 
-class TestEngineSelector(EngineSelector):
+class EngineSelectorMock(EngineSelector):
     def __init__(self):
         super().__init__()
         self.engine_usage_count = {}

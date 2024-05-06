@@ -2,13 +2,13 @@ import json
 import unittest
 from app import app
 from engine_selector import EngineSelector
-from tests.test_engine_selector import TestEngineSelector
+from tests.test_engine_selector import EngineSelectorMock
 
 class TestAPIVariety(unittest.TestCase):
     def setUp(self):
         self.app = app.test_client()
-        # Instantiate TestEngineSelector without a list of engine classes
-        self.engine_selector = TestEngineSelector()
+        # Instantiate EngineSelectorMock without a list of engine classes
+        self.engine_selector = EngineSelectorMock()
         EngineSelector.instance = self.engine_selector
         # Use dependency injection to replace the default EngineSelector
         self.app.application.testing_engine_selector = self.engine_selector

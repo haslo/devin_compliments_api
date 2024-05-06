@@ -1,11 +1,9 @@
 import random
-from dictionary_loader import DictionaryLoader
 
 class ActionBasedComplimentEngine:
-    def __init__(self):
+    def __init__(self, dictionaries):
         self.template = "You {verb} {adverb}!"
-        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
-        self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.dictionaries = dictionaries
 
     def generate_compliment(self):
         verb = random.choice(self.dictionaries['action_based_verbs'])

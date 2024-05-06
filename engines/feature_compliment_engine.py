@@ -1,10 +1,8 @@
 import random
-from dictionary_loader import DictionaryLoader
 
 class FeatureComplimentEngine:
-    def __init__(self):
-        dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
-        self.dictionaries = dictionary_loader.load_dictionaries()
+    def __init__(self, dictionaries):
+        self.dictionaries = dictionaries
         self.templates = self.dictionaries['quality_templates']
 
     def generate_compliment(self):

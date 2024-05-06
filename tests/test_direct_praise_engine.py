@@ -1,9 +1,12 @@
 import unittest
 from engines.direct_praise_compliment_engine import DirectPraiseComplimentEngine
+from dictionary_loader import DictionaryLoader
 
 class TestDirectPraiseEngine(unittest.TestCase):
     def setUp(self):
-        self.engine = DirectPraiseComplimentEngine()
+        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+        self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.engine = DirectPraiseComplimentEngine(self.dictionaries)
 
     def test_generate_compliment(self):
         compliment = self.engine.generate_compliment()

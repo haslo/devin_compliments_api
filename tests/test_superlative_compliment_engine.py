@@ -1,9 +1,12 @@
 import unittest
 from engines.superlative_compliment_engine import SuperlativeComplimentEngine
+from dictionary_loader import DictionaryLoader
 
 class TestSuperlativeComplimentEngine(unittest.TestCase):
     def setUp(self):
-        self.engine = SuperlativeComplimentEngine()
+        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+        self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.engine = SuperlativeComplimentEngine(self.dictionaries)
 
     def test_generate_compliment(self):
         compliment = self.engine.generate_compliment()

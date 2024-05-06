@@ -1,11 +1,9 @@
 from random import choice
-from dictionary_loader import DictionaryLoader
 
 class ElegantComplimentEngine:
-    def __init__(self):
+    def __init__(self, dictionaries):
         self.template = "Your {feature} is as {adjective} as a {noun}, a true {noun2}."
-        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
-        self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.dictionaries = dictionaries
 
     def generate_compliment(self):
         feature = choice(self.dictionaries['features'])

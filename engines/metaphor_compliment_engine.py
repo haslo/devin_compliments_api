@@ -1,20 +1,13 @@
 import random
-from dictionary_loader import DictionaryLoader
-
-# Load dictionaries from YAML file
-dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
-dictionaries = dictionary_loader.load_dictionaries()
 
 class MetaphorComplimentEngine:
-    def __init__(self):
+    def __init__(self, dictionaries):
         self.template = "You are like {metaphor}."
-        self.components = {
-            'metaphor': 'metaphors'
-        }
+        self.dictionaries = dictionaries
 
     def generate_compliment(self):
         # Select a random metaphor from the dictionaries
-        metaphor = random.choice(dictionaries[self.components['metaphor']])
+        metaphor = random.choice(self.dictionaries['metaphors'])
         compliment = self.template.format(metaphor=metaphor)
         # Ensure the compliment ends with a period and does not include the engine ID
         return compliment
