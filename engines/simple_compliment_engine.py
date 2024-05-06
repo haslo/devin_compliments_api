@@ -8,20 +8,16 @@ class SimpleComplimentEngine:
         self.templates = self.dictionaries['direct_praise_templates']
 
     def generate_compliment(self):
+        # Select a random template from the direct praise templates
+        template = random.choice(self.templates)
+        # Identify placeholders in the template and select appropriate words
         compliment = ""
-        attempt_counter = 0
-        max_attempts = 10
-        # Ensure the compliment includes a person role and a personal quality
-        while not any(role in compliment for role in self.dictionaries['person_roles']) or not any(quality in compliment for quality in self.dictionaries['personal_qualities']):
-            if attempt_counter >= max_attempts:
-                # If max attempts reached, return a default compliment
-                return "You are appreciated!"
-            # Select a random template from the direct praise templates
-            template = random.choice(self.templates)
-            # Identify placeholders in the template and select appropriate words
+        # Ensure that the generated compliment contains a person role
+        person_roles = self.dictionaries['person_roles']
+        while not any(person_role in compliment for person_role in person_roles):
             compliment = template.format(
                 positive_adjective=random.choice(self.dictionaries['positive_adjectives']),
-                person_role=random.choice(self.dictionaries['person_roles']),
+                person_role=random.choice(person_roles),
                 personal_quality=random.choice(self.dictionaries['personal_qualities']),
                 adjective=random.choice(self.dictionaries['adjectives']),
                 feature=random.choice(self.dictionaries['features']),
@@ -33,7 +29,9 @@ class SimpleComplimentEngine:
                 shiny_object=random.choice(self.dictionaries['shiny_objects']),
                 verb=random.choice(self.dictionaries['verbs'])
             )
-            attempt_counter += 1
         # Capitalize the first letter of the compliment
         compliment = compliment[0].upper() + compliment[1:]
+        # Ensure the compliment ends with a period or exclamation mark
+        if not (compliment.endswith('.') or compliment.endswith('!')):
+            compliment += '.'
         return compliment

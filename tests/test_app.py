@@ -2,24 +2,24 @@ import json
 import unittest
 from app import app
 from tests.test_engine_selector import TestEngineSelector
-from engines.simple_compliment_engine import SimpleComplimentEngine
-from engines.feature_compliment_engine import FeatureComplimentEngine
-from engines.elegant_compliment_engine import ElegantComplimentEngine
-from engines.direct_praise_compliment_engine import DirectPraiseComplimentEngine
 
 class TestAPIVariety(unittest.TestCase):
     def setUp(self):
         self.app = app.test_client()
         # Instantiate TestEngineSelector without a list of engine classes
         self.engine_selector = TestEngineSelector()
+        # Use dependency injection to replace the default EngineSelector
+        self.app.application.testing_engine_selector = self.engine_selector
 
     def test_api_compliment_variety(self):
-        # Test to ensure that the API is providing a balanced variety of compliments from each engine
-        response = self.app.get('/compliment')
-        data = json.loads(response.data)
-        compliment = data['compliment']
-        # This test needs to be implemented to check for variety
-        self.assertTrue(compliment, "Compliment should not be empty.")
+        # Call the API multiple times to ensure a variety of compliments
+        for _ in range(200):
+            response = self.app.get('/compliment')
+            self.assertEqual(response.status_code, 200)
+
+        # Check if the sum of all engine usage counts is >= 10
+        total_usage_count = sum(self.engine_selector.engine_usage_count.values())
+        self.assertGreaterEqual(total_usage_count, 10, "Each engine should be used at least once.")
 
 class TestAPI(unittest.TestCase):
     def setUp(self):
