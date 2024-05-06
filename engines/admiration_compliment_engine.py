@@ -1,11 +1,9 @@
 from random import choice
-from dictionary_loader import DictionaryLoader
 
 class AdmirationComplimentEngine:
-    def __init__(self):
+    def __init__(self, dictionaries):
         self.template = "You radiate {adjective1} energy, it's {adverb} {adjective2}"
-        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
-        self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.dictionaries = dictionaries
 
     def generate_compliment(self):
         adjective1 = choice(self.dictionaries['adjectives'])

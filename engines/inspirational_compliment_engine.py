@@ -1,11 +1,9 @@
 from random import choice
-from dictionary_loader import DictionaryLoader
 
 class InspirationalComplimentEngine:
-    def __init__(self):
+    def __init__(self, dictionaries):
         self.template = "Your {adjective} {noun} {verb} the world."
-        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
-        self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.dictionaries = dictionaries
 
     def generate_compliment(self):
         adjective = choice(self.dictionaries['adjectives'])
