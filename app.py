@@ -1,4 +1,5 @@
 import logging
+from logging.handlers import RotatingFileHandler
 from flask import Flask, jsonify
 from engine_selector import EngineSelector
 from dictionary_loader import DictionaryLoader
@@ -6,6 +7,16 @@ from dictionary_loader import DictionaryLoader
 
 # Set up detailed logging to capture all levels of logs
 logging.basicConfig(level=logging.DEBUG)
+
+# Create a file handler to log messages to a file
+file_handler = RotatingFileHandler('app.log', maxBytes=10000, backupCount=1)
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(logging.Formatter(
+    '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
+))
+
+# Add the file handler to the root logger
+logging.getLogger().addHandler(file_handler)
 
 app = Flask(__name__)
 
