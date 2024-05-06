@@ -6,7 +6,7 @@ This project is a Python Flask API that generates random compliments directed at
 ## Development Setup
 To set up the development environment for this project, follow these steps:
 
-1. Ensure Python 3.8+ is installed on your system.
+1. Ensure Python 3.10.12 is installed on your system.
 2. Clone the repository to your local machine.
 3. Navigate to the cloned repository directory.
 4. Create a virtual environment with `python -m venv venv`.
