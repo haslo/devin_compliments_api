@@ -1,11 +1,9 @@
 import random
-from dictionary_loader import DictionaryLoader
 
 class DirectPraiseComplimentEngine:
-    def __init__(self):
+    def __init__(self, dictionaries):
         self.template = "You are a {adjective} {noun}!"
-        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
-        self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.dictionaries = dictionaries
 
     def generate_compliment(self):
         adjective = random.choice(self.dictionaries['direct_praise_adjectives'])

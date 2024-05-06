@@ -14,9 +14,9 @@ from tests.test_engine_selector import TestEngineSelector
 
 class TestSimpleComplimentEngine(unittest.TestCase):
     def setUp(self):
-        self.engine = SimpleComplimentEngine()
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.engine = SimpleComplimentEngine(self.dictionaries)
 
     def test_generate_compliment(self):
         compliment = self.engine.generate_compliment()
@@ -42,9 +42,9 @@ class TestSimpleComplimentEngine(unittest.TestCase):
 
 class TestFeatureComplimentEngine(unittest.TestCase):
     def setUp(self):
-        self.engine = FeatureComplimentEngine()
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.engine = FeatureComplimentEngine(self.dictionaries)
 
     def test_generate_compliment(self):
         compliment = self.engine.generate_compliment()
@@ -62,9 +62,9 @@ class TestFeatureComplimentEngine(unittest.TestCase):
 
 class TestCreativeComplimentEngine(unittest.TestCase):
     def setUp(self):
-        self.engine = CreativeComplimentEngine()
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.engine = CreativeComplimentEngine(self.dictionaries)
 
     def test_generate_compliment(self):
         compliment = self.engine.generate_compliment()
@@ -89,9 +89,9 @@ class TestCreativeComplimentEngine(unittest.TestCase):
 
 class TestImaginativeComplimentEngine(unittest.TestCase):
     def setUp(self):
-        self.engine = ImaginativeComplimentEngine()
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.engine = ImaginativeComplimentEngine(self.dictionaries)
 
     def test_generate_compliment(self):
         compliment = self.engine.generate_compliment()
@@ -109,9 +109,9 @@ class TestAdmirationComplimentEngine(unittest.TestCase):
     def setUp(self):
         # Assuming AdmirationComplimentEngine is implemented in admiration_compliment_engine.py
         from engines.admiration_compliment_engine import AdmirationComplimentEngine
-        self.engine = AdmirationComplimentEngine()
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.engine = AdmirationComplimentEngine(self.dictionaries)
 
     def test_generate_compliment(self):
         compliment = self.engine.generate_compliment()
@@ -129,9 +129,9 @@ class TestAdmirationComplimentEngine(unittest.TestCase):
 
 class TestInspirationalComplimentEngine(unittest.TestCase):
     def setUp(self):
-        self.engine = InspirationalComplimentEngine()
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.engine = InspirationalComplimentEngine(self.dictionaries)
 
     def test_generate_compliment(self):
         compliment = self.engine.generate_compliment()
@@ -149,9 +149,9 @@ class TestInspirationalComplimentEngine(unittest.TestCase):
 
 class TestWhimsicalComplimentEngine(unittest.TestCase):
     def setUp(self):
-        self.engine = WhimsicalComplimentEngine()
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.engine = WhimsicalComplimentEngine(self.dictionaries)
 
     def test_generate_compliment(self):
         compliment = self.engine.generate_compliment()
@@ -211,9 +211,9 @@ class TestWhimsicalComplimentEngine(unittest.TestCase):
 class TestElegantComplimentEngine(unittest.TestCase):
     def setUp(self):
         # The ElegantComplimentEngine class will be implemented in elegant_compliment_engine.py
-        self.engine = ElegantComplimentEngine()
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.engine = ElegantComplimentEngine(self.dictionaries)
 
     def test_generate_compliment(self):
         compliment = self.engine.generate_compliment()
@@ -233,9 +233,9 @@ class TestElegantComplimentEngine(unittest.TestCase):
 
 class TestShortComplimentEngine(unittest.TestCase):
     def setUp(self):
-        self.engine = ShortComplimentEngine()
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.engine = ShortComplimentEngine(self.dictionaries)
 
     def test_generate_compliment(self):
         compliment = self.engine.generate_compliment()

@@ -4,9 +4,9 @@ from dictionary_loader import DictionaryLoader
 
 class TestMetaphorComplimentEngine(unittest.TestCase):
     def setUp(self):
-        self.engine = MetaphorComplimentEngine()
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.engine = MetaphorComplimentEngine(self.dictionaries)
 
     def test_generate_compliment_returns_string(self):
         compliment = self.engine.generate_compliment()
