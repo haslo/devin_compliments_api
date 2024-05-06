@@ -32,6 +32,20 @@ Example response:
 }
 ```
 
+## User Acceptance Testing
+To perform user acceptance testing, follow these steps:
+
+1. Ensure the Flask application is running by executing `flask run`.
+2. Send a GET request to the `/compliment` endpoint using a tool like `curl` or Postman.
+3. Verify that the response contains a `compliment` field with a string value.
+4. Test multiple requests to ensure a variety of compliments are generated.
+5. Confirm that the compliments are appropriate and adhere to the project's guidelines.
+
+Example command for testing with `curl`:
+```
+curl -X GET http://localhost:5000/compliment
+```
+
 ## Testing
 Test-Driven Development (TDD) is used throughout this project. To run the tests, execute the following command from the repository root:
 
