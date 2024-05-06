@@ -17,4 +17,4 @@ class CreativeComplimentEngine:
         compliment = self.template.format(adjective1=adjective1, noun1=noun1, adjective2=adjective2, noun2=noun2)
         # Capitalize the first letter of the compliment
         compliment = compliment[0].upper() + compliment[1:]
-        return f"{compliment}."
+        return compliment

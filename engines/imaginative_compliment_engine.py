@@ -20,4 +20,4 @@ class ImaginativeComplimentEngine:
         compliment = self.template.format(comparative=comparative, imaginary_thing=imaginary_thing, presence=presence)
         # Capitalize the first letter of the compliment
         compliment = compliment[0].upper() + compliment[1:]
-        return f"{compliment}."
+        return compliment

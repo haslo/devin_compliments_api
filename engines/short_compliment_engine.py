@@ -14,4 +14,4 @@ class ShortComplimentEngine:
         compliment = self.template.format(adjective=adjective, noun=noun)
         # Capitalize the first letter of the compliment
         compliment = compliment[0].upper() + compliment[1:]
-        return f"{compliment}."
+        return compliment

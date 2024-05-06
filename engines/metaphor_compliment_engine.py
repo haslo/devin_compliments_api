@@ -17,4 +17,4 @@ class MetaphorComplimentEngine:
         metaphor = random.choice(dictionaries[self.components['metaphor']])
         compliment = self.template.format(metaphor=metaphor)
         # Ensure the compliment ends with a period and does not include the engine ID
-        return f"{compliment}"
+        return compliment
