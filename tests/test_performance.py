@@ -23,7 +23,6 @@ class TestPerformance(unittest.TestCase):
 
             # Calculate the average response time
             average_time = total_time / num_requests
-            print(f'Average response time for {num_requests} requests: {average_time:.5f} seconds')
             # Assert that the average response time is less than the target benchmark
             target_benchmark = 0.1  # Example benchmark in seconds
             self.assertLess(average_time, target_benchmark, f"Average response time exceeds the target benchmark of {target_benchmark} seconds.")
