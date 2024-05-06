@@ -380,6 +380,7 @@ quality_templates:
   - "Your {personal_quality} is {positive_adjective}."
   - "You radiate {positive_trait} like a {shiny_object}."
   - "You embody {positive_trait} in every way."
+  - "Your {feature} is as {positive_adjective} as a {natural_phenomenon}."
 
 action_templates:
   - "You {verb} everyone with your {positive_trait}."
