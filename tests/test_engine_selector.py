@@ -1,5 +1,7 @@
+import pytest
 from engine_selector import EngineSelector
 
+@pytest.mark.skip(reason="This class is not a test case")
 class TestEngineSelector(EngineSelector):
     def __init__(self):
         super().__init__()
