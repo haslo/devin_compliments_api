@@ -4,8 +4,8 @@ from engine_selector import EngineSelector
 from dictionary_loader import DictionaryLoader
 # Removed the DirectPraiseComplimentEngine import as it's not used directly here
 
-# Set up basic logging
-logging.basicConfig(level=logging.INFO)
+# Set up detailed logging to capture all levels of logs
+logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
@@ -16,15 +16,15 @@ dictionaries = dictionary_loader.load_dictionaries()
 @app.route('/compliment', methods=['GET'])
 def generate_compliment():
     try:
-        logging.info('Generating a compliment...')
+        logging.debug('Generating a compliment...')
         engine_selector = EngineSelector.singleton()
         # Select the next compliment engine in the cycle using EngineSelector
         engine_class = engine_selector.get_next_engine()
-        logging.info(f'Using engine: {engine_class.__name__}')
+        logging.debug(f'Using engine: {engine_class.__name__}')
         # Pass the loaded dictionaries to the engine instance
         engine = engine_class(dictionaries)
         compliment = engine.generate_compliment()
-        logging.info(f'Generated compliment: {compliment}')
+        logging.debug(f'Generated compliment: {compliment}')
         return jsonify({'compliment': compliment})
     except Exception as e:
         logging.error(f'Error generating compliment: {e}', exc_info=True)
