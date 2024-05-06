@@ -10,7 +10,7 @@ from engines.whimsical_compliment_engine import WhimsicalComplimentEngine
 from engines.elegant_compliment_engine import ElegantComplimentEngine
 from engines.short_compliment_engine import ShortComplimentEngine
 from dictionary_loader import DictionaryLoader
-from .test_engine_selector import TestEngineSelector
+from tests.test_engine_selector import TestEngineSelector
 
 class TestSimpleComplimentEngine(unittest.TestCase):
     def setUp(self):
@@ -105,20 +105,27 @@ class TestImaginativeComplimentEngine(unittest.TestCase):
         if 'because' in compliment:
             parts = compliment.split('because')
             comparative_part = parts[0].split()
-            # Check for 'shooting star' as a single entry in the list of imaginative imaginary things
             imaginary_thing_index = comparative_part.index('than') + 1
+            # Join the parts to form the full phrase for 'imaginative_imaginary_things'
             imaginary_thing = ' '.join(comparative_part[imaginary_thing_index:]).rstrip(',')
+            # Validate the full phrase against the dictionary
             self.assertIn(imaginary_thing.lower(), [thing.lower() for thing in self.dictionaries['imaginative_imaginary_things']], f"The imaginary thing {imaginary_thing} is not in the list of imaginative imaginary things.")
             presence_part = parts[1].split()
-            self.assertIn(presence_part[1].rstrip('.'), self.dictionaries['imaginative_presences'])
+            # Extract the full presence part, accounting for multiple words and punctuation
+            presence = ' '.join(presence_part[1:]).rstrip('.').lstrip('the ').lstrip('a ').lstrip('an ')
+            self.assertIn(presence.lower(), [presence.lower() for presence in self.dictionaries['imaginative_presences']], f"The presence {presence} is not in the list of imaginative presences.")
         else:
             parts = compliment.split()
             self.assertIn(parts[1].lower(), [comp.lower() for comp in self.dictionaries['imaginative_comparatives']], f"The comparative {parts[1]} is not in the list of imaginative comparatives.")
-            # Check for 'shooting star' as a single entry in the list of imaginative imaginary things
             imaginary_thing_index = parts.index('than') + 1
+            # Join the parts to form the full phrase for 'imaginative_imaginary_things'
             imaginary_thing = ' '.join(parts[imaginary_thing_index:]).rstrip(',')
+            # Validate the full phrase against the dictionary
             self.assertIn(imaginary_thing.lower(), [thing.lower() for thing in self.dictionaries['imaginative_imaginary_things']], f"The imaginary thing {imaginary_thing} is not in the list of imaginative imaginary things.")
-            self.assertIn(parts[5].rstrip('.'), self.dictionaries['imaginative_presences'])
+            # Extract the full presence part, accounting for multiple words and punctuation
+            presence_index = parts.index('presence') + 1
+            presence = ' '.join(parts[presence_index:]).rstrip('.').lstrip('the ').lstrip('a ').lstrip('an ')
+            self.assertIn(presence.lower(), [presence.lower() for presence in self.dictionaries['imaginative_presences']], f"The presence {presence} is not in the list of imaginative presences.")
         self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
         self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
 

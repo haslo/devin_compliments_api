@@ -9,8 +9,8 @@ class CreativeComplimentEngine:
 
     def generate_compliment(self):
         # Select a random contextually appropriate pair for adjective and noun
-        adjective = random.choice(self.dictionaries['short_adjectives'])
-        noun = random.choice(self.dictionaries['short_nouns'])
+        adjective = random.choice(self.dictionaries['creative_adjectives'])
+        noun = random.choice(self.dictionaries['creative_nouns'])
         # Select a random contextually appropriate pair for creative_adjective and creative_noun
         creative_adjective = random.choice(self.dictionaries['creative_adjectives'])
         creative_noun = random.choice(self.dictionaries['creative_nouns'])
