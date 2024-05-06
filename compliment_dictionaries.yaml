@@ -38,15 +38,16 @@ reality_aspects:
   - present
 
 features:
-  - personality
-  - sense of humor
-  - presence
-  - sense
-  - humor
-  - voice
-  - style
-  - manner
   - smile
+  - laughter
+  - style
+  - approach
+  - perspective
+  - insight
+  - dedication
+  - spirit
+  - energy
+  - presence
 
 compliments:
   - inspiring
@@ -72,6 +73,18 @@ positive_adjectives:
   - exceptional
   - extraordinary
   - amazing
+  - kind
+  - intelligent
+  - creative
+  - dedicated
+  - thoughtful
+  - compassionate
+  - genuine
+  - vibrant
+  - dynamic
+  - innovative
+  - inspiring
+  - sincere
 
 traits:
   - kindness
@@ -87,6 +100,13 @@ natural_phenomena:
   - sunrise
   - rainbow
   - northern lights
+  - starry night
+  - blooming garden
+  - ocean wave
+  - mountain peak
+  - autumn breeze
+  - spring bloom
+  - winter's first snow
 
 objects:
   - masterpiece
@@ -112,6 +132,13 @@ personal_qualities:
   - kindness
   - intelligence
   - creativity
+  - empathy
+  - humor
+  - integrity
+  - resilience
+  - courage
+  - passion
+  - wisdom
 
 positive_things:
   - masterpiece
@@ -170,8 +197,15 @@ fictional_characters:
 
 shiny_objects:
   - star
-  - lighthouse
-  - firework
+  - gemstone
+  - lantern
+  - firefly
+  - candlelight
+  - sunrise
+  - moonbeam
+  - glitter
+  - sparkle
+  - gleam
 
 time_of_day:
   - morning
@@ -225,9 +259,16 @@ presences:
   - with
 
 verbs:
-  - enlighten
-  - inspire
-  - empower
+  - uplift
+  - motivate
+  - encourage
+  - brighten
+  - influence
+  - transform
+  - innovate
+  - create
+  - lead
+  - pioneer
 
 # New sections for contextually appropriate pairs and quadruples
 short_adjectives:
@@ -263,35 +304,35 @@ elegant_noun2:
 
 # New sections for the ImaginativeComplimentEngine
 imaginative_comparatives:
-  - more amazing
-  - sweeter
-  - more magical
+  - as amazing as
+  - as sweet as
+  - as magical as
 
 imaginative_imaginary_things:
-  - unicorn
-  - dream
-  - fairy tale
+  - a unicorn's grace
+  - a shooting star's brilliance
+  - a fairy tale's wonder
 
 imaginative_presences:
-  - real
-  - tangible
-  - present
+  - the reality of your kindness
+  - the tangibility of your creativity
+  - the sincerity of your words
 
 # New sections for the WhimsicalComplimentEngine
 whimsical_adjectives:
-  - more delightful
-  - sweeter
-  - more magical
+  - delightful
+  - sweet
+  - magical
 
 whimsical_imaginary_things:
-  - a fairy tale
-  - a fantasy
-  - a legend
+  - a fairy tale's charm
+  - a fantasy's allure
+  - a legend's mystique
 
 whimsical_reality_aspects:
-  - real
-  - tangible
-  - present
+  - reality's warmth
+  - tangibility's comfort
+  - presence's reassurance
 
 creative_adjectives:
   - brilliant
@@ -369,20 +410,18 @@ feature_adjective_pairs:
 direct_praise_templates:
   - "You're an incredibly {positive_adjective} {person_role}."
   - "Your {personal_quality} is truly {positive_adjective}."
-  - "You have an {adjective} {feature} that {action}."
+  - "Your {feature} shines with the brightness of {natural_phenomenon}."
 
 metaphor_templates:
-  - "You're like a {natural_phenomenon}, {positive_adjective} and {positive_adjective}."
-  - "You have the {positive_trait} of a {celestial_body}, {positive_adjective} and {positive_adjective}."
-  - "Your {feature} is a {positive_thing}, {positive_adjective} and {positive_adjective}."
+  - "You're like a {natural_phenomenon}, {positive_adjective} and full of {positive_trait}."
+  - "You have the {positive_trait} of a {celestial_body}, always {positive_adjective} and {positive_adjective}."
+  - "Your {feature} is a {positive_thing}, always {positive_adjective} and {positive_adjective}."
 
 quality_templates:
   - "Your {personal_quality} is {positive_adjective}."
   - "You radiate {positive_trait} like a {shiny_object}."
   - "You embody {positive_trait} in every way."
-  - "Your {feature} is as {positive_adjective} as a {natural_phenomenon}."
 
 action_templates:
   - "You {verb} everyone with your {positive_trait}."
   - "Your ability to {verb} is {positive_adjective}."
-  - "You {verb} like a {celestial_body}, {positive_adjective} and {positive_adjective}."
