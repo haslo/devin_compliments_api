@@ -1,5 +1,6 @@
 import unittest
 import string
+import re
 from engines.simple_compliment_engine import SimpleComplimentEngine
 from engines.feature_compliment_engine import FeatureComplimentEngine
 from engines.creative_compliment_engine import CreativeComplimentEngine
@@ -9,7 +10,7 @@ from engines.whimsical_compliment_engine import WhimsicalComplimentEngine
 from engines.elegant_compliment_engine import ElegantComplimentEngine
 from engines.short_compliment_engine import ShortComplimentEngine
 from dictionary_loader import DictionaryLoader
-from test_engine_selector import TestEngineSelector
+from .test_engine_selector import TestEngineSelector
 
 class TestSimpleComplimentEngine(unittest.TestCase):
     def setUp(self):
@@ -23,12 +24,18 @@ class TestSimpleComplimentEngine(unittest.TestCase):
 
     def test_compliment_structure(self):
         compliment = self.engine.generate_compliment()
-        parts = compliment.split()
-        # Check if the adjective and noun are in the dictionaries
-        adjective = parts[2].strip(string.punctuation)
-        noun = parts[3].strip(string.punctuation)
-        self.assertIn(adjective, self.dictionaries['adjectives'], f"The word {adjective} is not in the list of adjectives.")
-        self.assertIn(noun, self.dictionaries['nouns'], f"The word {noun} is not in the list of nouns.")
+        print("Generated compliment:", compliment)
+        # Check if the compliment matches one of the direct praise templates
+        self.assertTrue(any(compliment.startswith(template.split('{')[0]) for template in self.dictionaries['direct_praise_templates']), "Compliment does not match any direct praise templates.")
+        # Use regular expressions to check for the presence of positive adjectives
+        positive_adjective_pattern = r'\b(?:' + '|'.join(re.escape(adjective) for adjective in self.dictionaries['positive_adjectives']) + r')\b'
+        print("Positive adjective pattern:", positive_adjective_pattern)
+        self.assertTrue(re.search(positive_adjective_pattern, compliment), "Compliment does not contain a positive adjective.")
+        self.assertTrue(any(word in compliment for word in self.dictionaries['person_roles']), "Compliment does not contain a person role.")
+        self.assertTrue(any(word in compliment for word in self.dictionaries['personal_qualities']), "Compliment does not contain a personal quality.")
+        # Ensure the compliment starts with an uppercase letter and ends with a period
+        self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
+        self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
 
     def test_randomness_of_compliments(self):
         compliments = set(self.engine.generate_compliment() for _ in range(10))
@@ -36,6 +43,7 @@ class TestSimpleComplimentEngine(unittest.TestCase):
 
     def test_template_integrity(self):
         compliment = self.engine.generate_compliment()
+        print("Generated compliment:", compliment)
         # Check that the placeholders are filled
         self.assertNotIn('{adjective}', compliment, "The placeholder {adjective} is not filled in the compliment")
         self.assertNotIn('{noun}', compliment, "The placeholder {noun} is not filled in the compliment")
@@ -52,11 +60,12 @@ class TestFeatureComplimentEngine(unittest.TestCase):
 
     def test_compliment_structure(self):
         compliment = self.engine.generate_compliment()
-        # Extract the feature and adjective from the compliment
-        # Validate the feature and adjective against their respective dictionaries
-        # but since any of those can be multi word, splitting by whitespace would be stupid (but Devin didn't realize)
-        self.assertTrue(any(entry in compliment for entry in self.dictionaries['features']))
-        self.assertTrue(any(entry in compliment for entry in self.dictionaries['adjectives']))
+        # Use regular expressions to check for the presence of features
+        feature_pattern = r'\b(?:' + '|'.join(re.escape(feature) for feature in self.dictionaries['features']) + r')\b'
+        self.assertTrue(re.search(feature_pattern, compliment), "Compliment does not contain a feature.")
+        # Use regular expressions to check for the presence of adjectives
+        adjective_pattern = r'\b(?:' + '|'.join(re.escape(adjective) for adjective in self.dictionaries['adjectives']) + r')\b'
+        self.assertTrue(re.search(adjective_pattern, compliment), "Compliment does not contain an adjective.")
         # Check that the compliment starts with an uppercase letter and ends with a period
         self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
         self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
@@ -67,9 +76,14 @@ class TestFeatureComplimentEngine(unittest.TestCase):
 
     def test_template_integrity(self):
         compliment = self.engine.generate_compliment()
-        # Validate the feature and adjective against their respective dictionaries (since they're multi-word, we can't split by whitespace)
-        self.assertTrue(any(entry in compliment for entry in self.dictionaries['features']))
-        self.assertTrue(any(entry in compliment for entry in self.dictionaries['adjectives']))
+        print("Generated compliment:", compliment)
+        # Use regular expressions to validate the feature and adjective against their respective dictionaries
+        feature_pattern = r'\b(?:' + '|'.join(re.escape(feature) for feature in self.dictionaries['features']) + r')\b'
+        adjective_pattern = r'\b(?:' + '|'.join(re.escape(adjective) for adjective in self.dictionaries['adjectives']) + r')\b'
+        print("Feature pattern:", feature_pattern)
+        print("Adjective pattern:", adjective_pattern)
+        self.assertTrue(re.search(feature_pattern, compliment), "Compliment does not contain a valid feature.")
+        self.assertTrue(re.search(adjective_pattern, compliment), "Compliment does not contain a valid adjective.")
 
 class TestCreativeComplimentEngine(unittest.TestCase):
     def setUp(self):
