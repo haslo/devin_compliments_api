@@ -1,26 +1,29 @@
 from app import app
+import unittest
 import time
 import json
 
-# Create a test client
-with app.test_client() as client:
+class TestPerformance(unittest.TestCase):
 
-    # Measure the response time for multiple requests
-    num_requests = 100
-    total_time = 0
-    for _ in range(num_requests):
-        start_time = time.time()
-        response = client.get('/compliment')
-        total_time += time.time() - start_time
+    def test_response_time(self):
+        # Create a test client
+        with app.test_client() as client:
 
-        # Print out the response data for debugging
-        print(f'Response status code: {response.status_code}')
-        print(f'Response data: {response.data.decode()}')
+            # Measure the response time for multiple requests
+            num_requests = 100
+            total_time = 0
+            for _ in range(num_requests):
+                start_time = time.time()
+                response = client.get('/compliment')
+                total_time += time.time() - start_time
 
-        # Ensure the request was successful
-        assert response.status_code == 200
-        assert 'compliment' in response.get_json()
+                # Ensure the request was successful
+                self.assertEqual(response.status_code, 200)
+                self.assertIn('compliment', response.get_json())
 
-    # Calculate the average response time
-    average_time = total_time / num_requests
-    print(f'Average response time for {num_requests} requests: {average_time:.5f} seconds')
+            # Calculate the average response time
+            average_time = total_time / num_requests
+            print(f'Average response time for {num_requests} requests: {average_time:.5f} seconds')
+            # Assert that the average response time is less than the target benchmark
+            target_benchmark = 0.1  # Example benchmark in seconds
+            self.assertLess(average_time, target_benchmark, f"Average response time exceeds the target benchmark of {target_benchmark} seconds.")
