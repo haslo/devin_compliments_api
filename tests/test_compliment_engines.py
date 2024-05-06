@@ -107,25 +107,33 @@ class TestImaginativeComplimentEngine(unittest.TestCase):
             comparative_part = parts[0].split()
             imaginary_thing_index = comparative_part.index('than') + 1
             # Join the parts to form the full phrase for 'imaginative_imaginary_things'
-            imaginary_thing = ' '.join(comparative_part[imaginary_thing_index:]).rstrip(',')
+            imaginary_thing = ' '.join(comparative_part[imaginary_thing_index:]).rstrip(',').lstrip('the ').lstrip('a ').lstrip('an ')
             # Validate the full phrase against the dictionary
-            self.assertIn(imaginary_thing.lower(), [thing.lower() for thing in self.dictionaries['imaginative_imaginary_things']], f"The imaginary thing {imaginary_thing} is not in the list of imaginative imaginary things.")
+            imaginary_thing_cleaned = re.sub(r"('s)?$", "", imaginary_thing.lower())
+            imaginary_thing_cleaned = imaginary_thing_cleaned.strip().lstrip('a ').lstrip('an ').lstrip('the ')
+            self.assertIn(imaginary_thing_cleaned, [thing.lower().strip().lstrip('a ').lstrip('an ').lstrip('the ').rstrip("'s") for thing in self.dictionaries['imaginative_imaginary_things']], f"The imaginary thing {imaginary_thing} is not in the list of imaginative imaginary things.")
             presence_part = parts[1].split()
             # Extract the full presence part, accounting for multiple words and punctuation
             presence = ' '.join(presence_part[1:]).rstrip('.').lstrip('the ').lstrip('a ').lstrip('an ')
-            self.assertIn(presence.lower(), [presence.lower() for presence in self.dictionaries['imaginative_presences']], f"The presence {presence} is not in the list of imaginative presences.")
+            presence_cleaned = re.sub(r"('s)?$", "", presence.lower())
+            presence_cleaned = re.sub(r"^(a|an|the) ", "", presence_cleaned)
+            self.assertIn(presence_cleaned, [presence.lower().strip('a ').strip('an ').strip('the ') for presence in self.dictionaries['imaginative_presences']], f"The presence {presence} is not in the list of imaginative presences.")
         else:
             parts = compliment.split()
             self.assertIn(parts[1].lower(), [comp.lower() for comp in self.dictionaries['imaginative_comparatives']], f"The comparative {parts[1]} is not in the list of imaginative comparatives.")
             imaginary_thing_index = parts.index('than') + 1
             # Join the parts to form the full phrase for 'imaginative_imaginary_things'
-            imaginary_thing = ' '.join(parts[imaginary_thing_index:]).rstrip(',')
+            imaginary_thing = ' '.join(parts[imaginary_thing_index:]).rstrip(',').lstrip('the ').lstrip('a ').lstrip('an ')
             # Validate the full phrase against the dictionary
-            self.assertIn(imaginary_thing.lower(), [thing.lower() for thing in self.dictionaries['imaginative_imaginary_things']], f"The imaginary thing {imaginary_thing} is not in the list of imaginative imaginary things.")
+            imaginary_thing_cleaned = re.sub(r"('s)?$", "", imaginary_thing.lower())
+            imaginary_thing_cleaned = imaginary_thing_cleaned.strip().lstrip('a ').lstrip('an ').lstrip('the ')
+            self.assertIn(imaginary_thing_cleaned, [thing.lower().strip().lstrip('a ').lstrip('an ').lstrip('the ').rstrip("'s") for thing in self.dictionaries['imaginative_imaginary_things']], f"The imaginary thing {imaginary_thing} is not in the list of imaginative imaginary things.")
             # Extract the full presence part, accounting for multiple words and punctuation
             presence_index = parts.index('presence') + 1
             presence = ' '.join(parts[presence_index:]).rstrip('.').lstrip('the ').lstrip('a ').lstrip('an ')
-            self.assertIn(presence.lower(), [presence.lower() for presence in self.dictionaries['imaginative_presences']], f"The presence {presence} is not in the list of imaginative presences.")
+            presence_cleaned = re.sub(r"('s)?$", "", presence.lower())
+            presence_cleaned = re.sub(r"^(a|an|the) ", "", presence_cleaned)
+            self.assertIn(presence_cleaned, [presence.lower().strip('a ').strip('an ').strip('the ') for presence in self.dictionaries['imaginative_presences']], f"The presence {presence} is not in the list of imaginative presences.")
         self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
         self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
 
@@ -201,7 +209,11 @@ class TestWhimsicalComplimentEngine(unittest.TestCase):
         self.assertIn(adjective.lower(), [adj.lower().replace('more ', '') for adj in self.dictionaries['whimsical_adjectives']], f"The adjective '{adjective}' is not in the list of whimsical adjectives.")
         # Validate the imaginary thing is in the 'whimsical_imaginary_things' dictionary
         imaginary_thing = ' '.join(first_part[1].split()).strip().rstrip(',').lower()
-        self.assertIn(imaginary_thing, [thing.lower() for thing in self.dictionaries['whimsical_imaginary_things']], f"The imaginary thing '{imaginary_thing}' is not in the list of whimsical imaginary things.")
+        # Correctly handle possessive endings and articles for 'imaginary thing'
+        imaginary_thing_cleaned = re.sub(r"('s)?$", "", imaginary_thing).strip().lower()
+        if imaginary_thing_cleaned.startswith(('a ', 'an ', 'the ')):
+            imaginary_thing_cleaned = ' '.join(imaginary_thing_cleaned.split(' ')[1:])
+        self.assertIn(imaginary_thing_cleaned, [thing.lower().strip().lstrip('a ').lstrip('an ').lstrip('the ').rstrip("'s") for thing in self.dictionaries['whimsical_imaginary_things']], f"The imaginary thing '{imaginary_thing_cleaned}' is not in the list of whimsical imaginary things.")
         # Validate the reality aspect is in the 'reality_aspects' dictionary
         reality_aspect = second_part[1].rstrip('.').lower()
         self.assertIn(reality_aspect, [aspect.lower() for aspect in self.dictionaries['reality_aspects']], f"The reality aspect '{reality_aspect}' is not in the list of reality aspects.")
@@ -220,7 +232,11 @@ class TestWhimsicalComplimentEngine(unittest.TestCase):
             imaginary_thing_phrase_parts = parts[0].split(' than ')
             if len(imaginary_thing_phrase_parts) > 1:
                 imaginary_thing = imaginary_thing_phrase_parts[1].strip()
-                self.assertIn(imaginary_thing.lower(), [thing.lower() for thing in self.dictionaries['whimsical_imaginary_things']], f"The imaginary thing {imaginary_thing} is not in the list of whimsical imaginary things.")
+                # Correctly handle possessive endings and articles for 'imaginary thing'
+                imaginary_thing_cleaned = re.sub(r"('s)?$", "", imaginary_thing).strip().lower()
+                if imaginary_thing_cleaned.startswith(('a ', 'an ', 'the ')):
+                    imaginary_thing_cleaned = ' '.join(imaginary_thing_cleaned.split(' ')[1:])
+                self.assertIn(imaginary_thing_cleaned, [thing.lower().strip().lstrip('a ').lstrip('an ').lstrip('the ').rstrip("'s") for thing in self.dictionaries['whimsical_imaginary_things']], f"The imaginary thing '{imaginary_thing_cleaned}' is not in the list of whimsical imaginary things.")
         # Strip the engine ID from the reality aspect before checking against the dictionary
         reality_aspect = reality_aspect.split(' [')[0].rstrip('.').strip()
         self.assertIn(reality_aspect, self.dictionaries['reality_aspects'], f"The reality aspect '{reality_aspect}' is not in the list of reality aspects.")

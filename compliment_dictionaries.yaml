@@ -304,19 +304,19 @@ elegant_noun2:
 
 # New sections for the ImaginativeComplimentEngine
 imaginative_comparatives:
-  - as amazing as
-  - as sweet as
-  - as magical as
+  - amazing
+  - sweet
+  - magical
 
 imaginative_imaginary_things:
-  - a unicorn's grace
-  - a shooting star's brilliance
-  - a fairy tale's wonder
+  - unicorn's grace
+  - shooting star's brilliance
+  - fairy tale's wonder
 
 imaginative_presences:
-  - the reality of your kindness
-  - the tangibility of your creativity
-  - the sincerity of your words
+  - reality of your kindness
+  - tangibility of your creativity
+  - sincerity of your words
 
 # New sections for the WhimsicalComplimentEngine
 whimsical_adjectives:
