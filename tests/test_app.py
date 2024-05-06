@@ -1,6 +1,7 @@
 import json
 import unittest
 from app import app
+from engine_selector import EngineSelector
 from tests.test_engine_selector import TestEngineSelector
 
 class TestAPIVariety(unittest.TestCase):
@@ -8,6 +9,7 @@ class TestAPIVariety(unittest.TestCase):
         self.app = app.test_client()
         # Instantiate TestEngineSelector without a list of engine classes
         self.engine_selector = TestEngineSelector()
+        EngineSelector.instance = self.engine_selector
         # Use dependency injection to replace the default EngineSelector
         self.app.application.testing_engine_selector = self.engine_selector
 
@@ -16,10 +18,8 @@ class TestAPIVariety(unittest.TestCase):
         for _ in range(200):
             response = self.app.get('/compliment')
             self.assertEqual(response.status_code, 200)
-
-        # Check if the sum of all engine usage counts is >= 10
-        total_usage_count = sum(self.engine_selector.engine_usage_count.values())
-        self.assertGreaterEqual(total_usage_count, 10, "Each engine should be used at least once.")
+        total_usage_count = len(self.engine_selector.engine_usage_count)
+        self.assertGreaterEqual(total_usage_count, 10, "Several engines should have been used.")
 
 class TestAPI(unittest.TestCase):
     def setUp(self):

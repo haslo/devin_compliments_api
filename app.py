@@ -3,11 +3,9 @@ from engine_selector import EngineSelector
 
 app = Flask(__name__)
 
-# Initialize EngineSelector
-engine_selector = EngineSelector()
-
 @app.route('/compliment', methods=['GET'])
 def generate_compliment():
+    engine_selector = EngineSelector.singleton()
     # Select the next compliment engine in the cycle using EngineSelector
     engine_class = engine_selector.get_next_engine()
     engine = engine_class()

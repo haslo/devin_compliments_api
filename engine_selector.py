@@ -15,6 +15,8 @@ from engines.direct_praise_compliment_engine import DirectPraiseComplimentEngine
 from engines.superlative_compliment_engine import SuperlativeComplimentEngine
 
 class EngineSelector:
+    instance = None
+
     def __init__(self):
         self.engine_classes = [
             SimpleComplimentEngine,
@@ -42,3 +44,9 @@ class EngineSelector:
 
     def get_engine_usage_stats(self):
         return self.engine_selection_tracker
+
+    @classmethod
+    def singleton(cls):
+        if cls.instance is None:
+            cls.instance = EngineSelector()
+        return cls.instance
