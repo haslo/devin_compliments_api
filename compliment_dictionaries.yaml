@@ -420,3 +420,56 @@ quality_templates:
 action_templates:
   - "You {verb} everyone with your {positive_trait}."
   - "Your ability to {verb} is {positive_adjective}."
+
+inclusive_templates:
+  - "Your {adjective} {noun} is a testament to your {quality}."
+  - "You have such a {adjective} {activity}, it's truly admirable."
+  - "Your ability to {activity} is so {adjective}, it's inspiring."
+
+inclusive_adjectives:
+  - respectful
+  - thoughtful
+  - considerate
+  - versatile
+  - resourceful
+  - innovative
+  - inspiring
+  - genuine
+  - compassionate
+  - inclusive
+
+inclusive_nouns:
+  - approach
+  - mindset
+  - perspective
+  - method
+  - style
+  - strategy
+  - outlook
+  - demeanor
+  - conduct
+  - essence
+
+inclusive_activities:
+  - collaborate
+  - create
+  - innovate
+  - lead
+  - learn
+  - teach
+  - understand
+  - listen
+  - communicate
+  - share
+
+inclusive_qualities:
+  - empathy
+  - creativity
+  - leadership
+  - intelligence
+  - patience
+  - wisdom
+  - humor
+  - kindness
+  - strength
+  - dedication
