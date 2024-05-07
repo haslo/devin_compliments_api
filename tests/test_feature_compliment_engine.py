@@ -1,4 +1,5 @@
 import pytest
+from unittest.mock import patch
 from engines.feature_compliment_engine import FeatureComplimentEngine
 
 # Mock dictionaries for testing
@@ -50,13 +51,21 @@ def test_select_appropriate_word_handles_grammar():
     action_phrase = engine.select_appropriate_word('actions')
     assert action_phrase.startswith('to '), "The action phrase should start with 'to ' if it is more than one word."
 
-def test_select_appropriate_word_adds_articles_correctly():
+@patch('engines.feature_compliment_engine.random.choice')
+def test_select_appropriate_word_adds_articles_correctly(mock_random_choice):
     # Test that singular countable nouns receive an article
     for noun in mock_dictionaries['singular_nouns']:
-        word = engine.select_appropriate_word('singular_nouns')
-        assert word == 'a ' + noun or word == 'an ' + noun or word == noun, f"The word '{word}' should be '{noun}' or start with an article."
+        mock_random_choice.return_value = noun
+        word = engine.select_appropriate_word('singular_nouns')  # Reverted back to 'singular_nouns'
+        print(f"Testing noun: {noun}, Word returned: {word}")  # Debugging output
+        if noun[0] in 'aeiouAEIOU':
+            expected_word = 'an ' + noun
+        else:
+            expected_word = 'a ' + noun
+        assert word == expected_word, f"The word '{word}' should be '{expected_word}'."
 
     # Test that non-singular countable nouns do not receive an article
     for noun in mock_dictionaries['personal_qualities']:
+        mock_random_choice.return_value = noun
         word = engine.select_appropriate_word('personal_qualities')
-        assert not word.startswith(('a ', 'an ')), f"The word '{noun}' should not start with an article."
+        assert not word.startswith(('a ', 'an ')), f"The word '{word}' should not start with an article."

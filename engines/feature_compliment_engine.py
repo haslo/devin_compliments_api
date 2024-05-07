@@ -40,10 +40,14 @@ class FeatureComplimentEngine:
             word = random.choice(self.dictionaries[category])
             # Ensure that the word is preceded by an appropriate article if necessary
             if word in self.dictionaries['singular_nouns']:
-                if word[0] in 'aeiouAEIOU':
+                # Check if the word starts with a vowel sound for correct article usage, considering case insensitivity
+                print(f"Debug: Word before article check - {word}")  # Debugging output
+                print(f"Debug: Singular nouns list - {self.dictionaries['singular_nouns']}")  # Additional debugging output
+                if word[0].lower() in 'aeiou':
                     word = 'an ' + word
                 else:
                     word = 'a ' + word
+                print(f"Debug: Word after article check - {word}")  # Debugging output
             return word
         elif category in ['adjectives', 'positive_adjectives']:
             # These categories should be used as adjectives in the template
