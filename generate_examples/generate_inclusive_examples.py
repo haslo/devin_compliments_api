@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/home/ubuntu/devin_compliments_api')  # Add project directory to Python path
+
 from engines.inclusive_compliment_engine import InclusiveComplimentEngine
 from dictionary_loader import DictionaryLoader  # Corrected import statement
 
