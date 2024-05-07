@@ -13,6 +13,8 @@ from engines.metaphor_compliment_engine import MetaphorComplimentEngine
 from engines.action_based_compliment_engine import ActionBasedComplimentEngine
 from engines.direct_praise_compliment_engine import DirectPraiseComplimentEngine
 from engines.superlative_compliment_engine import SuperlativeComplimentEngine
+from engines.inclusive_compliment_engine import InclusiveComplimentEngine  # Import the new InclusiveComplimentEngine
+from engines.short_punchy_compliment_engine import ShortPunchyComplimentEngine  # Import the new ShortPunchyComplimentEngine
 
 class EngineSelector:
     instance = None
@@ -32,7 +34,9 @@ class EngineSelector:
             MetaphorComplimentEngine,
             ActionBasedComplimentEngine,
             DirectPraiseComplimentEngine,
-            SuperlativeComplimentEngine
+            SuperlativeComplimentEngine,
+            InclusiveComplimentEngine,  # Add the new InclusiveComplimentEngine to the list
+            ShortPunchyComplimentEngine  # Add the new ShortPunchyComplimentEngine to the list
         ]
         self.engine_cycle = cycle(self.engine_classes)
         self.engine_selection_tracker = {engine_class.__name__: 0 for engine_class in self.engine_classes}
