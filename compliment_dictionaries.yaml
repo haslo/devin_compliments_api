@@ -301,21 +301,21 @@ elegant_noun2:
 
 # New sections for the ImaginativeComplimentEngine
 imaginative_comparatives:
-  - as magical as a fairy's spell
-  - as enchanting as an ancient forest
-  - as captivating as a mermaid's song
-  - as wondrous as a hidden world
-  - as awe-inspiring as a mythical hero's tale
+  - as magical as a fairy tale
+  - as enchanting as a forest
+  - as captivating as a melody
+  - as wondrous as a hidden gem
+  - as awe-inspiring as a hero's journey
 
 imaginative_imaginary_things:
-  - a unicorn's grace
+  - the grace of a unicorn
   - the brilliance of a shooting star
-  - the wonder of a fairy tale
+  - the charm of a fairy tale
 
 imaginative_presences:
-  - the embodiment of kindness
-  - the essence of creativity
-  - the sincerity in your words
+  - a paragon of kindness
+  - a beacon of creativity
+  - a model of sincerity
 
 # New sections for the WhimsicalComplimentEngine
 whimsical_adjectives:
@@ -402,19 +402,19 @@ feature_adjective_pairs:
   - [manner, graceful]
 
 direct_praise_templates:
-  - "You're an incredibly {positive_adjective} {person_role}."
+  - "You are an incredibly {positive_adjective} {person_role}."
   - "Your {personal_quality} is truly {positive_adjective}."
-  - "Your {feature} shines with the brightness of {natural_phenomenon}."
-
-metaphor_templates:
+  - "Your {feature} shines with the brightness of a {natural_phenomenon}."
+  - "You have the {positive_trait} of a {celestial_body}, always {positive_adjective} and awe-inspiring."
+  - "Your {feature} is as {positive_adjective} as a {positive_thing}, radiating warmth and brilliance."
   - "You're like a {natural_phenomenon}, {positive_adjective} and full of {positive_trait}."
   - "You have the {positive_trait} of a {celestial_body}, always {positive_adjective} and {positive_adjective}."
   - "Your {feature} is a {positive_thing}, always {positive_adjective} and {positive_adjective}."
 
 quality_templates:
   - "Your {personal_quality} is {positive_adjective}."
-  - "You radiate {positive_trait} like a {shiny_object}."
-  - "You embody {positive_trait} in every way."
+  - "Your radiance is like a {shiny_object}."
+  - "Your embodiment of {positive_trait} is evident in every action."
 
 action_templates:
   - "You {verb} everyone with your {positive_trait}."

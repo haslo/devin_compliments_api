@@ -3,10 +3,11 @@ import random
 class FeatureComplimentEngine:
     def __init__(self, dictionaries):
         self.dictionaries = dictionaries
-        self.templates = self.dictionaries['quality_templates']
+        # Use action_templates which include a direct address and a verb
+        self.templates = self.dictionaries['action_templates']
 
     def generate_compliment(self):
-        # Select a random template from the quality templates
+        # Select a random template from the action templates
         template = random.choice(self.templates)
         # Identify placeholders in the template and select appropriate words
         compliment = template.format(
@@ -21,7 +22,8 @@ class FeatureComplimentEngine:
             celestial_body=self.select_appropriate_word('celestial_bodies'),
             positive_thing=self.select_appropriate_word('positive_things'),
             shiny_object=self.select_appropriate_word('shiny_objects'),
-            verb=self.select_appropriate_word('verbs')
+            verb=self.select_appropriate_word('verbs'),
+            noun=self.select_appropriate_word('singular_nouns')  # Added noun placeholder handling
         )
         # Capitalize the first letter of the compliment
         compliment = compliment[0].upper() + compliment[1:]
@@ -35,19 +37,16 @@ class FeatureComplimentEngine:
         Selects an appropriate word or phrase from the given category.
         Ensures that the word or phrase fits grammatically into the template.
         """
-        if category in ['features', 'person_roles', 'personal_qualities', 'positive_traits', 'celestial_bodies', 'positive_things', 'shiny_objects']:
+        if category in ['features', 'person_roles', 'personal_qualities', 'positive_traits', 'celestial_bodies', 'positive_things', 'shiny_objects', 'singular_nouns']:  # Added 'singular_nouns' to the list
             # These categories should be used as nouns in the template
             word = random.choice(self.dictionaries[category])
             # Ensure that the word is preceded by an appropriate article if necessary
             if word in self.dictionaries['singular_nouns']:
                 # Check if the word starts with a vowel sound for correct article usage, considering case insensitivity
-                print(f"Debug: Word before article check - {word}")  # Debugging output
-                print(f"Debug: Singular nouns list - {self.dictionaries['singular_nouns']}")  # Additional debugging output
                 if word[0].lower() in 'aeiou':
                     word = 'an ' + word
                 else:
                     word = 'a ' + word
-                print(f"Debug: Word after article check - {word}")  # Debugging output
             return word
         elif category in ['adjectives', 'positive_adjectives']:
             # These categories should be used as adjectives in the template
