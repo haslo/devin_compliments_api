@@ -462,6 +462,17 @@ inclusive_activities:
   - communicate
   - share
 
+# New list for activities suitable for "You have such a {adjective} {activity}, it's truly admirable."
+admirable_activities:
+  - creating
+  - leading
+  - learning
+  - teaching
+  - understanding
+  - listening
+  - communicating
+  - sharing
+
 inclusive_qualities:
   - empathy
   - creativity
@@ -473,3 +484,27 @@ inclusive_qualities:
   - kindness
   - strength
   - dedication
+
+short_punchy_adjectives:
+  - cool
+  - sharp
+  - bright
+  - swift
+  - keen
+  - bold
+
+short_punchy_nouns:
+  - ace
+  - spark
+  - champ
+  - star
+  - whiz
+  - hero
+
+short_punchy_templates:
+  - "{adjective} {noun}"
+  - "Always {adjective}"
+  - "Simply {adjective}"
+  - "Truly {noun}"
+  - "{adjective} indeed"
+  - "Such {noun}"

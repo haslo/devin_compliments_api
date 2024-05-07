@@ -299,5 +299,46 @@ class TestInclusiveComplimentEngine(unittest.TestCase):
         # Check if the compliment contains any of the disallowed terms
         return not any(term.lower() in compliment.lower() for term in disallowed_terms)
 
+class TestShortPunchyComplimentEngine(unittest.TestCase):
+    def setUp(self):
+        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+        self.dictionaries = self.dictionary_loader.load_dictionaries()
+        # Assuming ShortPunchyComplimentEngine is implemented in short_punchy_compliment_engine.py
+        from engines.short_punchy_compliment_engine import ShortPunchyComplimentEngine
+        self.engine = ShortPunchyComplimentEngine(self.dictionaries)
+
+    def test_generate_compliment(self):
+        compliment = self.engine.generate_compliment()
+        self.assertIsInstance(compliment, str)
+        self.assertTrue(1 <= len(compliment.split()) <= 4, "Compliment should be short, consisting of 1 to 4 words.")
+
+    def test_compliment_structure(self):
+        compliment = self.engine.generate_compliment()
+        # Check that the compliment starts with an uppercase letter and ends with a period
+        self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
+        self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
+
+    def test_randomness_of_compliments(self):
+        compliments = set(self.engine.generate_compliment() for _ in range(10))
+        self.assertTrue(len(compliments) > 1, "Generated compliments should not be all identical")
+
+    def test_inclusivity_of_compliments(self):
+        compliment = self.engine.generate_compliment()
+        # Check that the compliment does not contain any inappropriate, racist, or sexist language
+        self.assertTrue(self.is_compliment_inclusive(compliment), "Compliment contains inappropriate content.")
+
+    def is_compliment_inclusive(self, compliment):
+        # List of disallowed words or phrases that are considered inappropriate, racist, or sexist
+        disallowed_terms = [
+            # This list should be populated with actual inappropriate terms
+            # For the sake of this example, generic placeholders are used
+            'placeholder_inappropriate_term_1',
+            'placeholder_inappropriate_term_2',
+            'placeholder_racist_term',
+            'placeholder_sexist_term',
+        ]
+        # Check if the compliment contains any of the disallowed terms
+        return not any(term.lower() in compliment.lower() for term in disallowed_terms)
+
 if __name__ == '__main__':
     unittest.main()
