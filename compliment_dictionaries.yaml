@@ -304,19 +304,21 @@ elegant_noun2:
 
 # New sections for the ImaginativeComplimentEngine
 imaginative_comparatives:
-  - more amazing
-  - sweeter
   - more magical
+  - more enchanting
+  - more captivating
+  - more wondrous
+  - more awe-inspiring
 
 imaginative_imaginary_things:
-  - unicorn's grace
-  - shooting star's brilliance
-  - fairy tale's wonder
+  - a unicorn's grace
+  - the brilliance of a shooting star
+  - the wonder of a fairy tale
 
 imaginative_presences:
-  - reality of your kindness
-  - tangibility of your creativity
-  - sincerity of your words
+  - the embodiment of kindness
+  - the essence of creativity
+  - the sincerity in your words
 
 # New sections for the WhimsicalComplimentEngine
 whimsical_adjectives:
