@@ -1,12 +1,10 @@
 adjectives:
   - better
-  - more amazing
   - brilliant
   - wonderful
   - spectacular
   - incredible
   - making
-  - more
   - amazing
   - melodic
   - elegant
@@ -15,7 +13,6 @@ adjectives:
   - impeccable
   - infectious
   - stunning
-  - sweeter
 
 imaginary_things:
   - unicorn
@@ -422,3 +419,53 @@ quality_templates:
 action_templates:
   - "You {verb} everyone with your {positive_trait}."
   - "Your ability to {verb} is {positive_adjective}."
+
+# New category for singular countable nouns
+singular_nouns:
+  - unicorn
+  - shooting star
+  - treasure
+  - smile
+  - laughter
+  - style
+  - approach
+  - perspective
+  - insight
+  - dedication
+  - spirit
+  - energy
+  - presence
+  - eagle
+  - dolphin
+  - lion
+  - moon
+  - sun
+  - constellation
+  - diamond
+  - butterfly
+  - work of art
+  - genius
+  - star
+  - talent
+  - prodigy
+  - wizard
+  - champion
+  - eyes
+  - adventure
+  - masterpiece
+  - journey
+  - idea
+  - performance
+  - soul
+  - painting
+  - star
+  - gemstone
+  - lantern
+  - firefly
+  - candlelight
+  - sunrise
+  - moonbeam
+  - glitter
+  - sparkle
+  - gleam
+  # Add any additional singular countable nouns as needed

@@ -37,7 +37,14 @@ class FeatureComplimentEngine:
         """
         if category in ['features', 'person_roles', 'personal_qualities', 'positive_traits', 'celestial_bodies', 'positive_things', 'shiny_objects']:
             # These categories should be used as nouns in the template
-            return random.choice(self.dictionaries[category])
+            word = random.choice(self.dictionaries[category])
+            # Ensure that the word is preceded by an appropriate article if necessary
+            if word in self.dictionaries['singular_nouns']:
+                if word[0] in 'aeiouAEIOU':
+                    word = 'an ' + word
+                else:
+                    word = 'a ' + word
+            return word
         elif category in ['adjectives', 'positive_adjectives']:
             # These categories should be used as adjectives in the template
             word = random.choice(self.dictionaries[category])
@@ -48,7 +55,12 @@ class FeatureComplimentEngine:
             return word
         elif category == 'verbs':
             # These categories should be used as verbs in the template
-            return random.choice(self.dictionaries[category])
+            verb = random.choice(self.dictionaries[category])
+            # Ensure that the verb is in the correct tense
+            if ' ' in verb:
+                # If the verb phrase is more than one word, ensure it starts with a verb in the correct tense
+                verb = 'to ' + verb
+            return verb
         elif category == 'actions':
             # These categories should be used as action phrases in the template
             action_phrase = random.choice(self.dictionaries[category])

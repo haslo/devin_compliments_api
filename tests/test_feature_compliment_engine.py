@@ -19,7 +19,8 @@ mock_dictionaries = {
     'celestial_bodies': ['star', 'planet', 'comet'],
     'positive_things': ['adventure', 'journey', 'experience'],
     'shiny_objects': ['gem', 'diamond', 'treasure'],
-    'verbs': ['enlightens', 'uplifts', 'encourages']
+    'verbs': ['enlightens', 'uplifts', 'encourages'],
+    'singular_nouns': ['smile', 'laughter', 'style', 'approach', 'perspective', 'insight', 'dedication', 'spirit', 'energy', 'presence', 'eagle', 'dolphin', 'lion', 'moon', 'sun', 'constellation', 'diamond', 'butterfly', 'work of art', 'genius', 'star', 'talent', 'prodigy', 'wizard', 'champion', 'eyes', 'adventure', 'masterpiece', 'journey', 'idea', 'performance', 'soul', 'painting', 'star', 'gemstone', 'lantern', 'firefly', 'candlelight', 'sunrise', 'moonbeam', 'glitter', 'sparkle', 'gleam']
 }
 
 # Initialize the FeatureComplimentEngine with mock dictionaries
@@ -48,3 +49,14 @@ def test_select_appropriate_word_returns_appropriate_word():
 def test_select_appropriate_word_handles_grammar():
     action_phrase = engine.select_appropriate_word('actions')
     assert action_phrase.startswith('to '), "The action phrase should start with 'to ' if it is more than one word."
+
+def test_select_appropriate_word_adds_articles_correctly():
+    # Test that singular countable nouns receive an article
+    for noun in mock_dictionaries['singular_nouns']:
+        word = engine.select_appropriate_word('singular_nouns')
+        assert word == 'a ' + noun or word == 'an ' + noun or word == noun, f"The word '{word}' should be '{noun}' or start with an article."
+
+    # Test that non-singular countable nouns do not receive an article
+    for noun in mock_dictionaries['personal_qualities']:
+        word = engine.select_appropriate_word('personal_qualities')
+        assert not word.startswith(('a ', 'an ')), f"The word '{noun}' should not start with an article."
