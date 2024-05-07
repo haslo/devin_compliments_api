@@ -53,16 +53,19 @@ def test_select_appropriate_word_handles_grammar():
 
 @patch('engines.feature_compliment_engine.random.choice')
 def test_select_appropriate_word_adds_articles_correctly(mock_random_choice):
+    # Set the side_effect of mock_random_choice to the list of nouns
+    # This will make random.choice return each noun in order during the test
+    mock_random_choice.side_effect = mock_dictionaries['singular_nouns']
     # Test that singular countable nouns receive an article
     for noun in mock_dictionaries['singular_nouns']:
-        mock_random_choice.return_value = noun
-        word = engine.select_appropriate_word('singular_nouns')  # Reverted back to 'singular_nouns'
-        print(f"Testing noun: {noun}, Word returned: {word}")  # Debugging output
+        word = engine.select_appropriate_word('features')
         if noun[0] in 'aeiouAEIOU':
             expected_word = 'an ' + noun
         else:
             expected_word = 'a ' + noun
         assert word == expected_word, f"The word '{word}' should be '{expected_word}'."
+    # Reset the side_effect to None to avoid affecting other tests
+    mock_random_choice.side_effect = None
 
     # Test that non-singular countable nouns do not receive an article
     for noun in mock_dictionaries['personal_qualities']:
