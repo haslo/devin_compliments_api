@@ -5,12 +5,14 @@ from engines.inclusive_compliment_engine import InclusiveComplimentEngine
 from dictionary_loader import DictionaryLoader  # Corrected import statement
 
 # Load dictionaries
-dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+# Update the path to the YAML file to be absolute
+dictionary_loader = DictionaryLoader('/home/ubuntu/devin_compliments_api/compliment_dictionaries.yaml')
 dictionaries = dictionary_loader.load_dictionaries()
 
 # Initialize engine
 engine = InclusiveComplimentEngine(dictionaries)
 
 # Generate examples
-for _ in range(10):
+# Update the range to generate 30 examples
+for _ in range(30):
     print(engine.generate_compliment())
