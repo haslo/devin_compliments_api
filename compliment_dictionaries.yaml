@@ -469,3 +469,89 @@ singular_nouns:
   - sparkle
   - gleam
   # Add any additional singular countable nouns as needed
+
+inclusive_templates:
+  - "Your {adjective} {noun} is a testament to your {quality}."
+  - "Your ability to {activity} is so {adjective}, it's inspiring."
+
+inclusive_adjectives:
+  - thoughtful
+  - considerate
+  - versatile
+  - resourceful
+  - innovative
+  - inspiring
+  - genuine
+  - compassionate
+  - inclusive
+
+inclusive_nouns:
+  - approach
+  - mindset
+  - perspective
+  - method
+  - style
+  - strategy
+  - outlook
+  - demeanor
+  - conduct
+  - essence
+
+inclusive_activities:
+  - collaborate
+  - create
+  - innovate
+  - lead
+  - learn
+  - teach
+  - understand
+  - listen
+  - communicate
+  - share
+
+# New list for activities suitable for "You have such a {adjective} {activity}, it's truly admirable."
+admirable_activities:
+  - creating
+  - leading
+  - learning
+  - teaching
+  - understanding
+  - listening
+  - communicating
+  - sharing
+
+inclusive_qualities:
+  - empathy
+  - creativity
+  - leadership
+  - intelligence
+  - patience
+  - wisdom
+  - humor
+  - kindness
+  - strength
+  - dedication
+
+short_punchy_adjectives:
+  - cool
+  - sharp
+  - bright
+  - swift
+  - keen
+  - bold
+
+short_punchy_nouns:
+  - ace
+  - spark
+  - champ
+  - star
+  - whiz
+  - hero
+
+short_punchy_templates:
+  - "{adjective} {noun}"
+  - "Always {adjective}"
+  - "Simply {adjective}"
+  - "Truly {noun}"
+  - "{adjective} indeed"
+  - "Such {noun}"
