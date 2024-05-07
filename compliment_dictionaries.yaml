@@ -423,11 +423,9 @@ action_templates:
 
 inclusive_templates:
   - "Your {adjective} {noun} is a testament to your {quality}."
-  - "You have such a {adjective} {admirable_activity}, it's truly admirable."
   - "Your ability to {activity} is so {adjective}, it's inspiring."
 
 inclusive_adjectives:
-  - respectful
   - thoughtful
   - considerate
   - versatile
