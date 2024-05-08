@@ -999,8 +999,5 @@ short_punchy_nouns:
   - hero
 
 short_punchy_templates:
-  - "Always {adjective}, like a {noun}"
-  - "Simply {adjective}, truly {noun}"
-  - "Truly a {noun}, always {adjective}"
-  - "{adjective} indeed, a real {noun}"
-  - "Such a {noun}, so {adjective}"
+  - "Such {noun}, much wow."
+  - "Much {adjective}, much wow."
