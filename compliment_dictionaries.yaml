@@ -60,6 +60,240 @@ adjectives:
   - inspiring
   - compassionate
   - inclusive
+  - adaptable
+  - meticulous
+  - intuitive
+  - spirited
+  - cooperative
+  - meticulous
+  - adventurous
+  - spontaneous
+  - vivacious
+  - diligent
+  - astute
+  - gracious
+  - eloquent
+  - amiable
+  - easygoing
+  - jovial
+  - lighthearted
+  - optimistic
+  - pragmatic
+  - rational
+  - reliable
+  - sophisticated
+  - tactful
+  - unassuming
+  - versatile
+  - vivacious
+  - witty
+  - zealous
+  - accommodating
+  - agreeable
+  - amicable
+  - amiable
+  - approachable
+  - benevolent
+  - courteous
+  - diplomatic
+  - empathetic
+  - genial
+  - gregarious
+  - personable
+  - sociable
+  - affable
+  - congenial
+  - cordial
+  - jovial
+  - kindhearted
+  - likable
+  - mellow
+  - polite
+  - well-mannered
+  - altruistic
+  - benevolent
+  - compassionate
+  - considerate
+  - generous
+  - gracious
+  - humane
+  - kind
+  - magnanimous
+  - philanthropic
+  - unselfish
+  - warmhearted
+  - charitable
+  - humanitarian
+  - indulgent
+  - lenient
+  - merciful
+  - tolerant
+  - understanding
+  - forgiving
+  - sympathetic
+  - thoughtful
+  - creative
+  - imaginative
+  - innovative
+  - inventive
+  - original
+  - visionary
+  - artistic
+  - clever
+  - ingenious
+  - resourceful
+  - shrewd
+  - skillful
+  - adept
+  - adroit
+  - capable
+  - competent
+  - deft
+  - dexterous
+  - proficient
+  - savvy
+  - skilled
+  - talented
+  - accomplished
+  - astute
+  - brilliant
+  - expert
+  - gifted
+  - intelligent
+  - keen
+  - knowledgeable
+  - masterful
+  - masterly
+  - sharp
+  - skillful
+  - virtuoso
+  - analytical
+  - astute
+  - discerning
+  - insightful
+  - intuitive
+  - observant
+  - perceptive
+  - perspicacious
+  - prudent
+  - sagacious
+  - shrewd
+  - wise
+  - acute
+  - alert
+  - aware
+  - clever
+  - cunning
+  - erudite
+  - incisive
+  - judicious
+  - piercing
+  - quick-witted
+  - rational
+  - reflective
+  - sagacious
+  - sensible
+  - sharp
+  - shrewd
+  - smart
+  - sober
+  - sophisticated
+  - sound
+  - tactful
+  - thoughtful
+  - understanding
+  - wise
+  - assertive
+  - authoritative
+  - commanding
+  - confident
+  - decisive
+  - determined
+  - dominant
+  - forceful
+  - imposing
+  - self-assured
+  - strong-willed
+  - sure
+  - ambitious
+  - assertive
+  - bold
+  - brave
+  - courageous
+  - dauntless
+  - determined
+  - fearless
+  - gallant
+  - heroic
+  - intrepid
+  - resolute
+  - stalwart
+  - stout
+  - strong
+  - valiant
+  - valorous
+  - audacious
+  - brave
+  - daring
+  - enterprising
+  - gutsy
+  - hardy
+  - venturesome
+  - venturous
+  - animated
+  - buoyant
+  - ebullient
+  - enthusiastic
+  - exuberant
+  - lively
+  - sprightly
+  - vibrant
+  - vivacious
+  - zesty
+  - zestful
+  - dynamic
+  - energetic
+  - forceful
+  - powerful
+  - robust
+  - spirited
+  - stalwart
+  - strong
+  - vigorous
+  - vital
+  - zippy
+  - affable
+  - amiable
+  - amicable
+  - cheerful
+  - congenial
+  - cordial
+  - friendly
+  - genial
+  - good-humored
+  - good-natured
+  - gracious
+  - jolly
+  - jovial
+  - kind
+  - likable
+  - lovable
+  - mellow
+  - nice
+  - personable
+  - pleasant
+  - sociable
+  - sweet
+  - warm
+  - warmhearted
+  - winning
+  - winsome
+  - agreeable
+  - amiable
+  - charming
+  - delightful
+  - engaging
+  - enjoyable
 
 imaginary_things:
   - unicorn
@@ -72,6 +306,16 @@ imaginary_things:
   - sonnet
   - painting
   - dance
+  - chimera
+  - elixir
+  - amulet
+  - talisman
+  - spellbook
+  - grimoire
+  - potion
+  - artifact
+  - relic
+  - enchantment
 
 reality_aspects:
   - real
@@ -129,6 +373,11 @@ positive_adjectives:
   - innovative
   - inspiring
   - sincere
+  - caring
+  - profound
+  - insightful
+  - remarkable
+  - gracious
 
 traits:
   - kindness
@@ -151,6 +400,16 @@ natural_phenomena:
   - autumn breeze
   - spring bloom
   - winter's first snow
+  - waterfall
+  - thunderstorm
+  - meteor shower
+  - eclipse
+  - coral reef
+  - geysers
+  - aurora
+  - bioluminescence
+  - sandstorm
+  - volcano
 
 objects:
   - masterpiece
@@ -218,6 +477,23 @@ positive_comparatives:
   - kindest
   - bravest
   - smartest
+  - strongest
+  - warmest
+  - most creative
+  - most dedicated
+  - most thoughtful
+  - most compassionate
+  - most genuine
+  - most vibrant
+  - most dynamic
+  - most innovative
+  - most inspiring
+  - most sincere
+  - most caring
+  - most profound
+  - most insightful
+  - most remarkable
+  - most gracious
 
 person_roles:
   - friend
@@ -280,6 +556,23 @@ positive_traits:
   - kindness
   - enthusiasm
   - creativity
+  - adaptability
+  - loyalty
+  - honesty
+  - reliability
+  - patience
+  - generosity
+  - courage
+  - determination
+  - wisdom
+  - humor
+  - compassion
+  - integrity
+  - sincerity
+  - intelligence
+  - perseverance
+  - resilience
+  - grace
 
 nouns:
   - adventure
@@ -308,6 +601,23 @@ nouns:
   - parable
   - odyssey
   - amazing
+  - inspiration
+  - achievement
+  - creativity
+  - innovation
+  - courage
+  - wisdom
+  - insight
+  - compassion
+  - integrity
+  - brilliance
+  - dedication
+  - enthusiasm
+  - leadership
+  - optimism
+  - resilience
+  - talent
+  - vision
 
 comparatives:
   - better
@@ -341,6 +651,16 @@ verbs:
   - captivate
   - foster
   - thrive
+  - celebrate
+  - honor
+  - appreciate
+  - admire
+  - treasure
+  - nurture
+  - cultivate
+  - inspire
+  - energize
+  - invigorate
 
 # New sections for contextually appropriate pairs and quadruples
 short_adjectives:
@@ -679,9 +999,8 @@ short_punchy_nouns:
   - hero
 
 short_punchy_templates:
-  - "{adjective} {noun}"
-  - "Always {adjective}"
-  - "Simply {adjective}"
-  - "Truly {noun}"
-  - "{adjective} indeed"
-  - "Such {noun}"
+  - "Always {adjective}, like a {noun}"
+  - "Simply {adjective}, truly {noun}"
+  - "Truly a {noun}, always {adjective}"
+  - "{adjective} indeed, a real {noun}"
+  - "Such a {noun}, so {adjective}"
