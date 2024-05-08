@@ -2,7 +2,7 @@ import random
 
 class ImaginativeComplimentEngine:
     def __init__(self, dictionaries):
-        self.template = "You're {comparative} than {imaginary_thing}, because you're {presence}."
+        self.template = "You're as {comparative} as {imaginary_thing}, and you have {presence}."
         self.dictionaries = dictionaries
 
     def generate_compliment(self):
