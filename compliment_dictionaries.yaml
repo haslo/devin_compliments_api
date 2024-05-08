@@ -999,5 +999,6 @@ short_punchy_nouns:
   - hero
 
 short_punchy_templates:
-  - "Such {noun}, much wow."
-  - "Much {adjective}, much wow."
+  - "Simply {noun}"
+  - "Truly {noun}"
+  - "Always {adjective}"
