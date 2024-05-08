@@ -565,6 +565,11 @@ inclusive_templates:
   - "It's {adjective} how you {verb} with such {quality} and {quality}."
   - "Your {noun} is as {adjective} as it is {quality}, a true {quality} to behold."
   - "The way you {verb} showcases a {quality} that is both {adjective} and {quality}."
+  - "You {verb} through life with an {adjective} {noun}, always ready to {verb}."
+  - "Your {noun} {verb}s a story of {adjective} {quality}."
+  - "Every {activity} you undertake is done with {adjective} {quality} and {noun}."
+  - "You {verb} {adjective} wisdom with every {noun} you share."
+  - "Your {noun} is a symphony of {quality}, each note more {adjective} than the last."
 
 inclusive_adjectives:
   - thoughtful
