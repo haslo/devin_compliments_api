@@ -2,10 +2,10 @@ import sys
 sys.path.append('/home/ubuntu/devin_compliments_api')  # Add project directory to Python path
 
 from engines.short_punchy_compliment_engine import ShortPunchyComplimentEngine
-from dictionary_loader import DictionaryLoader
+from util.dictionary_loader import DictionaryLoader  # Updated import path
 
 # Load dictionaries
-dictionary_loader = DictionaryLoader('../compliment_dictionaries.yaml')  # Adjusted relative path
+dictionary_loader = DictionaryLoader('util/compliment_dictionaries.yaml')  # Adjusted relative path
 dictionaries = dictionary_loader.load_dictionaries()
 
 # Create an instance of ShortPunchyComplimentEngine
