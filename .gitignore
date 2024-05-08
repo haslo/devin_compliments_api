@@ -10,3 +10,7 @@ htmlcov/
 docs/_build/
 app.log
 app.log.*
+compliments.txt
+corrected_compliments.txt
+final_compliments.txt
+processed_compliments.txt
