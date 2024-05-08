@@ -231,13 +231,10 @@ class TestWhimsicalComplimentEngine(unittest.TestCase):
                 imaginary_thing = imaginary_thing_phrase_parts[1].strip()
                 # Correctly handle possessive endings and articles for 'imaginary thing'
                 imaginary_thing_cleaned = imaginary_thing.lower().strip()
-                # Remove leading articles and possessive 's
+                # Remove leading articles
                 imaginary_thing_cleaned = re.sub(r"^(a |an |the )", "", imaginary_thing_cleaned)
-                imaginary_thing_cleaned = re.sub(r"('s)?$", "", imaginary_thing_cleaned)
-                # Ensure the first character is not stripped
-                imaginary_thing_cleaned = imaginary_thing_cleaned.strip()
                 # Check if the cleaned imaginary thing is in the list, considering possible plural forms
-                self.assertTrue(any(imaginary_thing_cleaned == thing.lower().strip().lstrip('a ').lstrip('an ').lstrip('the ').rstrip("'s").rstrip('s') for thing in self.dictionaries['whimsical_imaginary_things']), f"The imaginary thing '{imaginary_thing_cleaned}' is not in the list of whimsical imaginary things.")
+                self.assertTrue(any(imaginary_thing_cleaned == thing.lower().strip().lstrip('a ').lstrip('an ').lstrip('the ').rstrip('s') for thing in self.dictionaries['whimsical_imaginary_things']), f"The imaginary thing '{imaginary_thing_cleaned}' is not in the list of whimsical imaginary things.")
         # Strip the engine ID from the reality aspect before checking against the dictionary
         reality_aspect = reality_aspect.split(' [')[0].rstrip('.').strip()
         self.assertIn(reality_aspect, self.dictionaries['reality_aspects'], f"The reality aspect '{reality_aspect}' is not in the list of reality aspects.")
