@@ -1,11 +1,12 @@
 import sys
-sys.path.append('/home/ubuntu/devin_compliments_api')  # Add project directory to Python path
 
+# Removed the sys.path.append as it's no longer necessary with absolute imports
 from engines.personal_quality_compliment_engine import PersonalQualityComplimentEngine
 from util.dictionary_loader import DictionaryLoader  # Updated import statement to reflect new util directory
 
 # Load dictionaries
-dictionary_loader = DictionaryLoader('/home/ubuntu/devin_compliments_api/util/compliment_dictionaries.yaml')
+# Updated the path to use a relative path
+dictionary_loader = DictionaryLoader('util/compliment_dictionaries.yaml')
 dictionaries = dictionary_loader.load_dictionaries()
 
 # Create an instance of PersonalQualityComplimentEngine
