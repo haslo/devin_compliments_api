@@ -126,8 +126,12 @@ class TestCreativeComplimentEngine(unittest.TestCase):
         self.assertIn(noun1, self.dictionaries['creative_nouns'], f"The word {noun1} is not in the list of creative nouns.")
         self.assertIn(adjective2, self.dictionaries['creative_adjectives'], f"The word {adjective2} is not in the list of creative adjectives.")
         self.assertIn(noun2, self.dictionaries['creative_nouns'], f"The word {noun2} is not in the list of creative nouns.")
+        # Ensure the compliment starts with an uppercase letter and ends with a period
         self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
         self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
+        # Check that the first adjective and noun are not the same as the second adjective and noun
+        self.assertNotEqual(adjective1, adjective2, "The first adjective should not be the same as the second adjective.")
+        self.assertNotEqual(noun1, noun2, "The first noun should not be the same as the second noun.")
 
 class TestImaginativeComplimentEngine(unittest.TestCase):
     def setUp(self):
