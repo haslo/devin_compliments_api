@@ -1,7 +1,7 @@
 # Devin's Compliment API
 
 ## Overview
-This project is a Python Flask API that generates random compliments directed at "you" (the reader of the compliment). The compliments are pieced together from different parts of sentences to form complete sentences, ensuring they are never inappropriate, racist, or sexist. The API is capable of generating millions of unique compliments with a few different grammatical structures and is designed to be fast and reliable. The sentence parts are stored in text files, and no database is used.
+This project is a Python Flask API that generates random compliments directed at "you" (the reader of the compliment). The compliments are pieced together from different parts of sentences to form complete sentences, ensuring they are never inappropriate, racist, or sexist. The API is now capable of generating over 167,000 unique compliments with a variety of grammatical structures and is designed to be fast and reliable. The sentence parts are stored in a YAML file, and no database is used.
 
 ## Development Setup
 To set up the development environment for this project, follow these steps:
@@ -64,6 +64,9 @@ Test-Driven Development (TDD) is used throughout this project. To run the tests,
 pytest
 ```
 Ensure all tests pass before pushing changes to the repository.
+
+## Branch Information
+All recent changes have been made on the `feature/more_compliments` branch, which should be checked out for the latest updates.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
