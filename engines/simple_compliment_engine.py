@@ -16,7 +16,7 @@ class SimpleComplimentEngine:
             adjective=random.choice(self.dictionaries['adjectives']),
             feature=random.choice(self.dictionaries['features']),
             action=random.choice(self.dictionaries['actions']),
-            natural_phenomenon=random.choice(self.dictionaries['natural_phenomena']),
+            natural_phenomena=random.choice(self.dictionaries['natural_phenomena']),  # Corrected key to match dictionary
             positive_trait=random.choice(self.dictionaries['positive_traits']),
             celestial_body=random.choice(self.dictionaries['celestial_bodies']),
             positive_thing=random.choice(self.dictionaries['positive_things']),

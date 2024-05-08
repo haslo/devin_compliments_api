@@ -5,7 +5,7 @@ from engines.short_punchy_compliment_engine import ShortPunchyComplimentEngine
 from dictionary_loader import DictionaryLoader
 
 # Load dictionaries
-dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+dictionary_loader = DictionaryLoader('../compliment_dictionaries.yaml')  # Adjusted relative path
 dictionaries = dictionary_loader.load_dictionaries()
 
 # Create an instance of ShortPunchyComplimentEngine

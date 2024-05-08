@@ -9,6 +9,7 @@ from engines.inspirational_compliment_engine import InspirationalComplimentEngin
 from engines.whimsical_compliment_engine import WhimsicalComplimentEngine
 from engines.elegant_compliment_engine import ElegantComplimentEngine
 from engines.short_compliment_engine import ShortComplimentEngine
+from engines.direct_praise_compliment_engine import DirectPraiseComplimentEngine
 from dictionary_loader import DictionaryLoader
 from tests.test_engine_selector import EngineSelectorMock
 
@@ -88,7 +89,18 @@ class TestDirectPraiseComplimentEngine(unittest.TestCase):
             "You {verb} like a {positive_adjective} {natural_phenomenon}, {positive_adjective} and {positive_trait}.",
             "Your ability to {verb} is as {positive_adjective} as the {natural_phenomenon} itself.",
             "You are the {positive_trait} in human form, always ready to {verb} and {verb}.",
-            "Like a {natural_phenomenon}, your {feature} {verb}s everyone with its {positive_adjective} nature."
+        for template in new_templates:
+            for compliment in compliments:
+                formatted_compliments = [
+                    template.format(
+                        verb=verb,
+                        positive_trait=trait,
+                        positive_adjective=adj,
+                        natural_phenomenon=phenom,
+                        feature=feat
+                    ) for verb in self.dictionaries['verbs'] for trait in self.dictionaries['positive_traits'] for adj in self.dictionaries['positive_adjectives'] for phenom in self.dictionaries['natural_phenomena'] for feat in self.dictionaries['features']
+                ]
+                self.assertTrue(any(formatted_compliment in compliment for formatted_compliment in formatted_compliments), "New direct praise templates are not used in the compliments.")
         ]
         # Check if the new templates are used in the compliments
         self.assertTrue(any(any(template.format(verb=verb, positive_trait=trait, positive_adjective=adj, natural_phenomenon=phenom, feature=feat) in compliment for verb in self.dictionaries['verbs'] for trait in self.dictionaries['positive_traits'] for adj in self.dictionaries['positive_adjectives'] for phenom in self.dictionaries['natural_phenomena'] for feat in self.dictionaries['features']) for template in new_templates for compliment in compliments), "New direct praise templates are not used in the compliments.")

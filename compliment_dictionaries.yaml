@@ -4,7 +4,6 @@ adjectives:
   - wonderful
   - spectacular
   - incredible
-  - making
   - amazing
   - melodic
   - elegant
@@ -39,6 +38,28 @@ adjectives:
   - wise
   - articulate
   - imaginative
+  - supportive
+  - passionate
+  - genuine
+  - sincere
+  - heartfelt
+  - determined
+  - steadfast
+  - reliable
+  - profound
+  - engaging
+  - charismatic
+  - considerate
+  - respectful
+  - empathetic
+  - versatile
+  - resourceful
+  - perceptive
+  - intuitive
+  - innovative
+  - inspiring
+  - compassionate
+  - inclusive
 
 imaginary_things:
   - unicorn
@@ -483,17 +504,17 @@ feature_adjective_pairs:
 direct_praise_templates:
   - "You are an incredibly {positive_adjective} {person_role}."
   - "Your {personal_quality} is truly {positive_adjective}."
-  - "Your {feature} shines with the brightness of a {natural_phenomenon}."
+  - "Your {feature} shines with the brightness of a {natural_phenomena}."
   - "You have the {positive_trait} of a {celestial_body}, always {positive_adjective} and awe-inspiring."
   - "Your {feature} is as {positive_adjective} as a {positive_thing}, radiating warmth and brilliance."
-  - "You're like a {natural_phenomenon}, {positive_adjective} and full of {positive_trait}."
+  - "You're like a {natural_phenomena}, {positive_adjective} and full of {positive_trait}."
   - "You have the {positive_trait} of a {celestial_body}, always {positive_adjective} and {positive_adjective}."
   - "Your {feature} is a {positive_thing}, always {positive_adjective} and {positive_adjective}."
   - "Every time you {verb}, you showcase your {positive_trait}."
-  - "You {verb} like a {positive_adjective} {natural_phenomenon}, {positive_adjective} and {positive_trait}."
-  - "Your ability to {verb} is as {positive_adjective} as the {natural_phenomenon} itself."
+  - "You {verb} like a {positive_adjective} {natural_phenomena}, {positive_adjective} and {positive_trait}."
+  - "Your ability to {verb} is as {positive_adjective} as the {natural_phenomena} itself."
   - "You are the {positive_trait} in human form, always ready to {verb} and {verb}."
-  - "Like a {natural_phenomenon}, your {feature} {verb}s everyone with its {positive_adjective} nature."
+  - "Like a {natural_phenomena}, your {feature} {verb}s everyone with its {positive_adjective} nature."
 
 quality_templates:
   - "Your {personal_quality} is {positive_adjective}."
@@ -570,6 +591,18 @@ inclusive_templates:
   - "Every {activity} you undertake is done with {adjective} {quality} and {noun}."
   - "You {verb} {adjective} wisdom with every {noun} you share."
   - "Your {noun} is a symphony of {quality}, each note more {adjective} than the last."
+  - "You {verb} {activity} with such an {adjective} {quality}, it's remarkable."
+  - "Every {noun} you {verb} becomes a {adjective} {quality}."
+  - "Your {noun} {verb}s with an {adjective} {quality}, making every {activity} {adjective}."
+  - "You {verb} {noun}s with {adjective} {quality}, elevating every {activity}."
+  - "Your {noun} is a {quality} of {adjective} {quality}, enriching every {activity}."
+  - "Seeing your {noun} in action is like witnessing a {adjective} {natural_phenomena}."
+  - "Your {noun} has the {adjective} impact of a {natural_phenomena}, unforgettable and awe-inspiring."
+  - "Just like a {natural_phenomena}, your {noun} is a breathtaking spectacle of {quality}."
+  - "Your {verb} is as {adjective} as a {natural_phenomena}, leaving a lasting impression."
+  - "You handle every {activity} with the {adjective} precision of a {natural_phenomena}."
+  - "Your {noun} is a {quality}, as {adjective} and majestic as a {natural_phenomena}."
+  - "In the tapestry of life, your {noun} is a {natural_phenomena}, {adjective} and full of {quality}."
 
 inclusive_adjectives:
   - thoughtful
