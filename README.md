@@ -40,7 +40,7 @@ python3 -m generate_examples.<script_name>
 ```
 Replace `<script_name>` with the name of the script you wish to run (e.g., `generate_feature_examples`).
 
-Generator scripts have been added for each engine in the `/engines` directory. Please refer to the corresponding script files in the `generate_examples` directory to generate compliments using these engines.
+Generator scripts have been added for each engine in the `/engines` directory. These scripts have been updated to ensure grammatical correctness and semantic consistency in the generated compliments. Please refer to the corresponding script files in the `generate_examples` directory to generate compliments using these engines.
 
 ## Project Structure
 The project has been reorganized to include a `util` module, which contains utility files such as `compliment_dictionaries.yaml`, `dictionary_loader.py`, and `engine_selector.py`. Additionally, the `generate_examples` directory has been created to house the generator scripts for each compliment engine. This reorganization aims to improve the modularity and maintainability of the codebase.
@@ -53,6 +53,7 @@ To perform user acceptance testing, follow these steps:
 3. Verify that the response contains a `compliment` field with a string value.
 4. Test multiple requests to ensure a variety of compliments are generated.
 5. Confirm that the compliments are appropriate and adhere to the project's guidelines.
+6. Review the generated compliments for grammatical correctness and semantic consistency, referring to the `final_compliments.txt` file as an example of the reviewed output.
 
 Example command for testing with `curl`:
 ```
@@ -67,7 +68,7 @@ pytest
 Ensure all tests pass before pushing changes to the repository.
 
 ## Branch Information
-All recent changes have been made on the `feature/more_compliments` branch, which should be checked out for the latest updates.
+All recent changes have been made on the `feature/more_compliments` branch, which should be checked out for the latest updates and enhancements, including the expanded compliment generation capabilities and improved grammatical correctness.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.

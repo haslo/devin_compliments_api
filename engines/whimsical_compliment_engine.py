@@ -4,13 +4,13 @@ class WhimsicalComplimentEngine:
     def __init__(self, dictionaries, test_mode=False):
         # Multiple templates to increase the variety of compliments
         self.templates = [
-            "You're more {adjective} than {imaginary_thing}, because you're {reality_aspect}.",
+            "You're as {adjective} as {imaginary_thing}, and you have {reality_aspect}.",
             "Your {reality_aspect} is as {adjective} as {imaginary_thing}.",
             "Just like {imaginary_thing}, your {reality_aspect} is truly {adjective}.",
             "In the realm of {imaginary_thing}, you reign with your {adjective} {reality_aspect}."
         ]
         self.comparative_templates = [
-            "You're more {adjective} than {imaginary_thing}, because you're {reality_aspect}.",
+            "You're as {adjective} as {imaginary_thing}, and you have {reality_aspect}.",
             "Your {reality_aspect} is as {adjective} as {imaginary_thing}.",
             "Just like {imaginary_thing}, your {reality_aspect} is truly {adjective}.",
             "In the realm of {imaginary_thing}, you reign with your {adjective} {reality_aspect}."
@@ -24,7 +24,7 @@ class WhimsicalComplimentEngine:
         if use_comparative:
             # Select a template that requires a comparative adjective
             template = choice(self.comparative_templates)
-            adjective = f"more {choice(self.dictionaries['whimsical_adjectives'])}"
+            adjective = choice(self.dictionaries['whimsical_adjectives'])
         else:
             # Select a random template from the list
             template = choice(self.templates)
@@ -44,7 +44,7 @@ class WhimsicalComplimentEngine:
         # If in test mode, ensure the compliment starts with "You're "
         if self.test_mode:
             # Select the specific template that starts with "You're "
-            template = "You're more {adjective} than {imaginary_thing}, because you're {reality_aspect}."
+            template = "You're as {adjective} as {imaginary_thing}, and you have {reality_aspect}."
 
         compliment = template.format(adjective=adjective, imaginary_thing=imaginary_thing, reality_aspect=reality_aspect)
         # Capitalize the first letter of the compliment
