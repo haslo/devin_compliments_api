@@ -32,6 +32,16 @@ Example response:
 }
 ```
 
+## Generator Scripts
+The `generate_examples` directory contains scripts that generate example compliments using the different engines. To run these scripts, ensure the virtual environment is activated and execute the following command from the project root:
+```bash
+python3 -m generate_examples.<script_name>
+```
+Replace `<script_name>` with the name of the script you wish to run (e.g., `generate_feature_examples`).
+
+## Project Structure
+The project has been reorganized to include a `util` module, which contains utility files such as `compliment_dictionaries.yaml`, `dictionary_loader.py`, and `engine_selector.py`. This reorganization aims to improve the modularity and maintainability of the codebase.
+
 ## User Acceptance Testing
 To perform user acceptance testing, follow these steps:
 
@@ -48,11 +58,9 @@ curl -X GET http://localhost:5000/compliment
 
 ## Testing
 Test-Driven Development (TDD) is used throughout this project. To run the tests, execute the following command from the repository root:
-
 ```bash
 pytest
 ```
-
 Ensure all tests pass before pushing changes to the repository.
 
 ## License
