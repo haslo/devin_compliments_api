@@ -1,6 +1,3 @@
-import sys
-sys.path.append('/home/ubuntu/devin_compliments_api')  # Add project directory to Python path
-
 from engines.direct_praise_compliment_engine import DirectPraiseComplimentEngine
 from util.dictionary_loader import DictionaryLoader  # Updated import statement to reflect new util directory
 
