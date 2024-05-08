@@ -1,8 +1,12 @@
 import json
 import unittest
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from app import app
-from engine_selector import EngineSelector
-from tests.test_engine_selector import EngineSelectorMock
+from util.engine_selector import EngineSelector
+from .test_engine_selector import EngineSelectorMock
 
 class TestAPIVariety(unittest.TestCase):
     def setUp(self):

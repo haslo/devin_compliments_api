@@ -14,7 +14,8 @@ class InclusiveComplimentEngine:
             admirable_activity=choice(self.dictionaries['admirable_activities']),  # Added admirable_activities
             quality=choice(self.dictionaries['inclusive_qualities']),
             verb=choice(self.dictionaries['verbs']),  # Added verbs to fill the {verb} placeholder
-            natural_phenomena=choice(self.dictionaries['natural_phenomena'])  # Added natural_phenomena to fill the {natural_phenomena} placeholder
+            natural_phenomena=choice(self.dictionaries['natural_phenomena']),  # Added natural_phenomena to fill the {natural_phenomena} placeholder
+            person_role=choice(self.dictionaries['person_roles'])  # Added person_roles to fill the {person_role} placeholder
         )
         # Capitalize the first letter of the compliment
         compliment = compliment[0].upper() + compliment[1:]

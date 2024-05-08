@@ -1,10 +1,10 @@
 import unittest
 from engines.metaphor_compliment_engine import MetaphorComplimentEngine
-from dictionary_loader import DictionaryLoader
+from util.dictionary_loader import DictionaryLoader
 
 class TestMetaphorComplimentEngine(unittest.TestCase):
     def setUp(self):
-        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+        self.dictionary_loader = DictionaryLoader('util/compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
         self.engine = MetaphorComplimentEngine(self.dictionaries)
 

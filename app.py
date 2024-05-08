@@ -1,8 +1,8 @@
 import logging
 from logging.handlers import RotatingFileHandler
 from flask import Flask, jsonify
-from engine_selector import EngineSelector
-from dictionary_loader import DictionaryLoader
+from util.engine_selector import EngineSelector
+from util.dictionary_loader import DictionaryLoader
 
 # Set up detailed logging to capture all levels of logs
 logging.basicConfig(level=logging.INFO)
@@ -20,7 +20,7 @@ logging.getLogger().addHandler(file_handler)
 app = Flask(__name__)
 
 # Load dictionaries once at the start of the application
-dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+dictionary_loader = DictionaryLoader('util/compliment_dictionaries.yaml')
 dictionaries = dictionary_loader.load_dictionaries()
 
 @app.route('/compliment', methods=['GET'])

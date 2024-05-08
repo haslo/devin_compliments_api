@@ -1,10 +1,10 @@
 import unittest
 from engines.personal_quality_compliment_engine import PersonalQualityComplimentEngine
-from dictionary_loader import DictionaryLoader
+from util.dictionary_loader import DictionaryLoader
 
 class TestPersonalQualityComplimentEngine(unittest.TestCase):
     def setUp(self):
-        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+        self.dictionary_loader = DictionaryLoader('util/compliment_dictionaries.yaml')
         self.dictionaries = self.dictionary_loader.load_dictionaries()
         self.engine = PersonalQualityComplimentEngine(self.dictionaries)
 

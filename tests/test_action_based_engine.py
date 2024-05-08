@@ -1,5 +1,5 @@
 import unittest
-from engines.action_based_compliment_engine import ActionBasedComplimentEngine
+from ..engines.action_based_compliment_engine import ActionBasedComplimentEngine
 
 class TestActionBasedComplimentEngine(unittest.TestCase):
     def setUp(self):

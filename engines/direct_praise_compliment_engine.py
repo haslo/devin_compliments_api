@@ -4,8 +4,8 @@ class DirectPraiseComplimentEngine:
     def __init__(self, dictionaries):
         # Multiple templates to increase the variety of compliments
         self.templates = [
-            "You are a {adjective} {noun}!",
-            "Your {noun} is simply {adjective}!",
+            "You are a {adjective} {noun}.",
+            "Your {noun} is simply {adjective}.",
             "In a world of {noun}s, you stand out as truly {adjective}.",
             "You embody the very essence of a {adjective} {noun}.",
             "You shine with the {adjective} quality of a {noun}.",
@@ -32,6 +32,8 @@ class DirectPraiseComplimentEngine:
             compliment = template.format(adjective=adjective, noun=noun, verb=verb, positive_trait=positive_trait, positive_adjective=positive_adjective, natural_phenomenon=natural_phenomenon, feature=feature)
         else:
             compliment = template.format(adjective=adjective, noun=noun)
-        # Capitalize the first letter of the compliment
+        # Capitalize the first letter of the compliment and ensure it ends with a period
         compliment = compliment[0].upper() + compliment[1:]
+        if not compliment.endswith('.'):
+            compliment += '.'
         return compliment
