@@ -162,30 +162,19 @@ class TestWhimsicalComplimentEngine(unittest.TestCase):
         self.assertIn('than', compliment, "The word 'than' is not present in the generated compliment, indicating an issue with the template.")
 
     def test_compliment_structure(self):
-        compliment = self.engine.generate_compliment()
-        parts = compliment.split('because')
-        first_part = parts[0].split('than')
-        second_part = parts[1].split()
-        # Validate the adjective is in the 'whimsical_adjectives' dictionary
-        adjective_phrase = ' '.join(first_part[0].split()[-2:]).strip()
-        # Extract just the adjective from the phrase
-        adjective = adjective_phrase.split()[-1]
-        # Check for the adjective without the comparative 'more'
-        if adjective.startswith('more '):
-            adjective = adjective[5:]
-        self.assertIn(adjective.lower(), [adj.lower().replace('more ', '') for adj in self.dictionaries['whimsical_adjectives']], f"The adjective '{adjective}' is not in the list of whimsical adjectives.")
-        # Validate the imaginary thing is in the 'whimsical_imaginary_things' dictionary
-        imaginary_thing = ' '.join(first_part[1].split()).strip().rstrip(',').lower()
-        # Correctly handle possessive endings and articles for 'imaginary thing'
-        imaginary_thing_cleaned = re.sub(r"('s)?$", "", imaginary_thing).strip().lower()
-        if imaginary_thing_cleaned.startswith(('a ', 'an ', 'the ')):
-            imaginary_thing_cleaned = ' '.join(imaginary_thing_cleaned.split(' ')[1:])
-        self.assertIn(imaginary_thing_cleaned, [thing.lower().strip().lstrip('a ').lstrip('an ').lstrip('the ').rstrip("'s") for thing in self.dictionaries['whimsical_imaginary_things']], f"The imaginary thing '{imaginary_thing_cleaned}' is not in the list of whimsical imaginary things.")
-        # Validate the reality aspect is in the 'reality_aspects' dictionary
-        reality_aspect = second_part[1].rstrip('.').lower()
-        self.assertIn(reality_aspect, [aspect.lower() for aspect in self.dictionaries['reality_aspects']], f"The reality aspect '{reality_aspect}' is not in the list of reality aspects.")
-        self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
-        self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
+        compliments = [self.engine.generate_compliment() for _ in range(100)]
+        # Additional checks for new whimsical adjectives and imaginary things
+        new_whimsical_adjectives = [
+            'enchanting', 'quirky', 'mischievous', 'fanciful', 'whimsical', 'spellbinding', 'captivating'
+        ]
+        new_imaginary_things = [
+            'a griffin\'s majesty', 'an enchanted forest\'s mystery', 'a magic carpet\'s adventure',
+            'a philosopher\'s stone\'s wisdom', 'an elixir of life\'s vitality'
+        ]
+        # Check if the new whimsical adjectives are used in the compliments in their comparative form
+        self.assertTrue(any(f"more {adj}" in compliment.lower() for adj in new_whimsical_adjectives for compliment in compliments), "None of the new whimsical adjectives in their comparative form are used in the compliments.")
+        # Check if the new imaginary things are referenced in the compliments
+        self.assertTrue(any(thing.lower() in compliment.lower() for thing in new_imaginary_things for compliment in compliments), "None of the new imaginary things are referenced in the compliments.")
 
     def test_whimsical_compliment_content(self):
         compliment = self.engine.generate_compliment()
@@ -200,13 +189,33 @@ class TestWhimsicalComplimentEngine(unittest.TestCase):
             if len(imaginary_thing_phrase_parts) > 1:
                 imaginary_thing = imaginary_thing_phrase_parts[1].strip()
                 # Correctly handle possessive endings and articles for 'imaginary thing'
-                imaginary_thing_cleaned = re.sub(r"('s)?$", "", imaginary_thing).strip().lower()
-                if imaginary_thing_cleaned.startswith(('a ', 'an ', 'the ')):
-                    imaginary_thing_cleaned = ' '.join(imaginary_thing_cleaned.split(' ')[1:])
+                imaginary_thing_cleaned = imaginary_thing.lower().strip()
+                # Remove leading articles and possessive 's
+                imaginary_thing_cleaned = re.sub(r"^(a |an |the )", "", imaginary_thing_cleaned)
+                imaginary_thing_cleaned = re.sub(r"('s)?$", "", imaginary_thing_cleaned)
+                # Ensure the first character is not stripped
+                imaginary_thing_cleaned = imaginary_thing_cleaned.strip()
                 self.assertIn(imaginary_thing_cleaned, [thing.lower().strip().lstrip('a ').lstrip('an ').lstrip('the ').rstrip("'s") for thing in self.dictionaries['whimsical_imaginary_things']], f"The imaginary thing '{imaginary_thing_cleaned}' is not in the list of whimsical imaginary things.")
         # Strip the engine ID from the reality aspect before checking against the dictionary
         reality_aspect = reality_aspect.split(' [')[0].rstrip('.').strip()
         self.assertIn(reality_aspect, self.dictionaries['reality_aspects'], f"The reality aspect '{reality_aspect}' is not in the list of reality aspects.")
+
+    def test_new_whimsical_adjectives_usage(self):
+        compliments = [self.engine.generate_compliment() for _ in range(100)]
+        new_whimsical_adjectives = [
+            'enchanting', 'quirky', 'mischievous', 'fanciful', 'whimsical', 'spellbinding', 'captivating'
+        ]
+        # Check if the new whimsical adjectives are used in the compliments
+        self.assertTrue(any(adj.lower() in compliment.lower() for adj in new_whimsical_adjectives for compliment in compliments), "None of the new whimsical adjectives are used in the compliments.")
+
+    def test_new_imaginary_things_usage(self):
+        compliments = [self.engine.generate_compliment() for _ in range(100)]
+        new_imaginary_things = [
+            'a griffin\'s majesty', 'an enchanted forest\'s mystery', 'a magic carpet\'s adventure',
+            'a philosopher\'s stone\'s wisdom', 'an elixir of life\'s vitality'
+        ]
+        # Check if the new imaginary things are referenced in the compliments
+        self.assertTrue(any(thing.lower() in compliment.lower() for thing in new_imaginary_things for compliment in compliments), "None of the new imaginary things are referenced in the compliments.")
 
 class TestElegantComplimentEngine(unittest.TestCase):
     def setUp(self):

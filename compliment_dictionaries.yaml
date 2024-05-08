@@ -13,6 +13,16 @@ adjectives:
   - impeccable
   - infectious
   - stunning
+  - luminous
+  - radiant
+  - dazzling
+  - genius
+  - exceptional
+  - marvelous
+  - splendid
+  - magnificent
+  - delightful
+  - extraordinary
 
 imaginary_things:
   - unicorn
@@ -306,27 +316,52 @@ imaginative_comparatives:
   - as captivating as a melody
   - as wondrous as a hidden gem
   - as awe-inspiring as a hero's journey
+  - as mystical as a phoenix's song
+  - as legendary as a dragon's wisdom
+  - as enchanting as a mermaid's lullaby
 
 imaginative_imaginary_things:
   - the grace of a unicorn
   - the brilliance of a shooting star
   - the charm of a fairy tale
+  - a griffin's majesty
+  - an enchanted forest's mystery
+  - a magic carpet's adventure
+  - a philosopher's stone's wisdom
+  - an elixir of life's vitality
 
 imaginative_presences:
   - a paragon of kindness
   - a beacon of creativity
   - a model of sincerity
+  - a magnetic charm
+  - an uplifting spirit
+  - a serene aura
+  - an invigorating presence
+  - a harmonious essence
 
 # New sections for the WhimsicalComplimentEngine
 whimsical_adjectives:
   - delightful
   - sweet
   - magical
+  - enchanting
+  - quirky
+  - mischievous
+  - fanciful
+  - whimsical
+  - spellbinding
+  - captivating
 
 whimsical_imaginary_things:
   - a fairy tale's charm
   - a fantasy's allure
   - a legend's mystique
+  - a griffin's majesty
+  - an enchanted forest's mystery
+  - a magic carpet's adventure
+  - a philosopher's stone's wisdom
+  - an elixir of life's vitality
 
 creative_adjectives:
   - brilliant
