@@ -22,6 +22,23 @@ adjectives:
   - magnificent
   - delightful
   - extraordinary
+  - insightful
+  - courageous
+  - innovative
+  - vibrant
+  - resilient
+  - empowering
+  - nurturing
+  - enlightening
+  - harmonious
+  - dynamic
+  - vivacious
+  - tenacious
+  - exuberant
+  - serene
+  - wise
+  - articulate
+  - imaginative
 
 imaginary_things:
   - unicorn
@@ -251,6 +268,24 @@ nouns:
   - performance
   - soul
   - painting
+  - vision
+  - triumph
+  - milestone
+  - marvel
+  - wonder
+  - delight
+  - serenity
+  - oasis
+  - symphony
+  - harmony
+  - melody
+  - rhythm
+  - legacy
+  - tale
+  - saga
+  - fable
+  - parable
+  - odyssey
   - amazing
 
 comparatives:
@@ -275,6 +310,16 @@ verbs:
   - create
   - lead
   - pioneer
+  - cherish
+  - empower
+  - unite
+  - ignite
+  - soothe
+  - embolden
+  - enchant
+  - captivate
+  - foster
+  - thrive
 
 # New sections for contextually appropriate pairs and quadruples
 short_adjectives:
@@ -444,6 +489,11 @@ direct_praise_templates:
   - "You're like a {natural_phenomenon}, {positive_adjective} and full of {positive_trait}."
   - "You have the {positive_trait} of a {celestial_body}, always {positive_adjective} and {positive_adjective}."
   - "Your {feature} is a {positive_thing}, always {positive_adjective} and {positive_adjective}."
+  - "Every time you {verb}, you showcase your {positive_trait}."
+  - "You {verb} like a {positive_adjective} {natural_phenomenon}, {positive_adjective} and {positive_trait}."
+  - "Your ability to {verb} is as {positive_adjective} as the {natural_phenomenon} itself."
+  - "You are the {positive_trait} in human form, always ready to {verb} and {verb}."
+  - "Like a {natural_phenomenon}, your {feature} {verb}s everyone with its {positive_adjective} nature."
 
 quality_templates:
   - "Your {personal_quality} is {positive_adjective}."
@@ -507,6 +557,14 @@ singular_nouns:
 inclusive_templates:
   - "Your {adjective} {noun} is a testament to your {quality}."
   - "Your ability to {activity} is so {adjective}, it's inspiring."
+  - "You {verb} with such {adjective} {quality}, it uplifts everyone around you."
+  - "Your {noun} resonates with {adjective} {quality}, reflecting your {adjective} nature."
+  - "In every {activity}, you bring an {adjective} {quality} that is truly {adjective}."
+  - "Your {noun} is a beacon of {quality}, shining with {adjective} {quality}."
+  - "You navigate {activity} with {adjective} {quality}, making you a {adjective} {person_role}."
+  - "It's {adjective} how you {verb} with such {quality} and {quality}."
+  - "Your {noun} is as {adjective} as it is {quality}, a true {quality} to behold."
+  - "The way you {verb} showcases a {quality} that is both {adjective} and {quality}."
 
 inclusive_adjectives:
   - thoughtful
