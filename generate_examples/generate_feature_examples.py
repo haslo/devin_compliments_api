@@ -2,10 +2,10 @@ import sys
 sys.path.append('/home/ubuntu/devin_compliments_api')  # Add project directory to Python path
 
 from engines.feature_compliment_engine import FeatureComplimentEngine
-from dictionary_loader import DictionaryLoader  # Corrected import statement
+from util.dictionary_loader import DictionaryLoader  # Updated import statement to reflect new util directory
 
 # Load dictionaries
-dictionary_loader = DictionaryLoader('/home/ubuntu/devin_compliments_api/compliment_dictionaries.yaml')
+dictionary_loader = DictionaryLoader('/home/ubuntu/devin_compliments_api/util/compliment_dictionaries.yaml')
 dictionaries = dictionary_loader.load_dictionaries()
 
 # Create an instance of FeatureComplimentEngine
