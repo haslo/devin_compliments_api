@@ -81,6 +81,18 @@ class TestDirectPraiseComplimentEngine(unittest.TestCase):
         # Ensure the compliment starts with an uppercase letter and ends with a period
         self.assertTrue(all(compliment[0].isupper() and compliment.endswith('.') for compliment in compliments), "Compliments should start with an uppercase letter and end with a period.")
 
+    def test_new_direct_praise_templates_usage(self):
+        compliments = [self.engine.generate_compliment() for _ in range(100)]
+        new_templates = [
+            "Every time you {verb}, you showcase your {positive_trait}.",
+            "You {verb} like a {positive_adjective} {natural_phenomenon}, {positive_adjective} and {positive_trait}.",
+            "Your ability to {verb} is as {positive_adjective} as the {natural_phenomenon} itself.",
+            "You are the {positive_trait} in human form, always ready to {verb} and {verb}.",
+            "Like a {natural_phenomenon}, your {feature} {verb}s everyone with its {positive_adjective} nature."
+        ]
+        # Check if the new templates are used in the compliments
+        self.assertTrue(any(any(template.format(verb=verb, positive_trait=trait, positive_adjective=adj, natural_phenomenon=phenom, feature=feat) in compliment for verb in self.dictionaries['verbs'] for trait in self.dictionaries['positive_traits'] for adj in self.dictionaries['positive_adjectives'] for phenom in self.dictionaries['natural_phenomena'] for feat in self.dictionaries['features']) for template in new_templates for compliment in compliments), "New direct praise templates are not used in the compliments.")
+
 class TestCreativeComplimentEngine(unittest.TestCase):
     def setUp(self):
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
@@ -301,10 +313,12 @@ class TestInclusiveComplimentEngine(unittest.TestCase):
         self.assertIsInstance(compliment, str)
 
     def test_compliment_structure(self):
-        compliment = self.engine.generate_compliment()
-        # Check that the compliment starts with an uppercase letter and ends with a period
-        self.assertTrue(compliment[0].isupper(), "Compliment should start with an uppercase letter.")
-        self.assertTrue(compliment.endswith('.'), "Compliment should end with a period.")
+        compliments = [self.engine.generate_compliment() for _ in range(100)]
+        templates = self.engine.templates
+        # Check if compliments match any of the new templates
+        self.assertTrue(any(any(template.format(adjective=adj, noun=noun, quality=qual, activity=act, verb=vb) in compliment for adj in self.dictionaries['inclusive_adjectives'] for noun in self.dictionaries['inclusive_nouns'] for qual in self.dictionaries['inclusive_qualities'] for act in self.dictionaries['inclusive_activities'] for vb in self.dictionaries['verbs']) for template in templates for compliment in compliments), "Compliments do not match the new inclusive template structures.")
+        # Ensure the compliment starts with an uppercase letter and ends with a period
+        self.assertTrue(all(compliment[0].isupper() and compliment.endswith('.') for compliment in compliments), "Compliments should start with an uppercase letter and end with a period.")
 
     def test_randomness_of_compliments(self):
         compliments = set(self.engine.generate_compliment() for _ in range(10))
