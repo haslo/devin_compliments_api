@@ -15,6 +15,7 @@ To set up the development environment for this project, follow these steps:
    - On Unix or MacOS: `source venv/bin/activate`
 6. Install the required dependencies with `pip install -r requirements.txt`.
 7. Run the Flask application with `flask run`.
+8. Remember to always activate the virtual environment before making changes or running the application to ensure all dependencies are managed correctly.
 
 ## API Usage
 To interact with the API, send a GET request to the `/compliment` endpoint. The API will return a JSON object containing a random compliment.
