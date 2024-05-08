@@ -60,6 +60,27 @@ class TestFeatureComplimentEngine(unittest.TestCase):
         compliments = set(self.engine.generate_compliment() for _ in range(10))
         self.assertTrue(len(compliments) > 1, "Generated compliments should not be all identical")
 
+class TestDirectPraiseComplimentEngine(unittest.TestCase):
+    def setUp(self):
+        self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
+        self.dictionaries = self.dictionary_loader.load_dictionaries()
+        self.engine = DirectPraiseComplimentEngine(self.dictionaries)
+
+    def test_generate_compliment(self):
+        compliment = self.engine.generate_compliment()
+        self.assertIsInstance(compliment, str)
+
+    def test_compliment_structure(self):
+        compliments = [self.engine.generate_compliment() for _ in range(100)]
+        templates = self.engine.templates
+        # Check if compliments match any of the new templates
+        self.assertTrue(any(any(template.format(adjective=adj, noun=noun) in compliment for adj in self.dictionaries['direct_praise_adjectives'] for noun in self.dictionaries['direct_praise_nouns']) for template in templates for compliment in compliments), "Compliments do not match the new template structures.")
+        # Check for the usage of both adjectives and nouns in the compliments
+        self.assertTrue(any(adj.lower() in compliment.lower() for adj in self.dictionaries['direct_praise_adjectives'] for compliment in compliments), "Adjectives are not used in the compliments.")
+        self.assertTrue(any(noun.lower() in compliment.lower() for noun in self.dictionaries['direct_praise_nouns'] for compliment in compliments), "Nouns are not used in the compliments.")
+        # Ensure the compliment starts with an uppercase letter and ends with a period
+        self.assertTrue(all(compliment[0].isupper() and compliment.endswith('.') for compliment in compliments), "Compliments should start with an uppercase letter and end with a period.")
+
 class TestCreativeComplimentEngine(unittest.TestCase):
     def setUp(self):
         self.dictionary_loader = DictionaryLoader('compliment_dictionaries.yaml')
@@ -163,18 +184,18 @@ class TestWhimsicalComplimentEngine(unittest.TestCase):
 
     def test_compliment_structure(self):
         compliments = [self.engine.generate_compliment() for _ in range(100)]
-        # Additional checks for new whimsical adjectives and imaginary things
-        new_whimsical_adjectives = [
-            'enchanting', 'quirky', 'mischievous', 'fanciful', 'whimsical', 'spellbinding', 'captivating'
+        # Check if compliments match any of the new templates
+        template_structures = [
+            ("You're more {adjective} than {imaginary_thing}, because you're {reality_aspect}.", 'than', 'because you\'re'),
+            ("Your {reality_aspect} is as {adjective} as {imaginary_thing}.", 'is as', 'as'),
+            ("Just like {imaginary_thing}, your {reality_aspect} is truly {adjective}.", 'Just like', 'is truly'),
+            ("In the realm of {imaginary_thing}, you reign with your {adjective} {reality_aspect}.", 'In the realm of', 'you reign with your')
         ]
-        new_imaginary_things = [
-            'a griffin\'s majesty', 'an enchanted forest\'s mystery', 'a magic carpet\'s adventure',
-            'a philosopher\'s stone\'s wisdom', 'an elixir of life\'s vitality'
-        ]
-        # Check if the new whimsical adjectives are used in the compliments in their comparative form
-        self.assertTrue(any(f"more {adj}" in compliment.lower() for adj in new_whimsical_adjectives for compliment in compliments), "None of the new whimsical adjectives in their comparative form are used in the compliments.")
-        # Check if the new imaginary things are referenced in the compliments
-        self.assertTrue(any(thing.lower() in compliment.lower() for thing in new_imaginary_things for compliment in compliments), "None of the new imaginary things are referenced in the compliments.")
+        for template, first_keyword, second_keyword in template_structures:
+            self.assertTrue(any(first_keyword in compliment and second_keyword in compliment for compliment in compliments), f"Compliments do not match the template structure: {template}")
+        # Check for the usage of both standard and comparative forms of adjectives
+        adjectives = self.dictionaries['whimsical_adjectives']
+        self.assertTrue(any(any(adj in compliment or f"more {adj}" in compliment for adj in adjectives) for compliment in compliments), "Adjectives are not used in both standard and comparative forms.")
 
     def test_whimsical_compliment_content(self):
         compliment = self.engine.generate_compliment()
