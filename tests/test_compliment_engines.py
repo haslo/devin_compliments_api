@@ -254,7 +254,7 @@ class TestWhimsicalComplimentEngine(unittest.TestCase):
         compliments = [self.engine.generate_compliment() for _ in range(100)]
         new_imaginary_things = [
             'a griffin\'s majesty', 'an enchanted forest\'s mystery', 'a magic carpet\'s adventure',
-            'a philosopher\'s stone\'s wisdom', 'an elixir of life\'s vitality'
+            'a philosopher\'s stone\'s wisdom', 'an elixir of life\'s essence'
         ]
         # Check if the new imaginary things are referenced in the compliments
         self.assertTrue(any(thing.lower() in compliment.lower() for thing in new_imaginary_things for compliment in compliments), "None of the new imaginary things are referenced in the compliments.")
