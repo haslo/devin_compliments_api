@@ -686,13 +686,11 @@ elegant_noun2:
 
 # New sections for the ImaginativeComplimentEngine
 imaginative_comparatives:
-  - as magical as a fairy tale
-  - as enchanting as a forest
-  - as captivating as a melody
-  - as wondrous as a hidden gem
-  - as awe-inspiring as a hero's journey
-  - as mystical as a phoenix's song
-  - as legendary as a dragon's tale
+  - as magical as a fairy tale and as captivating as a hidden gem
+  - as enchanting as a forest and as serene as a moonlit night
+  - as captivating as a melody and as harmonious as a symphony
+  - as wondrous as a hidden gem and as awe-inspiring as a hero's journey
+  - as mystical as a phoenix's song and as legendary as a dragon's tale
 
 imaginative_imaginary_things:
   - the grace of a unicorn
