@@ -336,6 +336,23 @@ attributes:
   - charm
   - wit
   - grace
+  - insight
+  - spirit
+  - resilience
+  - intellect
+  - poise
+  - creativity
+  - passion
+  - fortitude
+  - integrity
+  - tenacity
+  - warmth
+  - vitality
+  - depth
+  - vibrancy
+  - genuineness
+  - elegance
+  - agility
 
 actions:
   - brightens my day
@@ -686,11 +703,12 @@ elegant_noun2:
 
 # New sections for the ImaginativeComplimentEngine
 imaginative_comparatives:
-  - as magical as a fairy tale and as captivating as a hidden gem
-  - as enchanting as a forest and as serene as a moonlit night
-  - as captivating as a melody and as harmonious as a symphony
-  - as wondrous as a hidden gem and as awe-inspiring as a hero's journey
-  - as mystical as a phoenix's song and as legendary as a dragon's tale
+  - "as magical as a fairy tale's allure"
+  - "as enchanting as an enchanted forest's mystery"
+  - "as captivating as a melody's charm"
+  - "as wondrous as a hidden gem's brilliance"
+  - "as mystical as a phoenix's song"
+  - "as legendary as a dragon's wisdom"
 
 imaginative_imaginary_things:
   - the grace of a unicorn
@@ -887,16 +905,16 @@ inclusive_templates:
   - "Your ability to {activity} is so {adjective}, it's inspiring."
   - "You {verb} with such {adjective} {quality}, it uplifts everyone around you."
   - "Your {noun} resonates with {adjective} {quality}, reflecting your {adjective} nature."
-  - "In every {activity}, you bring an {adjective} {quality} that is truly {adjective}."
-  - "Your {noun} is a beacon of {quality}, shining with {adjective} {quality}."
+  - "In every {activity}, you bring an {adjective} {quality} that is truly remarkable."
+  - "Your {noun} is a beacon of {quality}, shining with unparalleled {attribute}."
   - "You navigate {activity} with {adjective} {quality}, making you a {adjective} {person_role}."
-  - "It's {adjective} how you {verb} with such {quality} and {quality}."
-  - "Your {noun} is as {adjective} as it is {quality}, a true {quality} to behold."
-  - "The way you {verb} showcases a {quality} that is both {adjective} and {quality}."
+  - "It's {adjective} how you {verb} with such {quality}."
+  - "Your {noun} is as {adjective} as it is {quality}, a true marvel to behold."
+  - "The way you {verb} showcases a {quality} that is both {adjective} and impressive."
   - "You {verb} through life with an {adjective} {noun}, always ready to {verb}."
   - "Your {noun} {verb}s a story of {adjective} {quality}."
   - "Every {activity} you undertake is done with {adjective} {quality} and {noun}."
-  - "You {verb} {adjective} wisdom with every {noun} you share."
+  - "You share {adjective} wisdom with every {noun}, enriching minds and hearts."
   - "Your {noun} is a symphony of {quality}, each note more {adjective} than the last."
   - "You {verb} {activity} with such an {adjective} {quality}, it's remarkable."
   - "Every {noun} you {verb} becomes a {adjective} {quality}."
@@ -906,7 +924,7 @@ inclusive_templates:
   - "Seeing your {noun} in action is like witnessing a {adjective} {natural_phenomena}."
   - "Your {noun} has the {adjective} impact of a {natural_phenomena}, unforgettable and awe-inspiring."
   - "Just like a {natural_phenomena}, your {noun} is a breathtaking spectacle of {quality}."
-  - "Your {verb} is as {adjective} as a {natural_phenomena}, leaving a lasting impression."
+  - "Your {verb} is as {adjective} as a {natural_phenomena}, leaving a memorable impact."
   - "You handle every {activity} with the {adjective} precision of a {natural_phenomena}."
   - "Your {noun} is a {quality}, as {adjective} and majestic as a {natural_phenomena}."
   - "In the tapestry of life, your {noun} is a {natural_phenomena}, {adjective} and full of {quality}."
@@ -969,23 +987,4 @@ inclusive_qualities:
   - strength
   - dedication
 
-short_punchy_adjectives:
-  - cool
-  - sharp
-  - bright
-  - swift
-  - keen
-  - bold
-
-short_punchy_nouns:
-  - ace
-  - spark
-  - champ
-  - star
-  - whiz
-  - hero
-
-short_punchy_templates:
-  - "Simply {noun}"
-  - "Truly {noun}"
-  - "Always {adjective}"
+# This space previously contained a duplicate of the inclusive_templates section which has been removed to avoid redundancy.

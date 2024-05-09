@@ -1,0 +1,20 @@
+short_punchy_adjectives:
+  - cool
+  - sharp
+  - bright
+  - swift
+  - keen
+  - bold
+
+short_punchy_nouns:
+  - ace
+  - spark
+  - champ
+  - star
+  - whiz
+  - hero
+
+short_punchy_templates:
+  - "Simply {noun}"
+  - "Truly {noun}"
+  - "Always {adjective}"
