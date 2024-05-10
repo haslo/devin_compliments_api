@@ -1,12 +1,9 @@
 import unittest
 from engines.metaphor_compliment_engine import MetaphorComplimentEngine
-from util.dictionary_loader import DictionaryLoader
 
 class TestMetaphorComplimentEngine(unittest.TestCase):
     def setUp(self):
-        self.dictionary_loader = DictionaryLoader('util/compliment_dictionaries.yaml')
-        self.dictionaries = self.dictionary_loader.load_dictionaries()
-        self.engine = MetaphorComplimentEngine(self.dictionaries)
+        self.engine = MetaphorComplimentEngine()
 
     def test_generate_compliment_returns_string(self):
         compliment = self.engine.generate_compliment()
@@ -24,7 +21,7 @@ class TestMetaphorComplimentEngine(unittest.TestCase):
         compliment = self.engine.generate_compliment()
         # Extract the metaphor from the compliment, removing the trailing period
         metaphor = compliment[13:].rstrip('.').strip()
-        self.assertIn(metaphor, self.dictionaries['metaphors'])
+        self.assertIn(metaphor, self.engine.metaphors)
 
     def test_generate_compliment_does_not_contain_placeholder(self):
         compliment = self.engine.generate_compliment()

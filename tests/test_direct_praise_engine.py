@@ -1,16 +1,9 @@
 import unittest
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
 from engines.direct_praise_compliment_engine import DirectPraiseComplimentEngine
-from util.dictionary_loader import DictionaryLoader
 
 class TestDirectPraiseEngine(unittest.TestCase):
     def setUp(self):
-        self.dictionary_loader = DictionaryLoader('util/compliment_dictionaries.yaml')
-        self.dictionaries = self.dictionary_loader.load_dictionaries()
-        self.engine = DirectPraiseComplimentEngine(self.dictionaries)
+        self.engine = DirectPraiseComplimentEngine()
 
     def test_generate_compliment(self):
         compliment = self.engine.generate_compliment()

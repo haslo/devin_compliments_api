@@ -1,5 +1,5 @@
 import pytest
-from ..util.engine_selector import EngineSelector
+from util.engine_selector import EngineSelector
 
 class EngineSelectorMock(EngineSelector):
     def __init__(self):

@@ -1,9 +1,11 @@
 import random
+from util.dictionary_loader import DictionaryLoader
 
 class CreativeComplimentEngine:
-    def __init__(self, dictionaries):
+    def __init__(self):
+        self.loader = DictionaryLoader('engines', 'creative')
+        self.dictionaries = self.loader.load_dictionary()
         self.template = "You have the {adjective} {noun} of a {creative_adjective} {creative_noun}."
-        self.dictionaries = dictionaries
 
     def generate_compliment(self):
         # Select a random contextually appropriate pair for adjective and noun

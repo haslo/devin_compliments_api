@@ -1,9 +1,13 @@
+from util.dictionary_loader import DictionaryLoader
 from random import choice
 
 class ShortComplimentEngine:
-    def __init__(self, dictionaries):
+    def __init__(self):
+        # Initialize the DictionaryLoader with the directory and dictionary name
+        self.loader = DictionaryLoader('engines', 'short')
+        # Load the dictionary using the loader
+        self.dictionaries = self.loader.load_dictionary()
         self.template = "{adjective} {noun}."
-        self.dictionaries = dictionaries
 
     def generate_compliment(self):
         # Select a random contextually appropriate pair from dictionaries

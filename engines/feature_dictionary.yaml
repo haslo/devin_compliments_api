@@ -1,0 +1,87 @@
+templates:
+  - "Your {noun} is as {adjective} as a {natural_phenomenon}."
+  - "You have the {trait} of a {celestial_body}, always {adjective}."
+
+adjectives:
+  - inspiring
+  - brilliant
+  - courageous
+  - compassionate
+
+nouns:
+  - vision
+  - creativity
+  - determination
+  - spirit
+
+natural_phenomena:
+  - sunrise
+  - thunderstorm
+  - rainbow
+  - ocean breeze
+
+traits:
+  - wisdom
+  - grace
+  - agility
+  - humor
+
+celestial_bodies:
+  - star
+  - comet
+  - planet
+  - constellation
+
+actions:
+  - uplift
+  - motivate
+  - encourage
+  - brighten
+
+positive_adjectives:
+  - vibrant
+  - dynamic
+  - innovative
+  - sincere
+
+person_roles:
+  - leader
+  - innovator
+  - creator
+  - thinker
+
+personal_qualities:
+  - empathy
+  - intellect
+  - curiosity
+  - integrity
+
+positive_traits:
+  - resilience
+  - creativity
+  - empathy
+  - strength
+
+positive_things:
+  - melody
+  - poem
+  - painting
+  - sculpture
+
+shiny_objects:
+  - gem
+  - diamond
+  - gold coin
+  - crystal
+
+verbs:
+  - lead
+  - pioneer
+  - cherish
+  - empower
+
+singular_nouns:
+  - idea
+  - dream
+  - story
+  - memory

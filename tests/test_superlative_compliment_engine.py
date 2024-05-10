@@ -1,12 +1,9 @@
 import unittest
 from engines.superlative_compliment_engine import SuperlativeComplimentEngine
-from util.dictionary_loader import DictionaryLoader
 
 class TestSuperlativeComplimentEngine(unittest.TestCase):
     def setUp(self):
-        self.dictionary_loader = DictionaryLoader('util/compliment_dictionaries.yaml')
-        self.dictionaries = self.dictionary_loader.load_dictionaries()
-        self.engine = SuperlativeComplimentEngine(self.dictionaries)
+        self.engine = SuperlativeComplimentEngine()
 
     def test_generate_compliment(self):
         compliment = self.engine.generate_compliment()
@@ -19,8 +16,8 @@ class TestSuperlativeComplimentEngine(unittest.TestCase):
         noun = words[1]
 
         # Check if the adjective and noun are from the specified lists
-        self.assertIn(adjective, self.engine.dictionaries['short_adjectives'])
-        self.assertIn(noun, self.engine.dictionaries['short_nouns'])
+        self.assertIn(adjective, self.engine.adjectives)
+        self.assertIn(noun, self.engine.nouns)
 
 if __name__ == '__main__':
     unittest.main()

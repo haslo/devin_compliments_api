@@ -1,0 +1,19 @@
+elegant_adjectives:
+  - graceful
+  - sophisticated
+  - stylish
+
+elegant_nouns:
+  - poise
+  - finesse
+  - flair
+
+elegant_verbs:
+  - enchants
+  - mesmerizes
+  - captivates
+
+elegant_templates:
+  - "Your {adjective} {noun} {verb} everyone you meet."
+  - "With your {adjective} {noun}, you {verb} the room."
+  - "As {adjective} as a {noun}, you {verb} with elegance."

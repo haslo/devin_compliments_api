@@ -1,0 +1,170 @@
+simple_templates:
+  - "You are an incredibly {simple_positive_adjective} {simple_person_role}."
+  - "Your {simple_personal_quality} is truly {simple_positive_adjective}."
+  - "Your {simple_feature} shines with the brightness of a {simple_natural_phenomena}."
+  - "You have the {simple_positive_trait} of a {simple_celestial_body}, always {simple_positive_adjective} and awe-inspiring."
+  - "Your {simple_feature} is as {simple_positive_adjective} as a {simple_positive_thing}, radiating warmth and brilliance."
+  - "You're like a {simple_natural_phenomena}, {simple_positive_adjective} and full of {simple_positive_trait}."
+  - "You have the {simple_positive_trait} of a {simple_celestial_body}, always {simple_positive_adjective} and {simple_positive_adjective}."
+  - "Your {simple_feature} is a {simple_positive_thing}, always {simple_positive_adjective} and {simple_positive_adjective}."
+  - "Every time you {simple_verb}, you showcase your {simple_positive_trait}."
+  - "You {simple_verb} like a {simple_positive_adjective} {simple_natural_phenomena}, {simple_positive_adjective} and {simple_positive_trait}."
+  - "Your ability to {simple_verb} is as {simple_positive_adjective} as the {simple_natural_phenomena} itself."
+  - "You are the {simple_positive_trait} in human form, always ready to {simple_verb} and {simple_verb}."
+  - "Like a {simple_natural_phenomena}, your {simple_feature} {simple_verb}s everyone with its {simple_positive_adjective} nature."
+
+simple_positive_adjectives:
+  - exceptional
+  - extraordinary
+  - amazing
+  - kind
+  - intelligent
+  - creative
+  - dedicated
+  - thoughtful
+  - compassionate
+  - genuine
+  - vibrant
+  - dynamic
+  - innovative
+  - inspiring
+  - sincere
+  - caring
+  - profound
+  - insightful
+  - remarkable
+  - gracious
+
+simple_person_roles:
+  - friend
+  - colleague
+  - mentor
+
+simple_personal_qualities:
+  - kindness
+  - enthusiasm
+  - creativity
+  - adaptability
+  - loyalty
+  - honesty
+  - reliability
+  - patience
+  - generosity
+  - courage
+  - determination
+  - wisdom
+  - humor
+  - compassion
+  - integrity
+  - sincerity
+  - intelligence
+  - perseverance
+  - resilience
+  - grace
+
+simple_verbs:
+  - uplift
+  - motivate
+  - encourage
+  - brighten
+  - influence
+  - transform
+  - innovate
+  - create
+  - lead
+  - pioneer
+  - cherish
+  - empower
+  - unite
+  - ignite
+  - soothe
+  - embolden
+  - enchant
+  - captivate
+  - foster
+  - thrive
+  - celebrate
+  - honor
+  - appreciate
+  - admire
+  - treasure
+  - nurture
+  - cultivate
+  - inspire
+  - energize
+  - invigorate
+
+simple_features:
+  - smile
+  - sense of humor
+  - style
+  - approach to life
+  - perspective
+  - kindness
+  - insight
+  - creativity
+  - passion
+  - dedication
+
+# Adding the missing 'simple_natural_phenomena' key with example values
+simple_natural_phenomena:
+  - sunrise
+  - sunset
+  - rainbow
+  - starlight
+  - northern lights
+  - ocean wave
+  - mountain peak
+  - blooming flower
+  - autumn leaf
+  - snowflake
+
+# Adding the missing 'simple_positive_traits' key with example values
+simple_positive_traits:
+  - warmth
+  - intelligence
+  - humor
+  - resilience
+  - creativity
+  - empathy
+  - strength
+  - passion
+  - clarity
+  - vision
+
+simple_celestial_bodies:
+  - star
+  - planet
+  - comet
+  - moon
+  - constellation
+  - galaxy
+  - nebula
+  - meteor
+  - asteroid
+  - black hole
+
+# Adding the missing 'simple_positive_things' key with example values
+simple_positive_things:
+  - melody
+  - poem
+  - painting
+  - sculpture
+  - dance
+  - song
+  - story
+  - idea
+  - dream
+  - memory
+
+simple_shiny_objects:
+  - gem
+  - diamond
+  - gold coin
+  - crystal
+  - mirror
+  - sapphire
+  - ruby
+  - emerald
+  - pearl
+  - treasure

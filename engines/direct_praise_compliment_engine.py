@@ -1,7 +1,12 @@
 import random
+from util.dictionary_loader import DictionaryLoader
 
 class DirectPraiseComplimentEngine:
-    def __init__(self, dictionaries):
+    def __init__(self):
+        # Initialize the DictionaryLoader with the directory and dictionary name
+        self.loader = DictionaryLoader('engines', 'direct_praise')
+        # Load the dictionary using the loader
+        self.dictionaries = self.loader.load_dictionary()
         # Multiple templates to increase the variety of compliments
         self.templates = [
             "You are a {adjective} {noun}.",
@@ -15,20 +20,27 @@ class DirectPraiseComplimentEngine:
             "You are the {positive_trait} in human form, always ready to {verb} and {verb}.",
             "Like a {natural_phenomenon}, your {feature} {verb}s everyone with its {positive_adjective} nature."
         ]
-        self.dictionaries = dictionaries
+        # Update the keys to match the new YAML file structure
+        self.adjectives = self.dictionaries['direct_praise_adjectives']
+        self.nouns = self.dictionaries['direct_praise_nouns']
+        self.verbs = self.dictionaries['verbs']
+        self.positive_traits = self.dictionaries['positive_traits']
+        self.positive_adjectives = self.dictionaries['positive_adjectives']
+        self.natural_phenomena = self.dictionaries['natural_phenomena']
+        self.features = self.dictionaries['features']
 
     def generate_compliment(self):
         # Select a random template from the list
         template = random.choice(self.templates)
-        adjective = random.choice(self.dictionaries['direct_praise_adjectives'])
-        noun = random.choice(self.dictionaries['direct_praise_nouns'])
+        adjective = random.choice(self.adjectives)
+        noun = random.choice(self.nouns)
         # Handle the new templates that include verbs and other placeholders
         if "{verb}" in template:
-            verb = random.choice(self.dictionaries['verbs'])
-            positive_trait = random.choice(self.dictionaries['positive_traits'])
-            positive_adjective = random.choice(self.dictionaries['positive_adjectives'])
-            natural_phenomenon = random.choice(self.dictionaries['natural_phenomena'])
-            feature = random.choice(self.dictionaries['features'])
+            verb = random.choice(self.verbs)
+            positive_trait = random.choice(self.positive_traits)
+            positive_adjective = random.choice(self.positive_adjectives)
+            natural_phenomenon = random.choice(self.natural_phenomena)
+            feature = random.choice(self.features)
             compliment = template.format(adjective=adjective, noun=noun, verb=verb, positive_trait=positive_trait, positive_adjective=positive_adjective, natural_phenomenon=natural_phenomenon, feature=feature)
         else:
             compliment = template.format(adjective=adjective, noun=noun)

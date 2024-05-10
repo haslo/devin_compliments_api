@@ -1,0 +1,181 @@
+inclusive_adjectives:
+  - thoughtful
+  - considerate
+  - versatile
+  - resourceful
+  - innovative
+  - inspiring
+  - genuine
+  - compassionate
+  - inclusive
+  - supportive
+  - dynamic
+  - proactive
+  - intuitive
+  - empathetic
+  - resilient
+  - dedicated
+  - meticulous
+  - collaborative
+  - adaptive
+  - articulate
+
+inclusive_nouns:
+  - approach
+  - mindset
+  - perspective
+  - method
+  - style
+  - strategy
+  - outlook
+  - demeanor
+  - conduct
+  - essence
+  - vision
+  - integrity
+  - passion
+  - initiative
+  - influence
+  - insight
+  - innovation
+  - principle
+  - commitment
+  - diversity
+
+inclusive_activities:
+  - collaborate
+  - create
+  - innovate
+  - lead
+  - learn
+  - teach
+  - understand
+  - listen
+  - communicate
+  - share
+  - inspire
+  - motivate
+  - challenge
+  - transform
+  - advocate
+  - mediate
+  - facilitate
+  - empower
+  - unite
+  - celebrate
+
+inclusive_admirable_activities:
+  - creating
+  - leading
+  - learning
+  - teaching
+  - understanding
+  - listening
+  - communicating
+  - sharing
+  - inspiring
+  - motivating
+  - challenging
+  - transforming
+  - advocating
+  - mediating
+  - facilitating
+  - empowering
+  - uniting
+  - celebrating
+  - pioneering
+  - revolutionizing
+
+inclusive_qualities:
+  - empathy
+  - creativity
+  - leadership
+  - intelligence
+  - patience
+  - wisdom
+  - humor
+  - kindness
+  - strength
+  - dedication
+  - courage
+  - authenticity
+  - generosity
+  - humility
+  - fairness
+  - loyalty
+  - respect
+  - reliability
+  - enthusiasm
+  - professionalism
+
+inclusive_verbs:
+  - empower
+  - encourage
+  - engage
+  - enlighten
+  - entrust
+  - envision
+  - exemplify
+  - exceed
+  - excel
+  - exchange
+  - elevate
+  - endorse
+  - ensure
+  - enrich
+  - establish
+  - evaluate
+  - evolve
+  - examine
+  - excite
+  - expand
+
+inclusive_natural_phenomena:
+  - sunrise
+  - sunset
+  - rainbow
+  - aurora
+  - eclipse
+  - tide
+  - breeze
+  - thunderstorm
+  - snowfall
+  - blossom
+  - rainfall
+  - dew
+  - fog
+  - mist
+  - wind
+  - storm
+  - monsoon
+  - drought
+  - flood
+  - earthquake
+
+inclusive_person_roles:
+  - mentor
+  - leader
+  - innovator
+  - creator
+  - thinker
+  - pioneer
+  - visionary
+  - advocate
+  - mediator
+  - navigator
+  - champion
+  - architect
+  - strategist
+  - analyst
+  - consultant
+  - facilitator
+  - specialist
+  - coordinator
+  - director
+
+inclusive_templates:
+  - "Your {adjective} {noun} is truly {quality}."
+  - "You have an {adjective} way of {activity}, which is {quality}."
+  - "Your ability to {verb} others is {adjective}."
+  - "You bring {adjective} {natural_phenomena} to every situation."
+  - "As a {person_role}, you are {adjective} and {quality}."

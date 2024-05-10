@@ -1,12 +1,10 @@
 import unittest
-from util.dictionary_loader import DictionaryLoader
 from engines.inclusive_compliment_engine import InclusiveComplimentEngine
+import re
 
 class TestInclusiveComplimentEngine(unittest.TestCase):
     def setUp(self):
-        self.dictionary_loader = DictionaryLoader('util/compliment_dictionaries.yaml')
-        self.dictionaries = self.dictionary_loader.load_dictionaries()
-        self.engine = InclusiveComplimentEngine(self.dictionaries)
+        self.engine = InclusiveComplimentEngine()
 
     def test_generate_compliment(self):
         compliment = self.engine.generate_compliment()
@@ -24,6 +22,21 @@ class TestInclusiveComplimentEngine(unittest.TestCase):
         # Check that the compliment starts with a capital letter and ends with a period
         self.assertTrue(compliment[0].isupper())
         self.assertTrue(compliment.endswith('.'))
+        # Extract placeholders from the template
+        template = self.engine.templates[0]  # Using the first template for testing
+        placeholders = re.findall(r'\{(\w+)\}', template)
+        # Check that the compliment contains appropriate substitutions for each placeholder
+        for placeholder in placeholders:
+            attribute = getattr(self.engine, placeholder + 's', None)
+            self.assertIsNotNone(attribute, f"Attribute {placeholder + 's'} not found in engine.")
+            # Convert attribute list to lowercase for case-insensitive comparison
+            attribute = [word.lower() for word in attribute]
+            # Check that at least one word from the attribute list is in the compliment
+            words_in_compliment = [word.lower() for word in compliment.split()]
+            # Ensure that the attribute words list is not empty
+            self.assertTrue(attribute, f"The attribute list for {placeholder + 's'} is empty.")
+            # Check that at least one word from the attribute list is in the compliment
+            self.assertTrue(any(word in words_in_compliment for word in attribute), f"Compliment '{compliment}' does not contain any word from the attribute {placeholder + 's'}.")
 
 if __name__ == '__main__':
     unittest.main()

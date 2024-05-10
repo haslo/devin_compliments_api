@@ -2,19 +2,16 @@ import yaml
 import os
 
 class DictionaryLoader:
-    def __init__(self, directory_path):
+    def __init__(self, directory_path, dictionary_name):
         self.directory_path = directory_path
+        self.dictionary_name = dictionary_name
 
-    def load_dictionaries(self):
-        dictionaries = {}
+    def load_dictionary(self):
+        dictionary_path = os.path.join(self.directory_path, f"{self.dictionary_name}_dictionary.yaml")
         try:
-            for filename in os.listdir(self.directory_path):
-                if filename.endswith('_dictionary.yaml'):
-                    engine_name = filename.replace('_dictionary.yaml', '')
-                    with open(os.path.join(self.directory_path, filename), 'r') as file:
-                        dictionaries[engine_name] = yaml.safe_load(file)
-            return dictionaries
+            with open(dictionary_path, 'r') as file:
+                return yaml.safe_load(file)
         except FileNotFoundError:
-            raise FileNotFoundError(f"The directory {self.directory_path} was not found.")
+            raise FileNotFoundError(f"The dictionary file {dictionary_path} was not found.")
         except yaml.YAMLError as e:
             raise yaml.YAMLError(f"Error parsing YAML file: {e}")

@@ -1,0 +1,23 @@
+admiration_adjectives:
+  - inspiring
+  - impressive
+  - remarkable
+
+admiration_nouns:
+  - dedication
+  - creativity
+  - insight
+
+admiration_verbs:
+  - motivates
+  - captivates
+  - fascinates
+
+admiration_adverbs:
+  - genuinely
+  - truly
+  - deeply
+
+admiration_templates:
+  - "Your {adjective} {noun} {verb} everyone."
+  - "The {noun} you show is {adjective} and truly {verb} the team."

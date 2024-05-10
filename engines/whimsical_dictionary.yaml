@@ -1,0 +1,30 @@
+whimsical_adjectives:
+  - enchanting
+  - quirky
+  - delightful
+
+whimsical_nouns:
+  - adventure
+  - escapade
+  - frolic
+
+whimsical_verbs:
+  - twirl
+  - frolic
+  - cavort
+
+whimsical_templates:
+  - "Your {adjective} {noun} makes everyone want to {verb}."
+  - "Life is a {adjective} {noun} when you're around to {verb}."
+
+whimsical_imaginary_things:
+  - "a griffin's majesty"
+  - "an enchanted forest's mystery"
+  - "a magic carpet's adventure"
+  - "a philosopher's stone's wisdom"
+  - "an elixir of life's essence"
+
+reality_aspects:
+  - "a knack for solving mysteries"
+  - "an eye for detail"
+  - "a heart full of courage"

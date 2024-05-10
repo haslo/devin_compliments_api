@@ -1,0 +1,18 @@
+inspirational_adjectives:
+  - empowering
+  - uplifting
+  - motivational
+
+inspirational_nouns:
+  - journey
+  - spirit
+  - courage
+
+inspirational_verbs:
+  - overcome
+  - triumph
+  - persevere
+
+inspirational_templates:
+  - "Your {adjective} {noun} can {verb} any obstacle."
+  - "Keep being {adjective}, your {noun} is bound to {verb}."
