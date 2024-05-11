@@ -38,8 +38,16 @@ class FeatureComplimentEngine:
         """
         Selects an appropriate word or phrase from the given category.
         Ensures that the word or phrase fits grammatically into the template.
+        Adds an article to singular nouns where appropriate.
         """
         if category in self.dictionaries:
-            return random.choice(self.dictionaries[category])
+            word = random.choice(self.dictionaries[category])
+            # Add an article for singular nouns
+            if category == 'singular_nouns':
+                if word[0].lower() in 'aeiou':
+                    word = 'an ' + word
+                else:
+                    word = 'a ' + word
+            return word
         else:
             raise KeyError(f"The category {category} does not exist in the dictionaries.")

@@ -23,8 +23,12 @@ class InclusiveComplimentEngine:
         admirable_activity = choice(self.admirable_activities)
         quality = choice(self.qualities)
         verb = choice(self.verbs)
-        natural_phenomenon = choice(self.natural_phenomena)
         person_role = choice(self.person_roles)
+
+        # Contextual selection of natural phenomena
+        # If the template includes natural phenomena, ensure it's contextually positive
+        positive_phenomena = ['sunrise', 'sunset', 'rainbow', 'aurora', 'blossom']
+        natural_phenomenon = choice([phenomenon for phenomenon in self.natural_phenomena if phenomenon in positive_phenomena])
 
         # Select a template based on the provided index or randomly
         template = self.templates[template_index] if template_index is not None else choice(self.templates)
@@ -44,17 +48,5 @@ class InclusiveComplimentEngine:
         # Ensure the compliment ends with a period
         if not compliment.endswith('.'):
             compliment += '.'
-
-        # Contextual selection of natural phenomena
-        # If the template includes natural phenomena, ensure it's contextually positive
-        if '{natural_phenomena}' in template:
-            positive_phenomena = ['sunrise', 'sunset', 'rainbow', 'aurora', 'blossom']
-            if natural_phenomenon not in positive_phenomena:
-                # Choose a positive natural phenomenon
-                positive_natural_phenomenon = choice(positive_phenomena)
-                # Replace only the natural_phenomena placeholder with the positive natural phenomenon
-                compliment = compliment.replace('{natural_phenomena}', positive_natural_phenomenon)
-                # Re-capitalize the first letter of the compliment in case it changed
-                compliment = compliment[0].upper() + compliment[1:]
 
         return compliment

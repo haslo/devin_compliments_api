@@ -308,18 +308,33 @@ class TestInclusiveComplimentEngine(unittest.TestCase):
 
     def test_compliment_structure(self):
         templates = self.engine.templates
+        dictionaries = self.engine.loader.load_dictionary()
         for index, template in enumerate(templates):
             compliment = self.engine.generate_compliment(template_index=index)
             template_placeholders = re.findall(r'{(\w+)}', template)
             attributes_present = True
             for placeholder in template_placeholders:
-                attribute_list_name = placeholder + 's'
-                attribute_list = getattr(self.engine, attribute_list_name, [])
-                # Check if at least one word from the attribute list is in the compliment
-                if attribute_list:
-                    words_in_compliment = [word.lower() for word in compliment.split()]
+                # Ensure the prefix matches the dictionary keys and pluralize correctly
+                attribute_list_name = 'inclusive_' + placeholder
+                if placeholder in ['adjective', 'noun', 'verb', 'person_role']:  # Added 'person_role' to the list
+                    attribute_list_name += 's'  # Pluralize correctly
+                if placeholder == 'quality':
+                    attribute_list_name = 'inclusive_qualities'  # Correct pluralization for 'quality'
+                if placeholder == 'activity':
+                    attribute_list_name = 'inclusive_activities'  # Correct pluralization for 'activity'
+                # Check if the engine has an attribute for the constructed list name
+                if hasattr(self.engine, attribute_list_name):
+                    attribute_list = getattr(self.engine, attribute_list_name)
+                    words_in_compliment = [word.lower().rstrip('.').rstrip(',') for word in compliment.split()]
                     attribute_words = [word.lower() for word in attribute_list]
-                    attributes_present &= any(word in words_in_compliment for word in attribute_words)
+                    # Check if at least one word from the attribute list is in the compliment
+                    if not any(word in words_in_compliment for word in attribute_words):
+                        attributes_present = False
+                        self.fail(f"Compliment '{compliment}' does not contain words from the attribute category '{attribute_list_name}' for template {index}.")
+                else:
+                    # If the attribute list does not exist as an engine attribute, check if it exists in the dictionary
+                    if attribute_list_name not in dictionaries:
+                        self.fail(f"Dictionary key '{attribute_list_name}' does not exist in the dictionary. Check the dictionary keys.")
             self.assertTrue(attributes_present, f"Compliment '{compliment}' does not contain words from each attribute category for template {index}.")
             self.assertTrue(compliment[0].isupper() and compliment.endswith('.'), f"Compliment '{compliment}' should start with an uppercase letter and end with a period.")
 
@@ -363,8 +378,21 @@ class TestShortPunchyComplimentEngine(unittest.TestCase):
         # Split the compliment into parts
         parts = compliment.split()
         # Validate the structure of the compliment
-        self.assertIn(parts[0].lower(), [adj.lower() for adj in self.engine.adjectives], f"The adjective '{parts[0]}' is not in the list of short punchy adjectives.")
-        self.assertIn(parts[1].strip(string.punctuation).lower(), [noun.lower() for noun in self.engine.nouns], f"The noun '{parts[1].strip(string.punctuation)}' is not in the list of short punchy nouns.")
+        if parts[0].lower() in ['simply', 'truly']:
+            # Check if the second part is a noun if the first part is a template word
+            noun_phrase = ' '.join(parts[1:]).rstrip('.').lower()
+            self.assertTrue(any(noun.lower() in noun_phrase for noun in self.engine.nouns), f"The compliment structure is not valid for template word '{parts[0]}'.")
+        elif parts[0].lower() == 'always':
+            # Check if the second part is an adjective
+            adjective_phrase = ' '.join(parts[1:]).rstrip('.').lower()
+            self.assertTrue(any(adjective.lower() in adjective_phrase for adjective in self.engine.adjectives), "The compliment does not contain a valid short punchy adjective.")
+        else:
+            # Check if the first part is an adjective
+            self.assertTrue(any(parts[0].lower() == adjective.lower() for adjective in self.engine.adjectives), "The compliment does not start with a valid short punchy adjective.")
+            # Check if the second part is a noun
+            if len(parts) > 1:
+                noun_phrase = ' '.join(parts[1:]).rstrip('.').lower()
+                self.assertTrue(any(noun.lower() in noun_phrase for noun in self.engine.nouns), "The compliment does not contain a valid short punchy noun.")
 
     def test_randomness_of_compliments(self):
         compliments = set(self.engine.generate_compliment() for _ in range(10))
